@@ -1,8 +1,34 @@
 {
   "name": "test",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
-  "repository": "https://github.com/mokunshao/test.git",
-  "author": "mokunshao <mokunshao@foxmail.com>",
-  "license": "MIT"
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mokunshao/test.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mokunshao/test/issues"
+  },
+  "homepage": "https://github.com/mokunshao/test#readme",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^1.11.0",
+    "awesome-typescript-loader": "^5.2.1",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-typescript": "^4.0.1",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.11.0",
+    "typescript": "^3.5.3",
+    "webpack": "^4.39.2",
+    "webpack-cli": "^3.3.7"
+  },
+  "dependencies": {
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
+  }
 }
