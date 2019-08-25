@@ -1,29 +1,37 @@
 {
-  "name": "test",
-  "version": "1.0.0",
+  "name": "kaka",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "start": "cross-env NODE_ENV=development webpack-dev-server --config webpack.config.dev.js --open",
+    "build": "cross-env NODE_ENV=production webpack --config webpack.config.prod.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mokunshao/test.git"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/mokunshao/test/issues"
   },
   "homepage": "https://github.com/mokunshao/test#readme",
   "devDependencies": {
+    "@types/react": "^16.9.2",
+    "@types/react-dom": "^16.9.0",
     "@typescript-eslint/eslint-plugin": "^1.11.0",
     "awesome-typescript-loader": "^5.2.1",
+    "cross-env": "^5.2.0",
     "eslint": "^5.16.0",
-    "eslint-config-airbnb-typescript": "^4.0.1",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-jsx-a11y": "^6.1.1",
-    "eslint-plugin-react": "^7.11.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^1.7.0",
     "html-webpack-plugin": "^3.2.0",
+    "ts-loader": "^6.0.4",
     "typescript": "^3.5.3",
     "webpack": "^4.39.2",
     "webpack-cli": "^3.3.7",
