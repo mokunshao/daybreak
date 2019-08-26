@@ -1,7 +1,9 @@
 module.exports = {
+  parser: '@typescript-eslint/parser',
   env: {
     browser: true,
     es6: true,
+    jest: true,
   },
   extends: ['airbnb'],
   globals: {

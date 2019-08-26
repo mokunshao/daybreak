@@ -13,6 +13,11 @@ module.exports = {
   module: {
     rules: [
       {
+        exclude: [path.resolve(__dirname, 'node_modules')],
+        loader: 'babel',
+        test: /\.jsx?$/,
+      },
+      {
         test: /\.tsx?$/,
         loader: 'awesome-typescript-loader',
       },
