@@ -1,7 +1,10 @@
-function sum(a: number, b: number): number {
-  return a + b;
-}
+import renderer from 'react-test-renderer';
+import React from 'react';
+import Button from '../button';
 
-test('adds 1 + 2 to equal 3', () => {
-  expect(sum(1, 2)).toBe(3);
+describe('button', () => {
+  it('是个 div', () => {
+    const json = renderer.create(<Button />).toJSON();
+    expect(json).toMatchSnapshot();
+  });
 });
