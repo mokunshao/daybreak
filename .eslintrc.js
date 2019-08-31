@@ -5,7 +5,7 @@ module.exports = {
     es6: true,
     jest: true,
   },
-  extends: ['airbnb'],
+  extends: ['airbnb', 'airbnb/hooks'],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
@@ -17,10 +17,9 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module',
   },
-  plugins: ['react'],
   rules: {
-    // 'linebreak-style': [0, 'error', 'windows'],
     'react/jsx-filename-extension': [1, { extensions: ['.tsx'] }],
+    'react/prop-types': 0,
   },
   settings: {
     'import/resolver': {
