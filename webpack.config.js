@@ -18,6 +18,7 @@ module.exports = {
         test: /\.jsx?$/,
       },
       {
+        exclude: [path.resolve(__dirname, 'node_modules')],
         test: /\.tsx?$/,
         loader: 'awesome-typescript-loader',
       },
