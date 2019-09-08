@@ -1,5 +1,5 @@
 import React from 'react';
-import './icons/qq.svg';
+// import './icons/qq.svg';
 
 interface IconProps {
   name: string;
