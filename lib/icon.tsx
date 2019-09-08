@@ -1,7 +1,12 @@
 import React from 'react';
-import './icons/qq.svg';
-import './icons/wechat.svg';
-import './icons/alipay.svg';
+import './icon.scss';
+
+const importAllIcons = () => {
+  const requireContext = require.context('./icons', true, /\.svg$/);
+  requireContext.keys().forEach(requireContext);
+};
+
+importAllIcons();
 
 type iconName = 'qq' | 'wechat' | 'alipay';
 
@@ -12,11 +17,9 @@ interface IconProps {
 const Icon: React.FunctionComponent<IconProps> = (props) => {
   const { name } = props;
   return (
-    <span>
-      <svg>
-        <use xlinkHref={`#${name}`} />
-      </svg>
-    </span>
+    <svg className="kaka-icon">
+      <use xlinkHref={`#${name}`} />
+    </svg>
   );
 };
 
