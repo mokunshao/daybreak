@@ -1,14 +1,7 @@
 import React from 'react';
 import './icon.scss';
 import classes from '../utils/classes';
-
-// 引入当前目录下 icon 文件夹的所有 svg 文件
-const importAllIcons = () => {
-  const requireContext = require.context('./icons', true, /\.svg$/);
-  requireContext.keys().forEach(requireContext);
-};
-
-importAllIcons();
+import './importAllIcons';
 
 type iconName = 'qq' | 'wechat' | 'alipay';
 
