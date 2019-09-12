@@ -8,4 +8,12 @@ module.exports = {
     '^.+\\.(gif|ttf|eot|svg|png)$': '<rootDir>/mocks/fileMock.tsx',
   },
   setupFilesAfterEnv: ['<rootDir>setupTests.tsx'],
+  collectCoverage: true,
+  reporters: ['default'],
+  coverageDirectory: 'coverage',
+  collectCoverageFrom: [
+    'lib/**/*.{js,jsx,ts,tsx}',
+    '!**/node_modules/**',
+    '!**/vendor/**',
+  ],
 };
