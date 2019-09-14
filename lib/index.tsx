@@ -1,13 +1,4 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+// export { default as Icon } from './icon/icon';
 import Icon from './icon/icon';
 
-ReactDOM.render(
-  (
-    <div>
-      <Icon name="wechat" />
-      <Icon name="alipay" />
-      <Icon name="qq" />
-    </div>
-  ), document.getElementById('root'),
-);
+export default Icon;

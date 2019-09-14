@@ -3,11 +3,11 @@ const path = require('path');
 module.exports = {
   mode: 'production',
   entry: {
-    'free-ui': './lib/index.tsx',
+    daybreak: './lib/index.tsx',
   },
   output: {
     path: path.resolve(__dirname, 'dist/lib'),
-    library: 'free-ui',
+    library: 'daybreak',
     libraryTarget: 'umd',
   },
   module: {

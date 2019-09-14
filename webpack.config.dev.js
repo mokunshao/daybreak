@@ -6,7 +6,7 @@ module.exports = {
   mode: 'development',
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'free-ui',
+      title: 'daybreak',
       template: 'index.html',
     }),
   ],
