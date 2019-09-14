@@ -3,11 +3,11 @@ const path = require('path');
 module.exports = {
   mode: 'production',
   entry: {
-    kaka: './lib/index.tsx',
+    'free-ui': './lib/index.tsx',
   },
   output: {
     path: path.resolve(__dirname, 'dist/lib'),
-    library: 'kaka',
+    library: 'free-ui',
     libraryTarget: 'umd',
   },
   module: {

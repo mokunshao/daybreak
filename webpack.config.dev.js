@@ -6,7 +6,7 @@ module.exports = {
   mode: 'development',
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'kaka',
+      title: 'free-ui',
       template: 'index.html',
     }),
   ],
