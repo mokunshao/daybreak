@@ -2,7 +2,7 @@
 
 exports[`Icon 是个 svg 1`] = `
 <svg
-  className="kaka-icon"
+  className="free-ui-icon"
 >
   <use
     xlinkHref="#qq"
