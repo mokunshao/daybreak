@@ -1,4 +1,5 @@
 import React from 'react';
+import './dialog.scss';
 
 interface Props {
   visible: boolean
@@ -7,7 +8,17 @@ interface Props {
 const Dialog: React.FunctionComponent<Props> = (props) => {
   const { visible, children } = props;
   return (
-    visible ? <>{children}</> : null
+    visible ? (
+      <>
+        <div className="daybreak-dialog-mask" />
+        <div className="daybreak-dialog">
+          <div>
+            <span className="daybreak-dialog-close">X</span>
+          </div>
+          {children}
+        </div>
+      </>
+    ) : null
   );
 };
 
