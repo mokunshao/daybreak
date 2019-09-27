@@ -2,7 +2,7 @@
 
 exports[`Icon 是个 svg 1`] = `
 <svg
-  className="daybreak-ui-icon"
+  className="daybreak-icon"
 >
   <use
     xlinkHref="#qq"
