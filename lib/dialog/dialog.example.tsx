@@ -6,7 +6,16 @@ const DialogExample: React.FunctionComponent = () => {
   return (
     <div>
       <button type="button" onClick={() => setX(!x)}>set</button>
-      <Dialog visible={x}>
+      <Dialog
+        visible={x}
+        buttons={
+          [
+            <button type="button" onClick={() => setX(false)}>Yes</button>,
+            <button type="button" onClick={() => setX(false)}>No</button>,
+          ]
+        }
+        onClose={() => setX(false)}
+      >
         hello
       </Dialog>
     </div>
