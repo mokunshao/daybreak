@@ -4,7 +4,6 @@
   left: 50%;
   transform: translate(-50%, -50%);
   background: white;
-  padding: 20px;
 
   &-mask {
     position: fixed;
@@ -15,8 +14,12 @@
     background-color: fade-out($color: #000, $amount: 0.8);
   }
 
+  &-header {
+    display: flex;
+  }
+
   &-close {
     cursor: pointer;
-    text-align: right;
+    margin-left: auto;
   }
 }
