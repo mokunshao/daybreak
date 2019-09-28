@@ -5,16 +5,26 @@ import { jc } from '../utils/joinedClasses';
 interface Props {
   visible: boolean
   title?: string
+  buttons: Array<React.ReactElement>
+  onClose: React.MouseEventHandler
+  closeOnClickMask?: boolean
 }
 
 const dialog = jc('dialog');
 
 const Dialog: React.FunctionComponent<Props> = (props) => {
-  const { visible, title, children } = props;
+  const {
+    visible, title, buttons, onClose, closeOnClickMask = true, children,
+  } = props;
+  const onClickClose = (event: any) => {
+    if (closeOnClickMask) {
+      onClose(event);
+    }
+  };
   return (
     visible ? (
       <>
-        <div className={dialog('mask')} />
+        <div className={dialog('mask')} onClick={onClickClose} role="presentation" />
         <div className={dialog()}>
           <div className={dialog('header')}>
             <span className={dialog('title')}>{title}</span>
@@ -24,8 +34,7 @@ const Dialog: React.FunctionComponent<Props> = (props) => {
             {children}
           </div>
           <div className={dialog('footer')}>
-            <button type="button">Yes</button>
-            <button type="button">No</button>
+            {buttons.map((item, index) => React.cloneElement(item, { key: index }))}
           </div>
         </div>
       </>
