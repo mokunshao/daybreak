@@ -23,7 +23,8 @@ module.exports = {
     'react/jsx-props-no-spreading': 0,
     "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
     "react/no-array-index-key": 0,
-    "jsx-a11y/click-events-have-key-events": 0
+    "jsx-a11y/click-events-have-key-events": 0,
+    "jsx-a11y/no-static-element-interactions": 0
     // 'import/prefer-default-export': 0
   },
   settings: {
