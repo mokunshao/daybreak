@@ -16,7 +16,7 @@ const Dialog: React.FunctionComponent<Props> = (props) => {
   const {
     visible, title, buttons, onClose, closeOnClickMask = true, children,
   } = props;
-  const onClickClose = (event: any) => {
+  const onClickClose: React.MouseEventHandler = (event) => {
     if (closeOnClickMask) {
       onClose(event);
     }
@@ -24,7 +24,7 @@ const Dialog: React.FunctionComponent<Props> = (props) => {
   return (
     visible ? (
       <>
-        <div className={dialog('mask')} onClick={onClickClose} role="presentation" />
+        <div className={dialog('mask')} onClick={onClickClose} />
         <div className={dialog()}>
           <div className={dialog('header')}>
             <span className={dialog('title')}>{title}</span>
