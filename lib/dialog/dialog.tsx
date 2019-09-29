@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import './dialog.scss';
 import { jc } from '../utils/joinedClasses';
 
@@ -21,25 +22,24 @@ const Dialog: React.FunctionComponent<Props> = (props) => {
       onClose(event);
     }
   };
-  return (
-    visible ? (
-      <>
-        <div className={dialog('mask')} onClick={onClickClose} />
-        <div className={dialog()}>
-          <div className={dialog('header')}>
-            <span className={dialog('title')}>{title}</span>
-            <button type="button" className={dialog('close')}>X</button>
-          </div>
-          <div className={dialog('main')}>
-            {children}
-          </div>
-          <div className={dialog('footer')}>
-            {buttons.map((item, index) => React.cloneElement(item, { key: index }))}
-          </div>
+  const content = visible ? (
+    <>
+      <div className={dialog('mask')} onClick={onClickClose} />
+      <div className={dialog()}>
+        <div className={dialog('header')}>
+          <span className={dialog('title')}>{title}</span>
+          <button type="button" className={dialog('close')}>X</button>
         </div>
-      </>
-    ) : null
-  );
+        <div className={dialog('main')}>
+          {children}
+        </div>
+        <div className={dialog('footer')}>
+          {buttons.map((item, index) => React.cloneElement(item, { key: index }))}
+        </div>
+      </div>
+    </>
+  ) : null;
+  return ReactDOM.createPortal(content, document.body);
 };
 
 export default Dialog;
