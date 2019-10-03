@@ -53,12 +53,15 @@ const alert = (content: string) => {
       visible
       onClose={() => {
         ReactDOM.render(React.cloneElement(component, { visible: false }), div);
+        ReactDOM.unmountComponentAtNode(div);
+        div.remove();
       }}
     >
       {content}
     </Dialog>
   );
-  // document.body.append(div);
+
+  document.body.append(div);
   ReactDOM.render(component, div);
 };
 
