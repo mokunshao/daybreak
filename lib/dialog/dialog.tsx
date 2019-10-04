@@ -36,7 +36,7 @@ const Dialog: React.FunctionComponent<Props> = (props) => {
           {children}
         </div>
         {
-          buttons && (
+          buttons && buttons.length > 0 && (
             <div className={dialog('footer')}>
               {buttons.map((item, index) => React.cloneElement(item, { key: index }))}
             </div>
@@ -51,15 +51,23 @@ const Dialog: React.FunctionComponent<Props> = (props) => {
 
 const alert = (content: string) => {
   const div = document.createElement('div');
+  let component = <></>;
 
-  const component = (
+  const onClose = () => {
+    ReactDOM.render(React.cloneElement(component, { visible: false }), div);
+    ReactDOM.unmountComponentAtNode(div);
+    div.remove();
+  };
+
+  component = (
     <Dialog
       visible
-      onClose={() => {
-        ReactDOM.render(React.cloneElement(component, { visible: false }), div);
-        ReactDOM.unmountComponentAtNode(div);
-        div.remove();
-      }}
+      onClose={onClose}
+      buttons={
+        [
+          <button type="button" onClick={onClose}>OK</button>,
+        ]
+      }
     >
       {content}
     </Dialog>
