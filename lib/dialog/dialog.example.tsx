@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Dialog, { alert } from './dialog';
+import Dialog, { alert, confirm } from './dialog';
 
 const DialogExample: React.FunctionComponent = () => {
   const [x, setX] = useState(false);
@@ -42,6 +42,10 @@ const DialogExample: React.FunctionComponent = () => {
       <div>
         <h2>example 3</h2>
         <button type="button" onClick={() => alert('hello')}>set</button>
+      </div>
+      <div>
+        <h2>example 4</h2>
+        <button type="button" onClick={() => confirm('hello')}>set</button>
       </div>
     </>
   );
