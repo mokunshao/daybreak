@@ -55,7 +55,7 @@ const DialogExample: React.FunctionComponent = () => {
       </div>
       <div>
         <h2>example 4</h2>
-        <button type="button" onClick={() => confirm('hello', () => console.log(1), () => console.log(2))}>set</button>
+        <button type="button" onClick={() => confirm('hello')}>set</button>
       </div>
       <div>
         <h2>example 5</h2>
