@@ -101,6 +101,28 @@ const confirm = (content: string, yes?: Function, no?: Function) => {
   ReactDOM.render(component, div);
 };
 
+const modal = (content: React.ReactNode) => {
+  const div = document.createElement('div');
+  let component = <></>;
+
+  const onClose = () => {
+    ReactDOM.render(React.cloneElement(component, { visible: false }), div);
+    ReactDOM.unmountComponentAtNode(div);
+    div.remove();
+  };
+
+  component = (
+    <Dialog
+      visible
+      onClose={onClose}
+    >
+      {content}
+    </Dialog>
+  );
+  document.body.appendChild(div);
+  ReactDOM.render(component, div);
+};
+
 export default Dialog;
 
-export { alert, confirm };
+export { alert, confirm, modal };
