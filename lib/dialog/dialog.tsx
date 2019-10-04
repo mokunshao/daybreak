@@ -61,10 +61,46 @@ const alert = (content: string) => {
     </Dialog>
   );
 
-  document.body.append(div);
+  document.body.appendChild(div);
+  ReactDOM.render(component, div);
+};
+
+const confirm = (content: string, yes?: Function, no?: Function) => {
+  const div = document.createElement('div');
+  let component = <></>;
+
+  const onYes = () => {
+    ReactDOM.render(React.cloneElement(component, { visible: false }), div);
+    ReactDOM.unmountComponentAtNode(div);
+    div.remove();
+    yes && yes();
+  };
+
+  const onNo = () => {
+    ReactDOM.render(React.cloneElement(component, { visible: false }), div);
+    ReactDOM.unmountComponentAtNode(div);
+    div.remove();
+    no && no();
+  };
+
+  component = (
+    <Dialog
+      visible
+      onClose={onNo}
+      buttons={
+        [
+          <button type="button" onClick={onYes}>yes</button>,
+          <button type="button" onClick={onNo}>no</button>]
+      }
+    >
+      {content}
+    </Dialog>
+  );
+
+  document.body.appendChild(div);
   ReactDOM.render(component, div);
 };
 
 export default Dialog;
 
-export { alert };
+export { alert, confirm };
