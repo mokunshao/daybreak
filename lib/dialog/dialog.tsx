@@ -35,9 +35,13 @@ const Dialog: React.FunctionComponent<Props> = (props) => {
         <div className={dialog('main')}>
           {children}
         </div>
-        <div className={dialog('footer')}>
-          {buttons && buttons.map((item, index) => React.cloneElement(item, { key: index }))}
-        </div>
+        {
+          buttons && (
+            <div className={dialog('footer')}>
+              {buttons.map((item, index) => React.cloneElement(item, { key: index }))}
+            </div>
+          )
+        }
       </div>
     </>
   ) : null;
@@ -121,6 +125,7 @@ const modal = (content: React.ReactNode) => {
   );
   document.body.appendChild(div);
   ReactDOM.render(component, div);
+  return onClose;
 };
 
 export default Dialog;
