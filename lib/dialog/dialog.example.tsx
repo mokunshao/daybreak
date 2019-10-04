@@ -4,6 +4,16 @@ import Dialog, { alert, confirm, modal } from './dialog';
 const DialogExample: React.FunctionComponent = () => {
   const [x, setX] = useState(false);
   const [y, setY] = useState(false);
+  const openModel = () => {
+    const close = modal(
+      (
+        <>
+          <h1>你好</h1>
+          <button type="button" onClick={() => close()}>close</button>
+        </>
+      ),
+    );
+  };
   return (
     <>
       <div>
@@ -49,7 +59,7 @@ const DialogExample: React.FunctionComponent = () => {
       </div>
       <div>
         <h2>example 5</h2>
-        <button type="button" onClick={() => modal('hello')}>set</button>
+        <button type="button" onClick={openModel}>set</button>
       </div>
     </>
   );
