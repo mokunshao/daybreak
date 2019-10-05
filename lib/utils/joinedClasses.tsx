@@ -1,5 +1,5 @@
 function joinedClasses(prefix: string = '') {
-  return function classesHandler(...names: string[]) {
+  return function classesHandler(...names: (string | undefined)[]) {
     return ['daybreak', prefix, ...names].filter(Boolean).join('-');
   };
 }
