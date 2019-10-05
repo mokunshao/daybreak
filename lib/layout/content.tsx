@@ -1,10 +1,16 @@
 import React from 'react';
 import { jc } from '../utils/joinedClasses';
+import classes from '../utils/classes';
 
 const layout = jc('layout');
 
-const Content: React.FunctionComponent = () => (
-  <div className={layout('content')}>content</div>
-);
+interface Props extends React.HtmlHTMLAttributes<HTMLElement> { }
+
+const Content: React.FunctionComponent<Props> = (props) => {
+  const { className, children, ...rest } = props;
+  return (
+    <div className={classes(layout('content'), className)} {...rest}>{children}</div>
+  );
+};
 
 export default Content;
