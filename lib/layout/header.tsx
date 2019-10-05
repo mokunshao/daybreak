@@ -1,10 +1,16 @@
 import React from 'react';
 import { jc } from '../utils/joinedClasses';
+import classes from '../utils/classes';
 
 const layout = jc('layout');
 
-const Header: React.FunctionComponent = () => (
-  <div className={layout('header')}>header</div>
-);
+interface Props extends React.HtmlHTMLAttributes<HTMLElement> { }
+
+const Header: React.FunctionComponent<Props> = (props) => {
+  const { className, children, ...rest } = props;
+  return (
+    <div className={classes(layout('header'), className)} {...rest}>{children}</div>
+  );
+};
 
 export default Header;
