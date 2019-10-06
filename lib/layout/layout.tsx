@@ -13,7 +13,7 @@ interface Props extends React.HtmlHTMLAttributes<HTMLElement> {
 const Layout: React.FunctionComponent<Props> = (props) => {
   let hasAside = false;
   const { className, children, ...rest } = props;
-  if (Array.isArray(children)) {
+  if (Array.isArray(children) && children.length) {
     (children as Array<React.ReactElement>).forEach((element) => {
       element.type === Aside && (hasAside = true);
     });
