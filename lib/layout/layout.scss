@@ -15,4 +15,12 @@
     border: 1px solid blue;
     flex-direction: row;
   }
+
+  &.has-aside {
+    flex-direction: row;
+  }
+
+  &.has-aside & {
+    flex-direction: column;
+  }
 }
