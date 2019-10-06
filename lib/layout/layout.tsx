@@ -1,9 +1,9 @@
 import React from 'react';
 import './layout.scss';
-import { jc } from '../utils/joinedClasses';
+import joinedClass from '../utils/joinedClass';
 import classes from '../utils/classes';
 
-const layout = jc('layout');
+const layout = joinedClass('layout');
 
 interface Props extends React.HtmlHTMLAttributes<HTMLElement> { }
 
