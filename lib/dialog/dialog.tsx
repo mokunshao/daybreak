@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './dialog.scss';
-import { jc } from '../utils/joinedClasses';
+import joinedClass from '../utils/joinedClass';
 
 interface Props {
   visible: boolean
@@ -11,7 +11,7 @@ interface Props {
   closeOnClickMask?: boolean
 }
 
-const dialog = jc('dialog');
+const dialog = joinedClass('dialog');
 
 const Dialog: React.FunctionComponent<Props> = (props) => {
   const {
