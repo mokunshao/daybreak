@@ -27,6 +27,17 @@ export default function () {
           <Footer>footer</Footer>
         </Layout>
       </div>
+      <div>
+        <h2>example 3</h2>
+        <Layout style={{ height: 300 }}>
+          <Header>header</Header>
+          <Layout>
+            <Content>content</Content>
+            <Aside>aside</Aside>
+          </Layout>
+          <Footer>footer</Footer>
+        </Layout>
+      </div>
     </>
   );
 }
