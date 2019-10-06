@@ -11,13 +11,12 @@ interface Props extends React.HtmlHTMLAttributes<HTMLElement> {
 }
 
 const Layout: React.FunctionComponent<Props> = (props) => {
-  let hasAside = false;
   const { className, children, ...rest } = props;
-  if (Array.isArray(children) && children.length) {
-    (children as Array<React.ReactElement>).forEach((element) => {
-      element.type === Aside && (hasAside = true);
-    });
-  }
+  const hasAside = Array.isArray(children) && children.length
+    && (children as Array<React.ReactElement>).reduce(
+      (result, element) => result || element.type === Aside,
+      false,
+    );
   return (
     <div className={classes(layout(), className, hasAside ? 'has-aside' : '')} {...rest}>{children}</div>
   );
