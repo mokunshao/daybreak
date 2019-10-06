@@ -1,10 +1,16 @@
 import React from 'react';
-import { jc } from '../utils/joinedClasses';
+import joinedClass from '../utils/joinedClass';
+import classes from '../utils/classes';
 
-const layout = jc('layout');
+const layout = joinedClass('layout');
 
-const Aside: React.FunctionComponent = () => (
-  <div className={layout('aside')}>aside</div>
-);
+interface Props extends React.HtmlHTMLAttributes<HTMLElement> { }
+
+const Aside: React.FunctionComponent<Props> = (props) => {
+  const { className, children, ...rest } = props;
+  return (
+    <div className={classes(layout('aside'), className)} {...rest}> aside</div>
+  );
+};
 
 export default Aside;
