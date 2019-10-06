@@ -1,12 +1,12 @@
 import classes from './classes';
-import { joinedClasses } from './joinedClasses';
+import joinedClass from './joinedClass';
 
 interface Options {
   extra: string
 }
 
 const scopedClass = (prefix: string) => {
-  const joinedClasseMaker = joinedClasses(prefix);
+  const joinedClasseMaker = joinedClass(prefix);
   return function classMaker(name: string, options: Options) {
     return classes(joinedClasseMaker(name), options.extra);
   };
