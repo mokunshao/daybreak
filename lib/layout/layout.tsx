@@ -3,6 +3,9 @@ import './layout.scss';
 import joinedClass from '../utils/joinedClass';
 import classes from '../utils/classes';
 import Aside from './aside';
+import Header from './header';
+import Footer from './footer';
+import Content from './content';
 
 const layout = joinedClass('layout');
 
@@ -23,3 +26,11 @@ const Layout: React.FunctionComponent<Props> = (props) => {
 };
 
 export default Layout;
+
+export {
+  Layout,
+  Header,
+  Aside,
+  Content,
+  Footer,
+};
