@@ -13,10 +13,6 @@
     flex-direction: row;
   }
 
-  &-has-aside {
-    flex-direction: row;
-  }
-
   &-has-aside & {
     flex-direction: column;
   }
