@@ -20,8 +20,8 @@ a {
   text-decoration: none;
 }
 
-$color1:#333;
-$color2:#1793d1;
+$color1:#763f82;
+$color2:#7b5da9;
 
 .site-page {
   background-color: white;
@@ -39,11 +39,11 @@ $color2:#1793d1;
 
     .site-aside-link {
       display: block;
-      color: white;
+      color: #cfabab;
       padding: 0.5em 1em;
 
       &.active {
-        color: $color2;
+        color: white;
       }
     }
   }
