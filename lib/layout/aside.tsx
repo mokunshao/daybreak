@@ -9,7 +9,7 @@ interface Props extends React.HtmlHTMLAttributes<HTMLElement> { }
 const Aside: React.FunctionComponent<Props> = (props) => {
   const { className, children, ...rest } = props;
   return (
-    <div className={classes(layout('aside'), className)} {...rest}> aside</div>
+    <div className={classes(layout('aside'), className)} {...rest}>{children}</div>
   );
 };
 
