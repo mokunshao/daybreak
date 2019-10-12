@@ -15,3 +15,40 @@ h3,
 h4,
 h5,
 h6 { font-weight: normal; }
+
+a {
+  text-decoration: none;
+}
+
+$color1:#333;
+$color2:#1793d1;
+
+.site-page {
+  background-color: white;
+  min-height: 100vh;
+
+  .site-header {
+    border-bottom: 3px solid $color2;
+    padding: 0.5em;
+    color: $color2;
+    font-size: 20px;
+  }
+
+  .site-aside {
+    background-color: $color1;
+
+    .site-aside-link {
+      display: block;
+      color: white;
+      padding: 0.5em 1em;
+
+      &.active {
+        color: $color2;
+      }
+    }
+  }
+
+  .site-content {
+    padding: 1em;
+  }
+}
