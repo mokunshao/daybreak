@@ -20,4 +20,8 @@
   &-has-aside & {
     flex-direction: column;
   }
+
+  &.daybreak-layout-has-aside {
+    flex-direction: row;
+  }
 }
