@@ -4,13 +4,17 @@ import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import IconExample from './lib/icon/icon.example';
 import DialogExample from './lib/dialog/dialog.example';
 import LayoutExample from './lib/layout/layout.example';
+import './example.scss';
+import {
+  Layout, Header, Aside, Content, Footer,
+} from './lib/layout/layout';
 
 ReactDOM.render((
   <Router>
-    <div>
-      <header><div className="logo">Daybreak</div></header>
-      <div>
-        <aside>
+    <Layout>
+      <Header><div className="logo">Daybreak</div></Header>
+      <Layout>
+        <Aside>
           <h2>组件</h2>
           <ul>
             <li>
@@ -23,13 +27,14 @@ ReactDOM.render((
               <Link to="/layout">Layout</Link>
             </li>
           </ul>
-        </aside>
-        <main>
+        </Aside>
+        <Content>
           <Route path="/icon" component={IconExample} />
           <Route path="/dialog" component={DialogExample} />
           <Route path="/layout" component={LayoutExample} />
-        </main>
-      </div>
-    </div>
+        </Content>
+      </Layout>
+      <Footer>2019</Footer>
+    </Layout>
   </Router>
 ), document.querySelector('#root'));
