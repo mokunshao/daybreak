@@ -25,7 +25,10 @@ module.exports = {
     "react/no-array-index-key": 0,
     "jsx-a11y/click-events-have-key-events": 0,
     "jsx-a11y/no-static-element-interactions": 0,
-    "no-unused-expressions": 0
+    "no-unused-expressions": 0,
+    "global-require": 0,
+    "import/no-webpack-loader-syntax": 0,
+    "import/no-unresolved": 0
   },
   settings: {
     'import/resolver': {
