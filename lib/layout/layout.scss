@@ -16,11 +16,11 @@
     flex-direction: row;
   }
 
-  &.daybreak-layout-has-aside {
+  &-has-aside {
     flex-direction: row;
   }
 
-  &.daybreak-layout-has-aside & {
+  &-has-aside & {
     flex-direction: column;
   }
 }
