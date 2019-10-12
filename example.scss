@@ -42,6 +42,7 @@ $color2:#7b5da9;
       color: #cfabab;
       padding: 0.5em 1em;
 
+      &:hover,
       &.active {
         color: white;
       }
