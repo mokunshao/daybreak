@@ -15,7 +15,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'daybreak',
       template: 'example.html',
-      filename: 'example.html',
+      filename: 'index.html',
     }),
   ],
 };
