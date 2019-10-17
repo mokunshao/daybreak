@@ -28,7 +28,9 @@ module.exports = {
     "no-unused-expressions": 0,
     "global-require": 0,
     "import/no-webpack-loader-syntax": 0,
-    "import/no-unresolved": 0
+    "import/no-unresolved": 0,
+    "no-unused-vars": "off",
+    "no-console": "off",
   },
   settings: {
     'import/resolver': {
