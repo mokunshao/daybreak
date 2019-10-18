@@ -4,8 +4,8 @@ import { Validator } from './validator';
 
 export default () => {
   const [formData, setFormData] = useState<FormValues>({
-    username: 'fafa',
-    password: 'qqq',
+    username: 'test',
+    password: 'test',
   });
   const [fields] = useState([
     { name: 'username', label: '用户名', input: { type: 'text' } },
@@ -15,6 +15,8 @@ export default () => {
     const rules = [
       { key: 'username', require: true },
       { key: 'username', minLength: 3, maxLength: 16 },
+      { key: 'username', pattern: /^[A-Za-z0-9]+$/ },
+      { key: 'password', require: true },
     ];
     const errors = Validator(formData, rules);
     console.log(errors);
