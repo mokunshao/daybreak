@@ -1,20 +1,20 @@
 import React from 'react';
 
-export interface FormValue {
+export interface FormValues {
   [K: string]: any
 }
 
 interface Props {
-  value: FormValue
+  values: FormValues
   fields: Array<{ name: string, label: string, input: { type: string } }>
   buttons: React.ReactFragment
   onSubmit: React.FormEventHandler
-  onChange: (value: FormValue) => void
+  onChange: (values: FormValues) => void
 }
 
 const Form: React.FunctionComponent<Props> = (props) => {
   const {
-    value,
+    values,
     fields,
     buttons,
     onSubmit,
@@ -25,7 +25,7 @@ const Form: React.FunctionComponent<Props> = (props) => {
     onSubmit(e);
   };
   const onChange2 = (name: string, e: React.ChangeEvent<HTMLInputElement>) => {
-    const data = { ...value, [name]: e.target.value };
+    const data = { ...values, [name]: e.target.value };
     onChange(data);
   };
   return (
@@ -35,7 +35,7 @@ const Form: React.FunctionComponent<Props> = (props) => {
           {item.label}
           <input
             type={item.input.type}
-            value={value[item.name]}
+            value={values[item.name]}
             onChange={onChange2.bind(null, item.name)}
           />
         </div>
