@@ -1,21 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import './dialog.scss';
 import joinedClass from '../utils/joinedClass';
 
 interface Props {
   visible: boolean
-  onClose: React.MouseEventHandler
+  onClose: Function
   title?: string
   buttons?: Array<React.ReactElement>
   closeOnClickMask?: boolean
+  closeOnEsc?: boolean
 }
 
 const dialog = joinedClass('dialog');
 
 const Dialog: React.FunctionComponent<Props> = (props) => {
   const {
-    visible, title, buttons, onClose, closeOnClickMask = true, children,
+    visible, title, buttons, onClose, closeOnClickMask = true, closeOnEsc = true, children,
   } = props;
 
   const onClickClose: React.MouseEventHandler = (event) => {
@@ -24,13 +25,25 @@ const Dialog: React.FunctionComponent<Props> = (props) => {
     }
   };
 
+  useEffect(() => {
+    const onKeyUp = (event: KeyboardEvent) => {
+      if (closeOnEsc && event.keyCode === 27) {
+        onClose(event);
+      }
+    };
+    document.body.addEventListener('keyup', onKeyUp);
+    return () => {
+      document.body.removeEventListener('keyup', onKeyUp);
+    };
+  }, [closeOnEsc, onClose]);
+
   const content = visible ? (
     <>
       <div className={dialog('mask')} onClick={onClickClose} />
       <div className={dialog()}>
         <div className={dialog('header')}>
           <span className={dialog('title')}>{title}</span>
-          <button type="button" className={dialog('close')} onClick={onClose}>X</button>
+          <button type="button" className={dialog('close')} onClick={(e) => onClose(e)}>X</button>
         </div>
         <div className={dialog('main')}>
           {children}
