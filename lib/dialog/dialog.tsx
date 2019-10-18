@@ -27,15 +27,17 @@ const Dialog: React.FunctionComponent<Props> = (props) => {
 
   useEffect(() => {
     const onKeyUp = (event: KeyboardEvent) => {
-      if (closeOnEsc && event.keyCode === 27) {
+      if (visible && closeOnEsc && event.keyCode === 27) {
         onClose(event);
       }
     };
-    document.body.addEventListener('keyup', onKeyUp);
+    if (visible && closeOnEsc) {
+      document.body.addEventListener('keyup', onKeyUp);
+    }
     return () => {
       document.body.removeEventListener('keyup', onKeyUp);
     };
-  }, [closeOnEsc, onClose]);
+  }, [closeOnEsc, onClose, visible]);
 
   const content = visible ? (
     <>
