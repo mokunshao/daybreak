@@ -12,7 +12,10 @@ export default () => {
     { name: 'password', label: '密码', input: { type: 'password' } },
   ]);
   const onSubmit = () => {
-    const rules = [{ key: 'username', require: true }];
+    const rules = [
+      { key: 'username', require: true },
+      { key: 'username', minLength: 3, maxLength: 16 },
+    ];
     const errors = Validator(formData, rules);
     console.log(errors);
   };
