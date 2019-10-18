@@ -11,7 +11,7 @@ interface FormRule {
 type FormRules = Array<FormRule>;
 
 interface FormErrors {
-  [k: string]: string[]
+  [key: string]: string[]
 }
 
 function isEmpty(value: any) {
