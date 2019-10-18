@@ -5,6 +5,7 @@ interface FormRule {
   require?: boolean
   minLength?: number
   maxLength?: number
+  pattern?: RegExp
 }
 
 type FormRules = Array<FormRule>;
@@ -36,6 +37,9 @@ const Validator = (values: FormValues, rules: FormRules): FormErrors => {
     }
     if (rule.maxLength && !isEmpty(value) && value.length > rule.maxLength) {
       addError(key, '太长');
+    }
+    if (rule.pattern && !(rule.pattern.test(value))) {
+      addError(key, '格式不合法');
     }
   });
   return errors;
