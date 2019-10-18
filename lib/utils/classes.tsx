@@ -3,3 +3,5 @@ function classes(...names: (string | undefined)[]) {
 }
 
 export default classes;
+
+export { classes };
