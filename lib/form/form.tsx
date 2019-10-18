@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useRef, InputHTMLAttributes } from 'react';
+import Input from '../input/input';
 
 export interface FormValues {
   [K: string]: any
@@ -26,19 +27,25 @@ const Form: React.FunctionComponent<Props> = (props) => {
     e.preventDefault();
     onSubmit(e);
   };
-  const onChange2 = (name: string, e: React.ChangeEvent<HTMLInputElement>) => {
-    const data = { ...values, [name]: e.target.value };
+  const onChange2 = (name: string, value: string) => {
+    const data = { ...values, [name]: value };
     onChange(data);
+  };
+  const onKeyUp = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.keyCode === 13) {
+      e.currentTarget.blur();
+    }
   };
   return (
     <form onSubmit={onSubmit2}>
       {fields.map((item) => (
         <div key={item.name}>
           {item.label}
-          <input
+          <Input
             type={item.input.type}
             value={values[item.name]}
-            onChange={onChange2.bind(null, item.name)}
+            onChange={(e) => onChange2(item.name, e.target.value)}
+            onKeyUp={onKeyUp}
           />
           <div>{errors[item.name]}</div>
         </div>
