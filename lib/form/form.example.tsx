@@ -7,6 +7,7 @@ export default () => {
     username: 'test',
     password: 'test',
   });
+  const [errors, setErrors] = useState({});
   const [fields] = useState([
     { name: 'username', label: '用户名', input: { type: 'text' } },
     { name: 'password', label: '密码', input: { type: 'password' } },
@@ -18,8 +19,8 @@ export default () => {
       { key: 'username', pattern: /^[A-Za-z0-9]+$/ },
       { key: 'password', require: true },
     ];
-    const errors = Validator(formData, rules);
-    console.log(errors);
+    const errorsResult = Validator(formData, rules);
+    setErrors(errorsResult);
   };
   const onChange = (data: FormValues) => setFormData(data);
   return (
@@ -35,6 +36,7 @@ export default () => {
             </>
           )
         }
+        errors={errors}
         onSubmit={onSubmit}
         onChange={onChange}
       />
