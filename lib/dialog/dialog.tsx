@@ -49,7 +49,7 @@ const Dialog: React.FunctionComponent<Props> = (props) => {
   return ReactDOM.createPortal(content, document.body);
 };
 
-const modal = (
+const Modal = (
   content: React.ReactNode,
   buttons?: Array<React.ReactElement>,
   afterClose?: Function,
@@ -81,11 +81,11 @@ const modal = (
   return onClose;
 };
 
-const alert = (content: React.ReactNode) => {
-  const onClose = modal(content, [<button type="button" onClick={() => onClose()}>OK</button>]);
+const Alert = (content: React.ReactNode) => {
+  const onClose = Modal(content, [<button type="button" onClick={() => onClose()}>OK</button>]);
 };
 
-const confirm = (content: React.ReactNode, yes?: Function, no?: Function) => {
+const Confirm = (content: React.ReactNode, yes?: Function, no?: Function) => {
   let onClose = () => { };
 
   const onYes = () => {
@@ -103,9 +103,14 @@ const confirm = (content: React.ReactNode, yes?: Function, no?: Function) => {
     <button type="button" onClick={onNo}>no</button>,
   ];
 
-  onClose = modal(content, buttons, no);
+  onClose = Modal(content, buttons, no);
 };
 
 export default Dialog;
 
-export { modal, alert, confirm };
+export {
+  Dialog,
+  Modal,
+  Alert,
+  Confirm,
+};
