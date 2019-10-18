@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import Form, { FormValue } from './form';
+import Form, { FormValues } from './form';
+import { Validator } from './validator';
 
 export default () => {
-  const [formData, setFormData] = useState<FormValue>({
+  const [formData, setFormData] = useState<FormValues>({
     username: 'fafa',
     password: 'qqq',
   });
@@ -10,12 +11,16 @@ export default () => {
     { name: 'username', label: '用户名', input: { type: 'text' } },
     { name: 'password', label: '密码', input: { type: 'password' } },
   ]);
-  const onSubmit = () => console.log(formData);
-  const onChange = (data: FormValue) => setFormData(data);
+  const onSubmit = () => {
+    const rules = [{ key: 'username', require: true }];
+    const errors = Validator(formData, rules);
+    console.log(errors);
+  };
+  const onChange = (data: FormValues) => setFormData(data);
   return (
     <div>
       <Form
-        value={formData}
+        values={formData}
         fields={fields}
         buttons={
           (
