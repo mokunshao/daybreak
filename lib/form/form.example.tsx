@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Form, { FormValues } from './form';
 import { Validator, noError } from './validator';
-import { alert } from '../dialog/dialog';
+import { Alert } from '../dialog/dialog';
 
 export default () => {
   const [formData, setFormData] = useState<FormValues>({
@@ -23,7 +23,7 @@ export default () => {
     const errorsResult = Validator(formData, rules);
     setErrors(errorsResult);
     if (noError(errorsResult)) {
-      alert('表单验证通过');
+      Alert('表单验证通过');
     }
   };
   const onChange = (data: FormValues) => setFormData(data);
