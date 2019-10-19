@@ -5,6 +5,7 @@ import {
   Confirm,
   Modal,
 } from './dialog';
+import { Button } from '../button/button';
 
 const DialogExample: React.FunctionComponent = () => {
   const [x, setX] = useState(false);
@@ -14,7 +15,7 @@ const DialogExample: React.FunctionComponent = () => {
       (
         <>
           <h1>你好</h1>
-          <button type="button" onClick={() => close()}>close</button>
+          <Button type="button" onClick={() => close()}>close</Button>
         </>
       ),
     );
@@ -23,13 +24,13 @@ const DialogExample: React.FunctionComponent = () => {
     <>
       <div>
         <h2>example 1</h2>
-        <button type="button" onClick={() => setX(!x)}>set</button>
+        <Button type="button" onClick={() => setX(!x)}>set</Button>
         <Dialog
           visible={x}
           buttons={
             [
-              <button type="button" onClick={() => setX(false)}>Yes</button>,
-              <button type="button" onClick={() => setX(false)}>No</button>,
+              <Button type="button" onClick={() => setX(false)}>Yes</Button>,
+              <Button type="button" onClick={() => setX(false)}>No</Button>,
             ]
           }
           onClose={() => setX(false)}
@@ -39,13 +40,13 @@ const DialogExample: React.FunctionComponent = () => {
       </div>
       <div>
         <h2>example 2</h2>
-        <button type="button" onClick={() => setY(!y)}>set</button>
+        <Button type="button" onClick={() => setY(!y)}>set</Button>
         <Dialog
           visible={y}
           buttons={
             [
-              <button type="button" onClick={() => setY(false)}>Yes</button>,
-              <button type="button" onClick={() => setY(false)}>No</button>,
+              <Button type="button" onClick={() => setY(false)}>Yes</Button>,
+              <Button type="button" onClick={() => setY(false)}>No</Button>,
             ]
           }
           onClose={() => setY(false)}
@@ -56,15 +57,15 @@ const DialogExample: React.FunctionComponent = () => {
       </div>
       <div>
         <h2>example 3</h2>
-        <button type="button" onClick={() => Alert('hello')}>set</button>
+        <Button type="button" onClick={() => Alert('hello')}>set</Button>
       </div>
       <div>
         <h2>example 4</h2>
-        <button type="button" onClick={() => Confirm('hello')}>set</button>
+        <Button type="button" onClick={() => Confirm('hello')}>set</Button>
       </div>
       <div>
         <h2>example 5</h2>
-        <button type="button" onClick={openModel}>set</button>
+        <Button type="button" onClick={openModel}>set</Button>
       </div>
     </>
   );
