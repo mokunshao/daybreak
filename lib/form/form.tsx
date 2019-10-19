@@ -17,6 +17,7 @@ interface Props extends FormHTMLAttributes<HTMLFormElement> {
   onSubmit: React.FormEventHandler
   onChange: (values: FormValues) => void
   errors: { [key: string]: string[] }
+  errorsDisplayMode?: 'first' | 'all'
 }
 
 const Form: React.FunctionComponent<Props> = (props) => {
@@ -28,6 +29,7 @@ const Form: React.FunctionComponent<Props> = (props) => {
     onChange,
     errors,
     className,
+    errorsDisplayMode = 'first',
   } = props;
   const onSubmit2 = (e: React.FormEvent<Element>) => {
     e.preventDefault();
@@ -41,6 +43,19 @@ const Form: React.FunctionComponent<Props> = (props) => {
     if (e.keyCode === 13) {
       e.currentTarget.blur();
     }
+  };
+  const showErrors = (name: string) => {
+    if (errors[name]) {
+      switch (errorsDisplayMode) {
+        case 'first':
+          return errors[name][0];
+        case 'all':
+          return errors[name].join(', ');
+        default:
+          return errors[name][0];
+      }
+    }
+    return <>&nbsp;</>;
   };
   return (
     <form onSubmit={onSubmit2} className={classes(form(), className)}>
@@ -64,7 +79,11 @@ const Form: React.FunctionComponent<Props> = (props) => {
               </tr>
               <tr>
                 <td />
-                <td><small className={form('errors')}>{errors[item.name] && errors[item.name].join(', ')}</small></td>
+                <td>
+                  <small className={form('errors')}>
+                    {showErrors(item.name)}
+                  </small>
+                </td>
               </tr>
             </Fragment>
           ))}
