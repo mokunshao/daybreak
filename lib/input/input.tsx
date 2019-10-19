@@ -1,6 +1,7 @@
 import React from 'react';
 import { classes } from '../utils/classes';
 import { joinedClass } from '../utils/joinedClass';
+import './input.scss';
 
 const input = joinedClass('input');
 

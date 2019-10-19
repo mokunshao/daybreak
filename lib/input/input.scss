@@ -1,0 +1,15 @@
+@import '../common.scss';
+
+.daybreak-input {
+  border: 1px solid $color4;
+  border-radius: 3px;
+  outline: none;
+  padding: 0.5em;
+  box-shadow: 0 0 0 2px fade_out($color2, 1);
+  transition: 500ms box-shadow;
+
+  &:focus {
+    border: 1px solid $color2;
+    box-shadow: 0 0 0 2px fade_out($color2, 0.5);
+  }
+}
