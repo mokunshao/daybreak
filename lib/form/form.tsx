@@ -1,11 +1,16 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, FormHTMLAttributes } from 'react';
 import Input from '../input/input';
+import { classes } from '../utils/classes';
+import { joinedClass } from '../utils/joinedClass';
+import './form.scss';
+
+const form = joinedClass('form');
 
 export interface FormValues {
   [K: string]: any
 }
 
-interface Props {
+interface Props extends FormHTMLAttributes<HTMLFormElement> {
   values: FormValues
   fields: Array<{ name: string, label: string, input: { type: string } }>
   buttons: React.ReactFragment
@@ -22,6 +27,7 @@ const Form: React.FunctionComponent<Props> = (props) => {
     onSubmit,
     onChange,
     errors,
+    className,
   } = props;
   const onSubmit2 = (e: React.FormEvent<Element>) => {
     e.preventDefault();
@@ -37,7 +43,7 @@ const Form: React.FunctionComponent<Props> = (props) => {
     }
   };
   return (
-    <form onSubmit={onSubmit2}>
+    <form onSubmit={onSubmit2} className={classes(form(), className)}>
       <table>
         <tbody>
           {fields.map((item) => (
@@ -58,7 +64,7 @@ const Form: React.FunctionComponent<Props> = (props) => {
               </tr>
               <tr>
                 <td />
-                <td>{errors[item.name] && errors[item.name].join(', ')}</td>
+                <td><small className={form('errors')}>{errors[item.name] && errors[item.name].join(', ')}</small></td>
               </tr>
             </Fragment>
           ))}
