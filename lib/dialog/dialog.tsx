@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import './dialog.scss';
 import joinedClass from '../utils/joinedClass';
+import { Button } from '../button/button';
 
 interface Props {
   visible: boolean
@@ -45,7 +46,7 @@ const Dialog: React.FunctionComponent<Props> = (props) => {
       <div className={dialog()}>
         <div className={dialog('header')}>
           <span className={dialog('title')}>{title}</span>
-          <button type="button" className={dialog('close')} onClick={(e) => onClose(e)}>X</button>
+          <Button type="button" className={dialog('close')} onClick={(e) => onClose(e)}>X</Button>
         </div>
         <div className={dialog('main')}>
           {children}
@@ -97,7 +98,7 @@ const Modal = (
 };
 
 const Alert = (content: React.ReactNode) => {
-  const onClose = Modal(content, [<button type="button" onClick={() => onClose()}>OK</button>]);
+  const onClose = Modal(content, [<Button type="button" onClick={() => onClose()}>OK</Button>]);
 };
 
 const Confirm = (content: React.ReactNode, yes?: Function, no?: Function) => {
@@ -114,8 +115,8 @@ const Confirm = (content: React.ReactNode, yes?: Function, no?: Function) => {
   };
 
   const buttons = [
-    <button type="button" onClick={onYes}>yes</button>,
-    <button type="button" onClick={onNo}>no</button>,
+    <Button type="button" onClick={onYes}>Yes</Button>,
+    <Button type="button" onClick={onNo}>No</Button>,
   ];
 
   onClose = Modal(content, buttons, no);
