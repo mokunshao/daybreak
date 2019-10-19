@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Input from '../input/input';
 
 export interface FormValues {
@@ -38,22 +38,40 @@ const Form: React.FunctionComponent<Props> = (props) => {
   };
   return (
     <form onSubmit={onSubmit2}>
-      {fields.map((item) => (
-        <div key={item.name}>
-          <label htmlFor={item.name}>{item.label}</label>
-          <Input
-            id={item.name}
-            type={item.input.type}
-            value={values[item.name]}
-            onChange={(e) => onChange2(item.name, e.target.value)}
-            onKeyUp={onKeyUp}
-          />
-          <div>{errors[item.name]}</div>
-        </div>
-      ))}
-      <div>
-        {buttons}
-      </div>
+      <table>
+        <tbody>
+          {fields.map((item) => (
+            <Fragment key={item.name}>
+              <tr>
+                <td>
+                  <label htmlFor={item.name}>{item.label}</label>
+                </td>
+                <td>
+                  <Input
+                    id={item.name}
+                    type={item.input.type}
+                    value={values[item.name]}
+                    onChange={(e) => onChange2(item.name, e.target.value)}
+                    onKeyUp={onKeyUp}
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td />
+                <td>{errors[item.name]}</td>
+              </tr>
+            </Fragment>
+          ))}
+        </tbody>
+        <tfoot>
+          <tr>
+            <td />
+            <td>
+              {buttons}
+            </td>
+          </tr>
+        </tfoot>
+      </table>
     </form>
   );
 };
