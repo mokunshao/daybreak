@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Highlight, { defaultProps } from 'prism-react-renderer';
+import { Button } from './lib/button/button';
 
 interface Props {
   code: string
@@ -41,7 +42,7 @@ const Demo: React.FunctionComponent<Props> = (props) => {
         {children}
       </div>
       <div>
-        <button type="button" onClick={() => setCodeVisible(!codeVisible)}>查看代码</button>
+        <Button type="button" onClick={() => setCodeVisible(!codeVisible)}>查看代码</Button>
       </div>
       {codeVisible && hightLightCode}
     </>
