@@ -58,7 +58,7 @@ const Form: React.FunctionComponent<Props> = (props) => {
               </tr>
               <tr>
                 <td />
-                <td>{errors[item.name]}</td>
+                <td>{errors[item.name] && errors[item.name].join(', ')}</td>
               </tr>
             </Fragment>
           ))}
