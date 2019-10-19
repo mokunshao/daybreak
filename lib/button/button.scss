@@ -13,7 +13,8 @@
     color: $color2;
   }
 
-  &-normal:hover {
+  &-normal:hover,
+  &-normal:focus {
     background-color: $color2;
     color: $color4;
   }
@@ -24,7 +25,8 @@
     color: $color4;
   }
 
-  &-primary:hover {
+  &-primary:hover,
+  &-primary:focus {
     border: 1px solid darken($color: $color2, $amount: 5%);
     background-color: darken($color: $color2, $amount: 5%);
   }
@@ -35,7 +37,8 @@
     color: $color4;
   }
 
-  &-danger:hover {
+  &-danger:hover,
+  &-danger:focus {
     border: 1px solid darken($color: $dangerColor, $amount: 5%);
     background-color: darken($color: $dangerColor, $amount: 5%);
   }
