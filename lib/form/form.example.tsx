@@ -40,7 +40,7 @@ export default () => {
         buttons={
           (
             <>
-              <Button type="submit">提交</Button>
+              <Button mode="primary" type="submit" style={{ marginRight: '0.5em' }}>提交</Button>
               <Button type="button">返回</Button>
             </>
           )
