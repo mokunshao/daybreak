@@ -9,6 +9,7 @@ import IconDemo from './lib/icon/icon.demo';
 import DialogExample from './lib/dialog/dialog.example';
 import LayoutExample from './lib/layout/layout.example';
 import FormExample from './lib/form/form.example';
+import ButtonExample from './lib/button/button.example';
 
 ReactDOM.render((
   <Router>
@@ -20,12 +21,14 @@ ReactDOM.render((
           <NavLink className="site-aside-link" to="/dialog">Dialog</NavLink>
           <NavLink className="site-aside-link" to="/layout">Layout</NavLink>
           <NavLink className="site-aside-link" to="/form">Form</NavLink>
+          <NavLink className="site-aside-link" to="/button">Button</NavLink>
         </Aside>
         <Content className="site-content">
           <Route path="/icon" component={IconDemo} />
           <Route path="/dialog" component={DialogExample} />
           <Route path="/layout" component={LayoutExample} />
           <Route path="/form" component={FormExample} />
+          <Route path="/button" component={ButtonExample} />
         </Content>
       </Layout>
     </Layout>
