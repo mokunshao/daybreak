@@ -40,8 +40,9 @@ const Form: React.FunctionComponent<Props> = (props) => {
     <form onSubmit={onSubmit2}>
       {fields.map((item) => (
         <div key={item.name}>
-          {item.label}
+          <label htmlFor={item.name}>{item.label}</label>
           <Input
+            id={item.name}
             type={item.input.type}
             value={values[item.name]}
             onChange={(e) => onChange2(item.name, e.target.value)}
