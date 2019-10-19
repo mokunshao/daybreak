@@ -1,4 +1,4 @@
-import React, { useRef, InputHTMLAttributes } from 'react';
+import React from 'react';
 import Input from '../input/input';
 
 export interface FormValues {
