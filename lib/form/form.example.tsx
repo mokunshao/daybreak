@@ -13,20 +13,24 @@ export default () => {
     { name: 'username', label: '用户名', input: { type: 'text' } },
     { name: 'password', label: '密码', input: { type: 'password' } },
   ]);
+  const rules = [
+    { key: 'username', require: true },
+    { key: 'username', minLength: 3, maxLength: 16 },
+    { key: 'username', pattern: /^[A-Za-z0-9]+$/ },
+    { key: 'password', require: true },
+  ];
   const onSubmit = () => {
-    const rules = [
-      { key: 'username', require: true },
-      { key: 'username', minLength: 3, maxLength: 16 },
-      { key: 'username', pattern: /^[A-Za-z0-9]+$/ },
-      { key: 'password', require: true },
-    ];
     const errorsResult = Validator(formData, rules);
     setErrors(errorsResult);
     if (noError(errorsResult)) {
       Alert('表单验证通过');
     }
   };
-  const onChange = (data: FormValues) => setFormData(data);
+  const onChange = (data: FormValues) => {
+    setFormData(data);
+    const errorsResult = Validator(data, rules);
+    setErrors(errorsResult);
+  };
   return (
     <div>
       <Form
