@@ -15,7 +15,7 @@ const DialogExample: React.FunctionComponent = () => {
       (
         <>
           <h1>你好</h1>
-          <Button type="button" onClick={() => close()}>close</Button>
+          <Button type="button" onClick={() => close()}>Close</Button>
         </>
       ),
     );
@@ -24,7 +24,7 @@ const DialogExample: React.FunctionComponent = () => {
     <>
       <div>
         <h2>example 1</h2>
-        <Button type="button" onClick={() => setX(!x)}>set</Button>
+        <Button type="button" onClick={() => setX(!x)}>Open</Button>
         <Dialog
           visible={x}
           buttons={
@@ -40,7 +40,7 @@ const DialogExample: React.FunctionComponent = () => {
       </div>
       <div>
         <h2>example 2</h2>
-        <Button type="button" onClick={() => setY(!y)}>set</Button>
+        <Button type="button" onClick={() => setY(!y)}>Open</Button>
         <Dialog
           visible={y}
           buttons={
@@ -57,15 +57,15 @@ const DialogExample: React.FunctionComponent = () => {
       </div>
       <div>
         <h2>example 3</h2>
-        <Button type="button" onClick={() => Alert('hello')}>set</Button>
+        <Button type="button" onClick={() => Alert('hello')}>Open</Button>
       </div>
       <div>
         <h2>example 4</h2>
-        <Button type="button" onClick={() => Confirm('hello')}>set</Button>
+        <Button type="button" onClick={() => Confirm('hello')}>Open</Button>
       </div>
       <div>
         <h2>example 5</h2>
-        <Button type="button" onClick={openModel}>set</Button>
+        <Button type="button" onClick={openModel}>Open</Button>
       </div>
     </>
   );
