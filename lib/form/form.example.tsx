@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Form, { FormValues } from './form';
 import { Validator, noError } from './validator';
 import { Alert } from '../dialog/dialog';
+import { Button } from '../button/button';
 
 export default () => {
   const [formData, setFormData] = useState<FormValues>({
@@ -39,8 +40,8 @@ export default () => {
         buttons={
           (
             <>
-              <button type="submit">提交</button>
-              <button type="button">返回</button>
+              <Button type="submit">提交</Button>
+              <Button type="button">返回</Button>
             </>
           )
         }
