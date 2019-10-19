@@ -1,0 +1,17 @@
+@import '../common.scss';
+
+.daybreak-button {
+  -webkit-appearance: none;
+  cursor: pointer;
+  border: 1px solid $color2;
+  border-radius: 3px;
+  outline: none;
+  color: $color2;
+  padding: 0.3em 0.5em;
+
+  &:hover,
+  &:focus {
+    background-color: $color2;
+    color: $color4;
+  }
+}
