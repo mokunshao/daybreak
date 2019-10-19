@@ -17,6 +17,7 @@
   &-normal:focus {
     background-color: $color2;
     color: $color4;
+    box-shadow: 0 0 0 2px lighten($color: $color2, $amount: 20%);
   }
 
   &-primary {
@@ -29,6 +30,7 @@
   &-primary:focus {
     border: 1px solid darken($color: $color2, $amount: 5%);
     background-color: darken($color: $color2, $amount: 5%);
+    box-shadow: 0 0 0 2px lighten($color: $color2, $amount: 20%);
   }
 
   &-danger {
@@ -41,5 +43,6 @@
   &-danger:focus {
     border: 1px solid darken($color: $dangerColor, $amount: 5%);
     background-color: darken($color: $dangerColor, $amount: 5%);
+    box-shadow: 0 0 0 2px lighten($color: $dangerColor, $amount: 20%);
   }
 }
