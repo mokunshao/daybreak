@@ -1,3 +1,5 @@
+@import './lib/common.scss';
+
 * {
   padding: 0;
   margin: 0;
@@ -20,9 +22,6 @@ a {
   text-decoration: none;
 }
 
-$color1:#763f82;
-$color2:#7b5da9;
-
 .site-page {
   background-color: white;
   min-height: 100vh;
@@ -39,12 +38,12 @@ $color2:#7b5da9;
 
     .site-aside-link {
       display: block;
-      color: #cfabab;
+      color: $color2;
       padding: 0.5em 1em;
 
       &:hover,
       &.active {
-        color: white;
+        color: $color4;
       }
     }
   }

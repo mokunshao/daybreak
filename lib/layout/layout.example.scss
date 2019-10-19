@@ -1,11 +1,13 @@
+@import '../common.scss';
+
 .xxx {
-  background-color: #f6f6f6;
+  background-color: $color1;
 }
 
 .yyy {
-  background-color: #eae9e9;
+  background-color: $color2;
 }
 
 .zzz {
-  background-color: #d4d7dd;
+  background-color: $color3;
 }
