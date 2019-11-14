@@ -6,6 +6,10 @@ interface FormRule {
   minLength?: number
   maxLength?: number
   pattern?: RegExp
+  validator?: {
+    name: string,
+    validate: (value: string) => Promise<void>
+  }
 }
 
 type FormRules = Array<FormRule>;
@@ -22,9 +26,21 @@ export function noError(error: object) {
   return Object.keys(error).length === 0;
 }
 
-const Validator = (values: FormValues, rules: FormRules): FormErrors => {
+function flat(arr: Array<string | Promise<void>>) {
+  const result: any = [];
+  arr.forEach((item) => {
+    if (Array.isArray(item)) {
+      result.concat(flat(item));
+    } else {
+      result.push(item);
+    }
+  });
+  return result;
+}
+
+const Validator = (values: FormValues, rules: FormRules, callback: Function): void => {
   const errors: any = {};
-  const addError = (key: string, message: string) => {
+  const addError = (key: string, message: string | Promise<void>) => {
     if (errors[key] === undefined) {
       errors[key] = [];
     }
@@ -33,6 +49,10 @@ const Validator = (values: FormValues, rules: FormRules): FormErrors => {
   rules.forEach((rule) => {
     const { key } = rule;
     const value = values[key];
+    if (rule.validator) {
+      const promise = rule.validator.validate(value);
+      addError(key, 'promise');
+    }
     if (rule.require && isEmpty(value)) {
       addError(key, '必填');
     }
@@ -46,7 +66,11 @@ const Validator = (values: FormValues, rules: FormRules): FormErrors => {
       addError(key, '格式不合法');
     }
   });
-  return errors;
+  Promise.all(flat(Object.values(errors))).then(() => {
+    callback(errors);
+  }, () => {
+    callback(errors);
+  });
 };
 
 export default Validator;

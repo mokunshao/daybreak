@@ -4,6 +4,23 @@ import { Validator, noError } from './validator';
 import { Alert } from '../dialog/dialog';
 import { Button } from '../button/button';
 
+function checkUserName(username: string, resolve: any, reject: any) {
+  setTimeout(() => {
+    if (username) {
+      resolve();
+    } else {
+      reject();
+    }
+  }, 0);
+}
+
+const usernameValidator = {
+  name: 'unique username',
+  validate: (username: string) => (
+    new Promise<void>((resolve, reject) => checkUserName(username, resolve, reject))
+  ),
+};
+
 export default () => {
   const [formData, setFormData] = useState<FormValues>({
     username: 'test',
@@ -19,18 +36,21 @@ export default () => {
     { key: 'username', minLength: 3, maxLength: 16 },
     { key: 'username', pattern: /^[A-Za-z0-9]+$/ },
     { key: 'password', require: true },
+    { key: 'username', validator: usernameValidator },
   ];
   const onSubmit = () => {
-    const errorsResult = Validator(formData, rules);
-    setErrors(errorsResult);
-    if (noError(errorsResult)) {
-      Alert('表单验证通过');
-    }
+    Validator(formData, rules, (errorsResult: any) => {
+      setErrors(errorsResult);
+      if (noError(errorsResult)) {
+        Alert('表单验证通过');
+      }
+    });
   };
   const onChange = (data: FormValues) => {
     setFormData(data);
-    const errorsResult = Validator(data, rules);
-    setErrors(errorsResult);
+    Validator(data, rules, (errorsResult: any) => {
+      setErrors(errorsResult);
+    });
   };
   return (
     <div>
