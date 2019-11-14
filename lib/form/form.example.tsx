@@ -6,12 +6,12 @@ import { Button } from '../button/button';
 
 function checkUserName(username: string, resolve: any, reject: any) {
   setTimeout(() => {
-    if (username) {
+    if (username !== 'admin') {
       resolve();
     } else {
       reject();
     }
-  }, 0);
+  }, 200);
 }
 
 const usernameValidator = {
@@ -54,6 +54,7 @@ export default () => {
   };
   return (
     <div>
+      {(JSON.stringify(errors))}
       <Form
         values={formData}
         fields={fields}
