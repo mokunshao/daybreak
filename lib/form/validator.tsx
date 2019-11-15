@@ -91,7 +91,7 @@ const Validator = (values: FormValues, rules: FormRules, callback: Function): vo
     (key) => errors[key].map((promise) => [key, promise]),
   )));
 
-  const newPromise = flattenErrors.map(([key, message]): Promise<[any, any]> => {
+  const newPromise = flattenErrors.map(([key, message]): Promise<[string, any]> => {
     const promise = message instanceof Promise ? message : Promise.reject(message);
     return promise.then(() => [key, undefined], (reson) => [key, reson]);
   });
