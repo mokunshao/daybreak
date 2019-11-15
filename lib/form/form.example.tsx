@@ -9,17 +9,14 @@ function checkUserName(username: string, resolve: any, reject: any) {
     if (username !== 'admin') {
       resolve();
     } else {
-      reject();
+      reject('No!');
     }
   }, 200);
 }
 
-const usernameValidator = {
-  name: 'unique username',
-  validate: (username: string) => (
-    new Promise<void>((resolve, reject) => checkUserName(username, resolve, reject))
-  ),
-};
+const validator = (username: string) => (
+  new Promise<string>((resolve, reject) => checkUserName(username, resolve, reject))
+);
 
 export default () => {
   const [formData, setFormData] = useState<FormValues>({
@@ -36,7 +33,8 @@ export default () => {
     { key: 'username', minLength: 3, maxLength: 16 },
     { key: 'username', pattern: /^[A-Za-z0-9]+$/ },
     { key: 'password', require: true },
-    { key: 'username', validator: usernameValidator },
+    { key: 'username', validator },
+    { key: 'password', validator },
   ];
   const onSubmit = () => {
     Validator(formData, rules, (errorsResult: any) => {
