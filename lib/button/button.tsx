@@ -6,7 +6,7 @@ import './button.scss';
 const button = joinedClass('button');
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
-  mode?: 'normal' | 'primary' | 'danger'
+  mode?: 'normal' | 'primary' | 'danger';
 }
 
 const Button: React.FunctionComponent<Props> = (props) => {

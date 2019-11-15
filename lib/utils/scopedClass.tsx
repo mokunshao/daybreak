@@ -1,9 +1,9 @@
 interface Options {
-  extra: string | undefined
+  extra: string | undefined;
 }
 
 interface Toggle {
-  [key: string]: boolean
+  [key: string]: boolean;
 }
 
 const scopedClassMaker = (prefix: string) => (

@@ -5,9 +5,7 @@ import './input.scss';
 
 const input = joinedClass('input');
 
-interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
-
-}
+type Props = React.InputHTMLAttributes<HTMLInputElement>;
 
 const Input: React.FunctionComponent<Props> = (props) => {
   const { className, ...rest } = props;

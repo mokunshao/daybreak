@@ -5,12 +5,12 @@ import joinedClass from '../utils/joinedClass';
 import { Button } from '../button/button';
 
 interface Props {
-  visible: boolean
-  onClose: Function
-  title?: string
-  buttons?: Array<React.ReactElement>
-  closeOnClickMask?: boolean
-  closeOnEsc?: boolean
+  visible: boolean;
+  onClose: Function;
+  title?: string;
+  buttons?: Array<React.ReactElement>;
+  closeOnClickMask?: boolean;
+  closeOnEsc?: boolean;
 }
 
 const dialog = joinedClass('dialog');
