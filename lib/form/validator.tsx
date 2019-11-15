@@ -38,8 +38,8 @@ function flat(arr: Array<any>): Array<any> {
   return result;
 }
 
-function fromEntries(array: Array<[string, string[]]>): { [key: string]: string[] } {
-  const result: { [key: string]: string[] } = {};
+function fromEntries(array: Array<[string, string[]]>): FormErrors {
+  const result: FormErrors = {};
   array.forEach(([k, v]) => {
     result[k] = v;
   });
@@ -51,8 +51,12 @@ interface Message {
   promise?: Promise<void>
 }
 
+interface Errors {
+  [key: string]: Array<Message>
+}
+
 const Validator = (values: FormValues, rules: FormRules, callback: Function): void => {
-  const errors: any = {};
+  const errors: Errors = {};
   const addError = (key: string, message: Message) => {
     if (errors[key] === undefined) {
       errors[key] = [];
@@ -64,7 +68,7 @@ const Validator = (values: FormValues, rules: FormRules, callback: Function): vo
     const value = values[key];
     if (rule.validator) {
       const promise = rule.validator.validate(value);
-      addError(key, { text: '用户名已经存在', promise });
+      addError(key, { text: '未知错误', promise });
     }
     if (rule.require && isEmpty(value)) {
       addError(key, { text: '必填' });
@@ -85,12 +89,12 @@ const Validator = (values: FormValues, rules: FormRules, callback: Function): vo
   ));
 
   Promise.all(PromiseList).then(() => {
-    const newErrors = fromEntries(
+    const newErrors: FormErrors = fromEntries(
       Object.keys(errors).map((key) => [key, errors[key].map((item: Message) => item.text)]),
     );
     callback(newErrors);
   }, () => {
-    const newErrors = fromEntries(
+    const newErrors: FormErrors = fromEntries(
       Object.keys(errors).map((key) => [key, errors[key].map((item: Message) => item.text)]),
     );
     callback(newErrors);
