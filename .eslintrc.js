@@ -6,7 +6,7 @@ module.exports = {
     es6: true,
     jest: true,
   },
-  extends: ['airbnb', 'airbnb/hooks'],
+  extends: ['airbnb', 'airbnb/hooks', "plugin:@typescript-eslint/recommended"],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
@@ -30,8 +30,10 @@ module.exports = {
     "global-require": 0,
     "import/no-webpack-loader-syntax": 0,
     "import/no-unresolved": 0,
-    "no-unused-vars": "off",
     "no-console": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-var-requires": "off"
   },
   settings: {
     'import/resolver': {
