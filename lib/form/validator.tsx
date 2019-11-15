@@ -1,18 +1,18 @@
 import { FormValues } from './form';
 
 interface FormRule {
-  key: string
-  require?: boolean
-  minLength?: number
-  maxLength?: number
-  pattern?: RegExp
-  validator?: (value: string) => Promise<string>
+  key: string;
+  require?: boolean;
+  minLength?: number;
+  maxLength?: number;
+  pattern?: RegExp;
+  validator?: (value: string) => Promise<string>;
 }
 
 type FormRules = Array<FormRule>;
 
 interface FormErrors {
-  [key: string]: string[]
+  [key: string]: string[];
 }
 
 function isEmpty(value: any) {
@@ -55,7 +55,7 @@ function zip(arr: Array<[string, string]>) {
 type Message = string | Promise<string>
 
 interface Errors {
-  [key: string]: Array<Message>
+  [key: string]: Array<Message>;
 }
 
 const Validator = (values: FormValues, rules: FormRules, callback: Function): void => {
