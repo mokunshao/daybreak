@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Form, { FormValues } from './form';
+import Form, { FormValues, ErrorsMap } from './form';
 import { Validator, noError } from './validator';
 import { Alert } from '../dialog/dialog';
 import { Button } from '../button/button';
@@ -9,7 +9,7 @@ function checkUserName(username: string, resolve: any, reject: any) {
     if (username !== 'admin') {
       resolve();
     } else {
-      reject('No!');
+      reject('用户名已经存在!');
     }
   }, 200);
 }
@@ -34,7 +34,6 @@ export default () => {
     { key: 'username', pattern: /^[A-Za-z0-9]+$/ },
     { key: 'password', require: true },
     { key: 'username', validator },
-    { key: 'password', validator },
   ];
   const onSubmit = () => {
     Validator(formData, rules, (errorsResult: any) => {
@@ -49,6 +48,15 @@ export default () => {
     Validator(data, rules, (errorsResult: any) => {
       setErrors(errorsResult);
     });
+  };
+  const transformError = (error: string) => {
+    const errorsMap: ErrorsMap = {
+      required: '必填',
+      minLength: '太短',
+      maxLength: '太长',
+      pattern: '格式不正确',
+    };
+    return errorsMap[error];
   };
   return (
     <div>
@@ -67,6 +75,7 @@ export default () => {
         errors={errors}
         onSubmit={onSubmit}
         onChange={onChange}
+        transformError={transformError}
       />
     </div>
   );

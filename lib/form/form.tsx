@@ -10,6 +10,10 @@ export interface FormValues {
   [K: string]: any;
 }
 
+export interface ErrorsMap {
+  [k: string]: string;
+}
+
 interface Props extends FormHTMLAttributes<HTMLFormElement> {
   values: FormValues;
   fields: Array<{ name: string; label: string; input: { type: string } }>;
@@ -18,6 +22,7 @@ interface Props extends FormHTMLAttributes<HTMLFormElement> {
   onChange: (values: FormValues) => void;
   errors: { [key: string]: string[] };
   errorsDisplayMode?: 'first' | 'all';
+  transformError?: (erorr: string) => string;
 }
 
 const Form: React.FunctionComponent<Props> = (props) => {
@@ -29,7 +34,8 @@ const Form: React.FunctionComponent<Props> = (props) => {
     onChange,
     errors,
     className,
-    errorsDisplayMode = 'first',
+    errorsDisplayMode = 'all',
+    transformError,
   } = props;
   const onSubmit2 = (e: React.FormEvent<Element>) => {
     e.preventDefault();
@@ -44,15 +50,24 @@ const Form: React.FunctionComponent<Props> = (props) => {
       e.currentTarget.blur();
     }
   };
+  const transformError2 = (error: string) => {
+    const errorsMap: ErrorsMap = {
+      required: 'required',
+      minLength: 'too short',
+      maxLength: 'too long',
+      pattern: 'wrong format',
+    };
+    return (transformError && transformError(error)) || errorsMap[error] || error;
+  };
   const showErrors = (name: string) => {
     if (errors[name]) {
       switch (errorsDisplayMode) {
         case 'first':
-          return errors[name][0];
+          return transformError2(errors[name][0]);
         case 'all':
-          return errors[name].join(', ');
+          return errors[name].map(transformError2).join(', ');
         default:
-          return errors[name][0];
+          return transformError2(errors[name][0]);
       }
     }
     return <>&nbsp;</>;
