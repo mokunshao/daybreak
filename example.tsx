@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { HashRouter as Router, Route, NavLink } from 'react-router-dom';
+import {
+  HashRouter as Router, Route, NavLink, Link,
+} from 'react-router-dom';
 import './example.scss';
 import {
   Layout, Header, Aside, Content,
@@ -14,7 +16,7 @@ import ButtonExample from './lib/button/button.example';
 ReactDOM.render((
   <Router>
     <Layout className="site-page">
-      <Header className="site-header"><div className="logo">Daybreak</div></Header>
+      <Header className="site-header"><Link to="/"><div className="logo">Daybreak</div></Link></Header>
       <Layout>
         <Aside className="site-aside">
           <NavLink className="site-aside-link" to="/icon">Icon</NavLink>
