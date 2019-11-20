@@ -1,0 +1,23 @@
+@import '../common.scss';
+
+.daybreak-table {
+  border: 1px solid $grey2;
+  border-collapse: collapse;
+
+  &-thead {
+    border-bottom: 1px solid $grey2;
+  }
+
+  &-th {
+    padding: $padding;
+    text-align: left;
+
+    &:not(:last-child) {
+      border-right: 1px solid $grey2;
+    }
+  }
+
+  &-td {
+    padding: $padding;
+  }
+}
