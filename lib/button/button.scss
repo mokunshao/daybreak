@@ -3,47 +3,34 @@
 .daybreak-button {
   -webkit-appearance: none;
   cursor: pointer;
-  border-radius: 3px;
   outline: none;
   padding: 0.3em 0.5em;
   transition: all 500ms;
   font-size: 1em;
+  border: none;
 
   &-normal {
-    border: 1px solid $color2;
-    color: $color2;
-  }
+    color: $black;
+    background-color: $grey;
 
-  &-normal:hover,
-  &-normal:focus {
-    background-color: $color2;
-    color: $color4;
-    box-shadow: 0 0 0 2px lighten($color: $color2, $amount: 20%);
+    &:hover,
+    &:focus {
+      background-color: $grey2;
+    }
   }
 
   &-primary {
-    border: 1px solid $color2;
-    background-color: $color2;
-    color: $color4;
-  }
+    background-color: $black;
+    color: $white;
 
-  &-primary:hover,
-  &-primary:focus {
-    border: 1px solid darken($color: $color2, $amount: 5%);
-    background-color: darken($color: $color2, $amount: 5%);
-    box-shadow: 0 0 0 2px lighten($color: $color2, $amount: 20%);
+    &:hover,
+    &:focus {
+      background-color: $black2;
+    }
   }
 
   &-danger {
-    border: 1px solid $dangerColor;
-    background-color: $dangerColor;
-    color: $color4;
-  }
-
-  &-danger:hover,
-  &-danger:focus {
-    border: 1px solid darken($color: $dangerColor, $amount: 5%);
-    background-color: darken($color: $dangerColor, $amount: 5%);
-    box-shadow: 0 0 0 2px lighten($color: $dangerColor, $amount: 20%);
+    background-color: $red;
+    color: $white;
   }
 }
