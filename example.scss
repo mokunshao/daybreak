@@ -23,27 +23,40 @@ a {
 }
 
 .site-page {
-  background-color: white;
+  background-color: $white;
   min-height: 100vh;
 
   .site-header {
-    border-bottom: 3px solid $color2;
+    border-bottom: 1px solid $grey2;
     padding: 0.5em;
-    color: $color2;
     font-size: 20px;
+
+    .logo {
+      display: inline-block;
+      padding: $padding;
+      background-color: $black;
+      color: $white;
+    }
   }
 
   .site-aside {
-    background-color: $color1;
+    background-color: $white;
 
     .site-aside-link {
       display: block;
-      color: $color2;
+      color: $black;
       padding: 0.5em 1em;
+      box-sizing: border-box;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
 
       &:hover,
       &.active {
-        color: $color4;
+        background-color: $grey2;
+      }
+
+      &.active {
+        border-left-color: $black;
       }
     }
   }
