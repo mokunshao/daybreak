@@ -1,5 +1,5 @@
 import React from 'react';
-import Demo from '../../demo';
+import CodePreview from '../code-preview/code-preview';
 import Icon from './icon';
 
 const code = `import React from 'react';
@@ -18,7 +18,7 @@ const IconExample = () => (
     <Icon name="qq" />
     <Icon name="alipay" />
     <Icon name="wechat" />
-    <Demo code={code} />
+    <CodePreview code={code} />
   </>
 );
 

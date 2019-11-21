@@ -7,7 +7,7 @@ import './example.scss';
 import {
   Layout, Header, Aside, Content,
 } from './lib/layout/layout';
-import IconDemo from './lib/icon/icon.demo';
+import IconExample from './lib/icon/icon.example';
 import DialogExample from './lib/dialog/dialog.example';
 import LayoutExample from './lib/layout/layout.example';
 import FormExample from './lib/form/form.example';
@@ -26,7 +26,7 @@ ReactDOM.render((
           <NavLink className="site-aside-link" to="/button">Button</NavLink>
         </Aside>
         <Content className="site-content">
-          <Route path="/icon" component={IconDemo} />
+          <Route path="/icon" component={IconExample} />
           <Route path="/dialog" component={DialogExample} />
           <Route path="/layout" component={LayoutExample} />
           <Route path="/form" component={FormExample} />
