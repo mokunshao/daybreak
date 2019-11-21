@@ -3,10 +3,8 @@ import './icon.scss';
 import classes from '../utils/classes';
 import './importAllIcons';
 
-type iconName = 'qq' | 'wechat' | 'alipay';
-
 interface IconProps extends React.SVGAttributes<SVGElement> {
-  name: string & iconName;
+  name: string;
 }
 
 const Icon: React.FunctionComponent<IconProps> = (props) => {
