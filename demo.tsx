@@ -8,7 +8,7 @@ const style = { background: '#eee', padding: '1em', display: 'inline-block' };
 const Demo: React.FunctionComponent<Props> = (props) => {
   const [codeVisible, setCodeVisible] = useState(false);
   const { code, children } = props;
-  const hightLightCode = <pre style={style}><code>{code}</code></pre>;
+  const codePreview = <pre style={style}><code>{code}</code></pre>;
   return (
     <>
       <div>
@@ -17,7 +17,7 @@ const Demo: React.FunctionComponent<Props> = (props) => {
       <div>
         <Button style={{ margin: '0.5em 0' }} type="button" onClick={() => setCodeVisible(!codeVisible)}>Code Preview</Button>
       </div>
-      {codeVisible && hightLightCode}
+      {codeVisible && codePreview}
     </>
   );
 };

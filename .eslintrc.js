@@ -28,7 +28,6 @@ module.exports = {
     "jsx-a11y/no-static-element-interactions": 0,
     "no-unused-expressions": 0,
     "global-require": 0,
-    "import/no-webpack-loader-syntax": 0,
     "import/no-unresolved": 0,
     "no-console": "off",
     "@typescript-eslint/explicit-function-return-type": "off",

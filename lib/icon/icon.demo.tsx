@@ -1,10 +1,10 @@
 import React from 'react';
-import IconExample from './icon.example';
 import Demo from '../../demo';
+import Icon from './icon';
 
 const code = `import React from 'react';
 import {Icon} from 'daybreak';
-const IconExample: React.FunctionComponent = () => (
+const IconExample = () => (
   <div>
     <Icon name="qq" />
     <Icon name="alipay" />
@@ -13,11 +13,13 @@ const IconExample: React.FunctionComponent = () => (
 );
 export default IconExample;`;
 
-const IconDemo = () => (
-  // <Demo code={require('!!raw-loader!./icon.example.tsx').default}>
-  <Demo code={code}>
-    <IconExample />
-  </Demo>
+const IconExample = () => (
+  <>
+    <Icon name="qq" />
+    <Icon name="alipay" />
+    <Icon name="wechat" />
+    <Demo code={code} />
+  </>
 );
 
-export default IconDemo;
+export default IconExample;
