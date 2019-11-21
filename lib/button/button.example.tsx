@@ -12,7 +12,7 @@ const data = [
     'string',
     '"normal"/"primary"/"danger"',
     '"normal"',
-    'true',
+    'false',
   ],
 ];
 
@@ -21,7 +21,6 @@ import { Button } from 'daybreak';
 
 export default () => (
   <>
-    <h1>Button</h1>
     <Button>normal</Button>
     <Button mode="primary">primary</Button>
     <Button mode="danger">danger</Button>
