@@ -83,6 +83,7 @@ export default IconExample;`;
 const IconExample = () => (
   <>
     <h1>Icon</h1>
+    <h2>Example</h2>
     <Icon name="qq" />
     <Icon name="alipay" />
     <Icon name="wechat" />
