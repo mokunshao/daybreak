@@ -22,12 +22,8 @@
     transition: background-color 200ms;
   }
 
-  &-input ~ &-checkmark {
-    background-color: $grey;
-  }
-
   &:hover &-checkmark {
-    background-color: $grey2;
+    background-color: $grey;
   }
 
   &-input:checked ~ &-checkmark {
