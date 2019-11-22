@@ -11,9 +11,11 @@
     height: 1em;
     width: 1em;
     margin-right: 0.2em;
-    background-color: $grey;
+    background-color: $white;
+    border: 2px solid $black;
     border-radius: 50%;
     cursor: pointer;
+    transition: border 200ms;
   }
 
   &-group {
@@ -27,7 +29,7 @@
   }
 
   &-label:hover &-checkmark {
-    background-color: $grey2;
+    background-color: $grey;
   }
 
   &:checked ~ &-checkmark {
