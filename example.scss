@@ -51,12 +51,12 @@ a {
       border-left: 4px solid transparent;
       border-right: 4px solid transparent;
 
-      &:hover,
-      &.active {
-        background-color: $grey2;
+      &:hover {
+        background-color: $grey;
       }
 
       &.active {
+        background-color: $grey2;
         border-left-color: $black;
       }
     }
