@@ -1,7 +1,37 @@
+@import '../common.scss';
+
 .daybreak-radio {
+  visibility: hidden;
+  position: absolute;
+  height: 0;
+  width: 0;
+
+  &-checkmark {
+    display: inline-flex;
+    height: 1em;
+    width: 1em;
+    margin-right: 0.2em;
+    background-color: $grey;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
   &-group {
     display: inline-block;
   }
 
-  border: 1px solid red;
+  &-label {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  &-label:hover &-checkmark {
+    background-color: $grey2;
+  }
+
+  &:checked ~ &-checkmark {
+    background-color: $white;
+    border: 0.3em solid $black;
+  }
 }
