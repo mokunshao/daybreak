@@ -32,7 +32,8 @@ module.exports = {
     "no-console": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/no-explicit-any": "off",
-    "@typescript-eslint/no-var-requires": "off"
+    "@typescript-eslint/no-var-requires": "off",
+    "jsx-a11y/label-has-associated-control": "off"
   },
   settings: {
     'import/resolver': {

@@ -1,0 +1,53 @@
+@import '../common.scss';
+
+.daybreak-checkbox {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+
+  &-input {
+    opacity: 0;
+    cursor: pointer;
+    position: absolute;
+    height: 0;
+    width: 0;
+  }
+
+  &-checkmark {
+    display: inline-flex;
+    height: 1em;
+    width: 1em;
+    margin-right: 0.2em;
+    border: 2px solid $black;
+    transition: background-color 200ms;
+  }
+
+  &-input ~ &-checkmark {
+    background-color: $grey;
+  }
+
+  &:hover &-checkmark {
+    background-color: $grey2;
+  }
+
+  &-input:checked ~ &-checkmark {
+    background-color: $black;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0.4em;
+      height: 0.7em;
+      border: solid white;
+      border-width: 0 0.1em 0.1em 0;
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+  }
+
+  &-children {
+    display: inline-flex;
+  }
+}

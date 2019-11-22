@@ -12,6 +12,7 @@ import DialogExample from './lib/dialog/dialog.example';
 import LayoutExample from './lib/layout/layout.example';
 import FormExample from './lib/form/form.example';
 import ButtonExample from './lib/button/button.example';
+import CheckboxExample from './lib/checkbox/checkbox.example';
 
 ReactDOM.render((
   <Router>
@@ -24,6 +25,7 @@ ReactDOM.render((
           <NavLink className="site-aside-link" to="/layout">Layout</NavLink>
           <NavLink className="site-aside-link" to="/form">Form</NavLink>
           <NavLink className="site-aside-link" to="/button">Button</NavLink>
+          <NavLink className="site-aside-link" to="/checkbox">Checkbox</NavLink>
         </Aside>
         <Content className="site-content">
           <Route path="/icon" component={IconExample} />
@@ -31,6 +33,7 @@ ReactDOM.render((
           <Route path="/layout" component={LayoutExample} />
           <Route path="/form" component={FormExample} />
           <Route path="/button" component={ButtonExample} />
+          <Route path="/checkbox" component={CheckboxExample} />
         </Content>
       </Layout>
     </Layout>
