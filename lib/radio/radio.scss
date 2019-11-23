@@ -1,10 +1,9 @@
 @import '../common.scss';
 
 .daybreak-radio {
-  visibility: hidden;
-  position: absolute;
-  height: 0;
-  width: 0;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
 
   &-checkmark {
     display: inline-flex;
@@ -23,17 +22,18 @@
     display: inline-block;
   }
 
-  &-label {
-    display: inline-flex;
-    align-items: center;
-    cursor: pointer;
+  &-input {
+    visibility: hidden;
+    position: absolute;
+    height: 0;
+    width: 0;
   }
 
-  &-label:hover &-checkmark {
+  &:hover &-checkmark {
     background-color: $grey;
   }
 
-  &:checked ~ &-checkmark {
+  &-input:checked ~ &-checkmark {
     background-color: $white;
     border: 0.3em solid $black;
   }

@@ -10,8 +10,8 @@ export const Radio: React.FC<InputHTMLAttributes<HTMLInputElement>> = (props) =>
     children, className, onChange, ...rest
   } = props;
   return (
-    <label className={baseClass('label')}>
-      <input className={classes(baseClass(), className)} type="radio" {...rest} onChange={onChange} />
+    <label className={classes(baseClass(), className)}>
+      <input className={baseClass('input')} type="radio" {...rest} onChange={onChange} />
       <span className={baseClass('checkmark')} />
       {children}
     </label>
