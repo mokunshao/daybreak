@@ -5,11 +5,13 @@ import './radio.scss';
 
 const baseClass = joinedClass('radio');
 
-export const Radio: React.FC<InputHTMLAttributes<HTMLElement>> = (props) => {
-  const { children, className, ...rest } = props;
+export const Radio: React.FC<InputHTMLAttributes<HTMLInputElement>> = (props) => {
+  const {
+    children, className, onChange, ...rest
+  } = props;
   return (
     <label className={baseClass('label')}>
-      <input className={classes(baseClass(), className)} type="radio" {...rest} />
+      <input className={classes(baseClass(), className)} type="radio" {...rest} onChange={onChange} />
       <span className={baseClass('checkmark')} />
       {children}
     </label>
