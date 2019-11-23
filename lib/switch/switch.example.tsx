@@ -12,7 +12,8 @@ export const SwitchExample: React.FC = () => {
   return (
     <>
       <Switch checked={state.checkedA} onChange={(e) => onChange(e, 'checkedA')} />
-      <Switch checked={state.checkedB} onChange={(e) => onChange(e, 'checkedB')} />
+      <br />
+      <Switch checked={state.checkedB} onChange={(e) => onChange(e, 'checkedB')}>问</Switch>
     </>
   );
 };
