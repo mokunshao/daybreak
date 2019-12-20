@@ -1,68 +1,53 @@
 @import './lib/common.scss';
 
-// * {
-// padding: 0;
-// margin: 0;
-// box-sizing: border-box;
-
-// &::before,
-// &::after {
-// box-sizing: border-box;
-// }
-// }
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 { font-weight: normal; }
-
-a {
-  text-decoration: none;
+body {
+  margin: 0;
 }
 
-.site-page {
-  background-color: $white;
-  min-height: 100vh;
-
-  .site-header {
-    border-bottom: 1px solid $grey2;
-    padding: 0.5em;
-    font-size: 20px;
-
-    .logo {
-      display: inline-block;
-      padding: $padding;
-      background-color: $black;
-      color: $white;
-      cursor: pointer;
-    }
-  }
-
-  .site-aside {
+#root {
+  .site-page {
     background-color: $white;
+    min-height: 100vh;
 
-    .site-aside-link {
-      display: block;
-      color: $black;
-      padding: 0.5em 1em;
-      box-sizing: border-box;
-      border-left: 4px solid transparent;
-      border-right: 4px solid transparent;
+    .site-header {
+      border-bottom: 1px solid $grey2;
+      padding: 0.5em;
+      font-size: 20px;
 
-      &:hover {
-        background-color: $grey;
-      }
-
-      &.active {
-        background-color: $grey2;
-        border-left-color: $black;
+      .logo {
+        display: inline-block;
+        padding: $padding;
+        background-color: $black;
+        color: $white;
+        cursor: pointer;
       }
     }
-  }
 
-  .site-content {
-    padding: 1em;
+    .site-aside {
+      background-color: $white;
+
+      .site-aside-link {
+        display: block;
+        color: $black;
+        padding: 0.5em 1em;
+        box-sizing: border-box;
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        text-decoration: none;
+
+        &:hover {
+          background-color: $grey;
+        }
+
+        &.active {
+          background-color: $grey2;
+          border-left-color: $black;
+        }
+      }
+    }
+
+    .site-content {
+      padding: 1em;
+    }
   }
 }
