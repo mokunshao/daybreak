@@ -5,7 +5,7 @@ module.exports = {
     daybreak: './lib/index.tsx',
   },
   output: {
-    path: path.resolve(__dirname, 'dist/lib'),
+    path: path.resolve(__dirname, 'dist'),
     library: 'daybreak',
     libraryTarget: 'umd',
   },
