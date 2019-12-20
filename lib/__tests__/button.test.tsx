@@ -1,9 +1,9 @@
 import renderer from 'react-test-renderer';
 import React from 'react';
-import Button from '../button';
+import Button from '../button/button';
 
 describe('button', () => {
-  it('是个 div', () => {
+  it('是个 button', () => {
     const json = renderer.create(<Button />).toJSON();
     expect(json).toMatchSnapshot();
   });
