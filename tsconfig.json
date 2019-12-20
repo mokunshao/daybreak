@@ -4,7 +4,7 @@
     "dist"
   ],
   "include": [
-    "lib/**/*"
+    "lib/**/*", "site/**/*"
   ],
   "compilerOptions": {
     /* Basic Options */

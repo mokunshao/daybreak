@@ -5,12 +5,12 @@ module.exports = {
   ...baseConfig,
   mode: 'development',
   entry: {
-    example: './example.tsx',
+    example: './site/example.tsx',
   },
   plugins: [
     new HtmlWebpackPlugin({
       title: 'daybreak',
-      template: 'example.html',
+      template: './site/example.html',
       filename: 'index.html',
     }),
   ],

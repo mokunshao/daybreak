@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Checkbox } from './checkbox';
+import { Checkbox } from '../../lib/checkbox/checkbox';
 
 export const CheckboxExample: React.FC = () => {
   const [checked1, setChecked1] = useState(true);

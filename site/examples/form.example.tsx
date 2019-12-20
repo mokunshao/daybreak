@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import Form, { FormValues, ErrorsMap } from './form';
-import { Validator, noError } from './validator';
-import { Alert } from '../dialog/dialog';
-import { Button } from '../button/button';
+import Form, { FormValues, ErrorsMap } from '../../lib/form/form';
+import { Validator, noError } from '../../lib/form/validator';
+import { Alert } from '../../lib/dialog/dialog';
+import { Button } from '../../lib/button/button';
 
 function checkUserName(username: string, resolve: any, reject: any) {
   setTimeout(() => {

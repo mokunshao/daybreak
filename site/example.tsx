@@ -6,15 +6,15 @@ import {
 import './example.scss';
 import {
   Layout, Header, Aside, Content,
-} from './lib/layout/layout';
-import IconExample from './lib/icon/icon.example';
-import DialogExample from './lib/dialog/dialog.example';
-import LayoutExample from './lib/layout/layout.example';
-import FormExample from './lib/form/form.example';
-import ButtonExample from './lib/button/button.example';
-import CheckboxExample from './lib/checkbox/checkbox.example';
-import RadioExample from './lib/radio/radio.example';
-import SwitchExample from './lib/switch/switch.example';
+} from '../lib/layout/layout';
+import IconExample from './examples/icon.example';
+import DialogExample from './examples/dialog.example';
+import LayoutExample from './examples/layout.example';
+import FormExample from './examples/form.example';
+import ButtonExample from './examples/button.example';
+import CheckboxExample from './examples/checkbox.example';
+import RadioExample from './examples/radio.example';
+import SwitchExample from './examples/switch.example';
 
 ReactDOM.render((
   <Router>
