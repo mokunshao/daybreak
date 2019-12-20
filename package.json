@@ -8,9 +8,9 @@
     "/dist/**/*"
   ],
   "scripts": {
-    "start": "cross-env NODE_ENV=development webpack-dev-server --config webpack.config.dev.js --open",
-    "build": "cross-env NODE_ENV=production webpack --config webpack.config.prod.js",
-    "doc": "cross-env NODE_ENV=production webpack --config webpack.config.doc.js",
+    "doc:serve": "cross-env NODE_ENV=development webpack-dev-server --config webpack.config.dev.js --open",
+    "doc:build": "cross-env NODE_ENV=production webpack --config webpack.config.doc.js",
+    "lib:build": "cross-env NODE_ENV=production webpack --config webpack.config.prod.js",
     "test": "jest"
   },
   "repository": {
@@ -52,6 +52,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-react-hooks": "^1.7.0",
+    "html-webpack-plugin": "^3.2.0",
     "jest": "^24.9.0",
     "react-test-renderer": "^16.9.0",
     "sass": "^1.22.12",
