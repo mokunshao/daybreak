@@ -6,9 +6,8 @@
   left: 50%;
   transform: translate(-50%, -50%);
   background: white;
-  border-radius: 3px;
   padding: 0.5em;
-  border: 1px solid $color2;
+  border: 1px solid $black;
 
   &-mask {
     position: fixed;
