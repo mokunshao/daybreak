@@ -1,5 +1,5 @@
 const path = require('path');
-const devConfig = require('./webpack.dev.config');
+const devConfig = require('./webpack.config.dev');
 
 module.exports = {
   ...devConfig,
