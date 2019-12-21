@@ -30,7 +30,11 @@ const Input: React.FunctionComponent<Props> = (props) => {
     const { current } = inputElement;
     if (!current) return null;
     if (!current.value) return null;
-    return <Icon name="clear" className={baseClass('clear')} onClick={clear} />;
+    return (
+      <span title="clear value">
+        <Icon name="clear" className={baseClass('clear')} onClick={clear} />
+      </span>
+    );
   }
 
   return (
