@@ -2,14 +2,22 @@ import React from 'react';
 import { classes } from '../utils/classes';
 import { joinedClass } from '../utils/joinedClass';
 import './input.scss';
+import Icon from '../icon/icon';
 
-const input = joinedClass('input');
+const baseClass = joinedClass('input');
 
-type Props = React.InputHTMLAttributes<HTMLInputElement>;
+interface Props extends React.InputHTMLAttributes<HTMLInputElement>{
+  clearable?: boolean;
+}
 
 const Input: React.FunctionComponent<Props> = (props) => {
-  const { className, ...rest } = props;
-  return <input className={classes(input(), className)} {...rest} />;
+  const { className, clearable, ...rest } = props;
+  return (
+    <div className={baseClass('wrapper')}>
+      <input className={classes(baseClass(), className)} {...rest} />
+      {clearable && <Icon name="clear" className={baseClass('clear')} />}
+    </div>
+  );
 };
 
 

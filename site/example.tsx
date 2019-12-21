@@ -15,6 +15,7 @@ import ButtonExample from './examples/button.example';
 import CheckboxExample from './examples/checkbox.example';
 import RadioExample from './examples/radio.example';
 import SwitchExample from './examples/switch.example';
+import inputExample from './examples/input.example';
 
 ReactDOM.render((
   <Router>
@@ -30,6 +31,7 @@ ReactDOM.render((
           <NavLink className="site-aside-link" to="/checkbox">Checkbox</NavLink>
           <NavLink className="site-aside-link" to="/radio">Radio</NavLink>
           <NavLink className="site-aside-link" to="/switch">Switch</NavLink>
+          <NavLink className="site-aside-link" to="/input">Input</NavLink>
         </Aside>
         <Content className="site-content">
           <Route path="/icon" component={IconExample} />
@@ -40,6 +42,7 @@ ReactDOM.render((
           <Route path="/checkbox" component={CheckboxExample} />
           <Route path="/radio" component={RadioExample} />
           <Route path="/switch" component={SwitchExample} />
+          <Route path="/input" component={inputExample} />
         </Content>
       </Layout>
     </Layout>

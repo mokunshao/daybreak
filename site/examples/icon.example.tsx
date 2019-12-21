@@ -36,6 +36,10 @@ const data2 = [
     <Icon name="caution" />,
   ],
   [
+    'clear',
+    <Icon name="clear" />,
+  ],
+  [
     'download',
     <Icon name="download" />,
   ],
