@@ -88,6 +88,10 @@ export default function () {
       <div>
         <CodePreview code={code2} />
       </div>
+      <h3>Input for password</h3>
+      <div>
+        <Input type="password" />
+      </div>
       <h2>Props</h2>
       <Table columns={columns} data={data} />
     </div>

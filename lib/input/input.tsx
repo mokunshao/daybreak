@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { classes } from '../utils/classes';
 import { joinedClass } from '../utils/joinedClass';
 import './input.scss';
@@ -14,8 +14,10 @@ interface Props extends React.InputHTMLAttributes<HTMLInputElement>{
 const Input: React.FunctionComponent<Props> = (props) => {
   const inputElement = useRef<HTMLInputElement>(null);
   const {
-    className, clearable, onClear, ...rest
+    className, clearable, onClear, type, ...rest
   } = props;
+
+  const [type2, setType2] = useState('password');
 
   function clear() {
     const { current } = inputElement;
@@ -37,9 +39,43 @@ const Input: React.FunctionComponent<Props> = (props) => {
     );
   }
 
+  useEffect(() => {
+    if (type)setType2(type);
+  }, [type]);
+
+  function showPassword() {
+    setType2('text');
+  }
+
+  function hidePassword() {
+    setType2('password');
+  }
+
+  function showPasswordIcon() {
+    if (type !== 'password') return null;
+    if (type2 === 'password') {
+      return (
+        <span title="show password">
+          <Icon name="show" className={baseClass('password')} onClick={showPassword} />
+        </span>
+      );
+    }
+    return (
+      <span title="hide password">
+        <Icon name="hide" className={baseClass('password')} onClick={hidePassword} />
+      </span>
+    );
+  }
+
   return (
     <div className={baseClass('wrapper')}>
-      <input ref={inputElement} className={classes(baseClass(), className)} {...rest} />
+      <input
+        ref={inputElement}
+        className={classes(baseClass(), className)}
+        type={type2}
+        {...rest}
+      />
+      {showPasswordIcon()}
       {showClearIcon()}
     </div>
   );
