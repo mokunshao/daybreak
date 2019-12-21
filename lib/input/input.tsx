@@ -17,7 +17,11 @@ const Input: React.FunctionComponent<Props> = (props) => {
     className, clearable, onClear, type, ...rest
   } = props;
 
-  const [type2, setType2] = useState('password');
+  const [type2, setType2] = useState('text');
+
+  useEffect(() => {
+    if (type) setType2(type);
+  }, [type]);
 
   function clear() {
     const { current } = inputElement;
@@ -33,15 +37,11 @@ const Input: React.FunctionComponent<Props> = (props) => {
     if (!current) return null;
     if (!current.value) return null;
     return (
-      <span title="clear value">
-        <Icon name="clear" className={baseClass('clear')} onClick={clear} />
+      <span title="clear value" className={baseClass('icon')}>
+        <Icon name="clear" className={baseClass('icon', 'clear')} onClick={clear} />
       </span>
     );
   }
-
-  useEffect(() => {
-    if (type)setType2(type);
-  }, [type]);
 
   function showPassword() {
     setType2('text');
@@ -55,14 +55,14 @@ const Input: React.FunctionComponent<Props> = (props) => {
     if (type !== 'password') return null;
     if (type2 === 'password') {
       return (
-        <span title="show password">
-          <Icon name="show" className={baseClass('password')} onClick={showPassword} />
+        <span title="show password" className={baseClass('icon')}>
+          <Icon name="show" className={baseClass('icon', 'password')} onClick={showPassword} />
         </span>
       );
     }
     return (
-      <span title="hide password">
-        <Icon name="hide" className={baseClass('password')} onClick={hidePassword} />
+      <span title="hide password" className={baseClass('icon')}>
+        <Icon name="hide" className={baseClass('icon', 'password')} onClick={hidePassword} />
       </span>
     );
   }
@@ -75,8 +75,10 @@ const Input: React.FunctionComponent<Props> = (props) => {
         type={type2}
         {...rest}
       />
-      {showPasswordIcon()}
-      {showClearIcon()}
+      <div className={baseClass('icons')}>
+        {showPasswordIcon()}
+        {showClearIcon()}
+      </div>
     </div>
   );
 };

@@ -14,24 +14,37 @@
     position: relative;
   }
 
-  &-clear {
+  &:focus {
+    border: 2px solid $black;
+    background-color: $grey;
+  }
+
+  &-icons {
     position: absolute;
     top: 50%;
     right: 0.5em;
     transform: translateY(-50%);
-    cursor: pointer;
-    width: 1em;
-    height: 1em;
+    display: inline-flex;
+    align-items: center;
   }
 
-  &-password {
-    cursor: pointer;
-    width: 1em;
-    height: 1em;
+  &-icon {
+    display: inline-flex;
+
+    &-clear {
+      cursor: pointer;
+      width: 1em;
+      height: 1em;
+    }
+
+    &-password {
+      cursor: pointer;
+      width: 1em;
+      height: 1em;
+    }
   }
 
-  &:focus {
-    border: 2px solid $black;
-    background-color: $grey;
+  &-icon + &-icon {
+    margin-left: 0.5em;
   }
 }
