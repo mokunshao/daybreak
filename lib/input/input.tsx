@@ -22,6 +22,7 @@ const Input: React.FunctionComponent<Props> = (props) => {
     if (!current) return;
     current.value = '';
     if (onClear) onClear();
+    current.focus();
   }
 
   function showClearIcon() {
