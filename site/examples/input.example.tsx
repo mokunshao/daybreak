@@ -14,6 +14,14 @@ const data = [
     'false',
     'false',
   ],
+  [
+    'onClear',
+    'aciton after clear',
+    'function',
+    '-',
+    '-',
+    'false',
+  ],
 ];
 
 const code1 = `import React, { useState } from 'react';
@@ -50,9 +58,38 @@ export default function () {
 }
 `;
 
+const code3 = `import React, { useState } from 'react';
+import { Input } from 'daybreak';
+
+export default function () {
+  const [value3, setValue3] = useState('');
+  const [value4, setValue4] = useState('');
+  return (
+    <div>
+      <Input 
+        type="password" 
+        value={value3} 
+        onChange={(e) => setValue3(e.target.value)} 
+      />
+      <br />
+      <br />
+      <Input 
+        type="password"
+        value={value4}
+        onChange={(e) => setValue4(e.target.value)}
+        clearable
+        onClear={() => setValue4('')} 
+      />
+    </div>
+  );
+}
+`;
+
 export default function () {
   const [value, setValue] = useState('');
   const [value2, setValue2] = useState('');
+  const [value3, setValue3] = useState('');
+  const [value4, setValue4] = useState('');
   function onClear() {
     setValue2('');
   }
@@ -90,7 +127,13 @@ export default function () {
       </div>
       <h3>Input for password</h3>
       <div>
-        <Input type="password" />
+        <Input type="password" value={value3} onChange={(e) => setValue3(e.target.value)} />
+        <br />
+        <br />
+        <Input type="password" clearable value={value4} onChange={(e) => setValue4(e.target.value)} onClear={() => setValue4('')} />
+      </div>
+      <div>
+        <CodePreview code={code3} />
       </div>
       <h2>Props</h2>
       <Table columns={columns} data={data} />
