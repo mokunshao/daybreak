@@ -793,9 +793,9 @@
     "@babel/plugin-transform-typescript" "^7.7.2"
 
 "@babel/runtime@^7.1.2", "@babel/runtime@^7.4.0":
-  version "7.7.2"
-  resolved "https://registry.npm.taobao.org/@babel/runtime/download/@babel/runtime-7.7.2.tgz?cache=0&sync_timestamp=1573083066587&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40babel%2Fruntime%2Fdownload%2F%40babel%2Fruntime-7.7.2.tgz#111a78002a5c25fc8e3361bedc9529c696b85a6a"
-  integrity sha1-ERp4ACpcJfyOM2G+3JUpxpa4Wmo=
+  version "7.7.7"
+  resolved "https://registry.npm.taobao.org/@babel/runtime/download/@babel/runtime-7.7.7.tgz#194769ca8d6d7790ec23605af9ee3e42a0aa79cf"
+  integrity sha1-GUdpyo1td5DsI2Ba+e4+QqCqec8=
   dependencies:
     regenerator-runtime "^0.13.2"
 
@@ -4421,7 +4421,7 @@ he@1.2.x, he@^1.1.1:
 
 history@^4.9.0:
   version "4.10.1"
-  resolved "https://registry.npm.taobao.org/history/download/history-4.10.1.tgz?cache=0&sync_timestamp=1573187170781&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fhistory%2Fdownload%2Fhistory-4.10.1.tgz#33371a65e3a83b267434e2b3f3b1b4c58aad4cf3"
+  resolved "https://registry.npm.taobao.org/history/download/history-4.10.1.tgz#33371a65e3a83b267434e2b3f3b1b4c58aad4cf3"
   integrity sha1-MzcaZeOoOyZ0NOKz87G0xYqtTPM=
   dependencies:
     "@babel/runtime" "^7.1.2"
@@ -7503,7 +7503,7 @@ rc@^1.2.7:
 
 react-dom@^16.9.0:
   version "16.12.0"
-  resolved "https://registry.npm.taobao.org/react-dom/download/react-dom-16.12.0.tgz?cache=0&sync_timestamp=1573776122518&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Freact-dom%2Fdownload%2Freact-dom-16.12.0.tgz#0da4b714b8d13c2038c9396b54a92baea633fe11"
+  resolved "https://registry.npm.taobao.org/react-dom/download/react-dom-16.12.0.tgz#0da4b714b8d13c2038c9396b54a92baea633fe11"
   integrity sha1-DaS3FLjRPCA4yTlrVKkrrqYz/hE=
   dependencies:
     loose-envify "^1.1.0"
@@ -7521,7 +7521,7 @@ react-is@^16.8.4:
   resolved "https://registry.npm.taobao.org/react-is/download/react-is-16.9.0.tgz#21ca9561399aad0ff1a7701c01683e8ca981edcb"
   integrity sha1-IcqVYTmarQ/xp3AcAWg+jKmB7cs=
 
-react-router-dom@^5.0.1:
+react-router-dom@^5.1.2:
   version "5.1.2"
   resolved "https://registry.npm.taobao.org/react-router-dom/download/react-router-dom-5.1.2.tgz#06701b834352f44d37fbb6311f870f84c76b9c18"
   integrity sha1-BnAbg0NS9E03+7YxH4cPhMdrnBg=
@@ -7562,7 +7562,7 @@ react-test-renderer@^16.0.0-0, react-test-renderer@^16.9.0:
 
 react@^16.9.0:
   version "16.12.0"
-  resolved "https://registry.npm.taobao.org/react/download/react-16.12.0.tgz?cache=0&sync_timestamp=1573776119616&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Freact%2Fdownload%2Freact-16.12.0.tgz#0c0a9c6a142429e3614834d5a778e18aa78a0b83"
+  resolved "https://registry.npm.taobao.org/react/download/react-16.12.0.tgz#0c0a9c6a142429e3614834d5a778e18aa78a0b83"
   integrity sha1-DAqcahQkKeNhSDTVp3jhiqeKC4M=
   dependencies:
     loose-envify "^1.1.0"

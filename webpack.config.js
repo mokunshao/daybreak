@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   entry: {
-    daybreak: './lib/index.tsx',
+    daybreak: path.resolve(__dirname, 'lib/index.tsx'),
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
