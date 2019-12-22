@@ -1,13 +1,13 @@
 @import '../common.scss';
 
 .daybreak-rating {
-  border: 1px solid $black;
   display: inline-flex;
 
   &-star {
     cursor: pointer;
     font-size: 1.5em;
     color: #ababab;
+    user-select: none;
 
     &-lighten {
       color: #ffd700;

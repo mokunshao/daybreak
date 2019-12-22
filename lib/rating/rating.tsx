@@ -8,7 +8,7 @@ export const baseClass = joinedClass('rating');
 
 interface Props{
   className?: string;
-  max: number;
+  max?: number;
   value: number;
   onChange: (value: number) => void;
   clearable?: boolean;
@@ -16,7 +16,7 @@ interface Props{
 
 const Rating: React.FC<Props> = (props) => {
   const {
-    className, max, value, onChange, clearable = false, ...rest
+    className, max = 5, value, onChange, clearable = false, ...rest
   } = props;
 
   const [override, setOverride] = useState(0);
