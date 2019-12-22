@@ -18,6 +18,7 @@ import SwitchExample from './examples/switch.example';
 import inputExample from './examples/input.example';
 import RatingExample from './examples/rating.example';
 import Home from './home';
+import MaskedInputExample from './examples/masked-input.example';
 
 ReactDOM.render((
   <Router>
@@ -36,6 +37,7 @@ ReactDOM.render((
           <NavLink className="site-aside-link" to="/switch">Switch</NavLink>
           <NavLink className="site-aside-link" to="/input">Input</NavLink>
           <NavLink className="site-aside-link" to="/rating">Rating</NavLink>
+          <NavLink className="site-aside-link" to="/masked-input">Masked Input</NavLink>
         </Aside>
         <Content className="site-content">
           <Route path="/" exact component={Home} />
@@ -49,6 +51,7 @@ ReactDOM.render((
           <Route path="/switch" component={SwitchExample} />
           <Route path="/input" component={inputExample} />
           <Route path="/rating" component={RatingExample} />
+          <Route path="/masked-input" component={MaskedInputExample} />
         </Content>
       </Layout>
     </Layout>
