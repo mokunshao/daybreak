@@ -6,8 +6,8 @@ export default function () {
       <h1>Daybreak</h1>
       <p>Daybreak is a UI components library based on React.js and Typescript</p>
       <p>
-        Before using This library,
-        make sure the React.js version of your project is not lower that 16.8.0.
+        Before using this library,
+        make sure the React.js version of your project is not lower than 16.8.0.
       </p>
       <h2>Installation</h2>
       <p>You can install using NPM:</p>
