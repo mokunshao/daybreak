@@ -10,7 +10,7 @@ import Content from './content';
 const layout = joinedClass('layout');
 
 interface Props extends React.HtmlHTMLAttributes<HTMLElement> {
-  children: React.ReactElement | Array<React.ReactElement>
+  children: React.ReactElement | Array<React.ReactElement>;
 }
 
 const Layout: React.FunctionComponent<Props> = (props) => {
