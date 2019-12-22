@@ -5,15 +5,15 @@ import classes from '../utils/classes';
 interface StarProps{
   lighten: boolean;
   index: number;
-  setOverride: (value: number|null) => void;
-  setRating: (value: number|null) => void;
-  clearable: boolean | undefined;
-  value: number|null;
+  setOverride: (value: number) => void;
+  setRating: (value: number) => void;
+  clearable: boolean;
+  rating: number;
 }
 
 const Star: React.FC<StarProps> = (props) => {
   const {
-    index, lighten, setOverride, setRating, clearable, value,
+    index, lighten, setOverride, setRating, clearable, rating,
   } = props;
 
   const [down, setDown] = useState<boolean>(false);
@@ -27,20 +27,20 @@ const Star: React.FC<StarProps> = (props) => {
   }, []);
 
   const click = useCallback(() => {
-    if (clearable && value === index) {
-      setRating(null);
-      setOverride(null);
+    if (clearable && rating === index) {
+      setRating(0);
+      setOverride(0);
     } else {
       setRating(index);
     }
-  }, [clearable, index, setOverride, setRating, value]);
+  }, [clearable, index, rating, setOverride, setRating]);
 
   const mouseEnter = useCallback(() => {
     setOverride(index);
   }, [index, setOverride]);
 
   const mouseLeave = useCallback(() => {
-    setOverride(null);
+    setOverride(0);
   }, [setOverride]);
 
   return (

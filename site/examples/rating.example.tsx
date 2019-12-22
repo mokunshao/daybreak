@@ -3,7 +3,7 @@ import Rating from '../../lib/rating/rating';
 
 export default function () {
   const [value, setValue] = useState(1);
-  const [value2, setValue2] = useState<null|number>(1);
+  const [value2, setValue2] = useState(3);
   return (
     <div>
       <h1>Rating</h1>

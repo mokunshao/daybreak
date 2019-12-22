@@ -9,26 +9,26 @@ export const baseClass = joinedClass('rating');
 interface Props{
   className?: string;
   max: number;
-  value: number|null;
-  onChange: (value: number|null) => void;
-  clearable?: boolean|undefined;
+  value: number;
+  onChange: (value: number) => void;
+  clearable?: boolean;
 }
 
 const Rating: React.FC<Props> = (props) => {
   const {
-    className, max, value, onChange, clearable, ...rest
+    className, max, value, onChange, clearable = false, ...rest
   } = props;
 
-  const [override, setOverride] = useState<number|null>(null);
+  const [override, setOverride] = useState(0);
 
   const stars = [];
 
   for (let index = 1; index <= max; index += 1) {
     stars.push(<Star
-      lighten={index <= (override || value || 0)}
+      lighten={index <= (override || value)}
       index={index}
       key={index}
-      value={value}
+      rating={value}
       setOverride={setOverride}
       setRating={onChange}
       clearable={clearable}
