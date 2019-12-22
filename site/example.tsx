@@ -16,6 +16,8 @@ import CheckboxExample from './examples/checkbox.example';
 import RadioExample from './examples/radio.example';
 import SwitchExample from './examples/switch.example';
 import inputExample from './examples/input.example';
+import RatingExample from './examples/rating.example';
+import Home from './home';
 
 ReactDOM.render((
   <Router>
@@ -23,6 +25,7 @@ ReactDOM.render((
       <Header className="site-header"><Link to="/"><div className="logo">Daybreak</div></Link></Header>
       <Layout>
         <Aside className="site-aside">
+          <NavLink className="site-aside-link" to="/" exact>Home</NavLink>
           <NavLink className="site-aside-link" to="/icon">Icon</NavLink>
           <NavLink className="site-aside-link" to="/dialog">Dialog</NavLink>
           <NavLink className="site-aside-link" to="/layout">Layout</NavLink>
@@ -34,6 +37,7 @@ ReactDOM.render((
           <NavLink className="site-aside-link" to="/input">Input</NavLink>
         </Aside>
         <Content className="site-content">
+          <Route path="/" exact component={Home} />
           <Route path="/icon" component={IconExample} />
           <Route path="/dialog" component={DialogExample} />
           <Route path="/layout" component={LayoutExample} />
