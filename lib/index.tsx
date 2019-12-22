@@ -1,6 +1,6 @@
 import Button from './button/button';
 import Checkbox from './checkbox/checkbox';
-import Dialog from './dialog/dialog';
+import Dialog, { Modal, Alert, Confirm } from './dialog/dialog';
 import Form from './form/form';
 import Icon from './icon/icon';
 import Input from './input/input';
@@ -20,6 +20,9 @@ export {
   Button,
   Checkbox,
   Dialog,
+  Modal,
+  Alert,
+  Confirm,
   Form,
   Icon,
   Input,
