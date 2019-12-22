@@ -35,6 +35,7 @@ ReactDOM.render((
           <NavLink className="site-aside-link" to="/radio">Radio</NavLink>
           <NavLink className="site-aside-link" to="/switch">Switch</NavLink>
           <NavLink className="site-aside-link" to="/input">Input</NavLink>
+          <NavLink className="site-aside-link" to="/rating">Rating</NavLink>
         </Aside>
         <Content className="site-content">
           <Route path="/" exact component={Home} />
@@ -47,6 +48,7 @@ ReactDOM.render((
           <Route path="/radio" component={RadioExample} />
           <Route path="/switch" component={SwitchExample} />
           <Route path="/input" component={inputExample} />
+          <Route path="/rating" component={RatingExample} />
         </Content>
       </Layout>
     </Layout>

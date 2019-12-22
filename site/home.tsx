@@ -4,7 +4,7 @@ export default function () {
   return (
     <div>
       <h1>Daybreak</h1>
-      <p>Daybreak is a UI components library based on React.js and Typescript</p>
+      <p>Daybreak is a UI components library based on React.js (with hooks) and Typescript</p>
       <p>
         Before using this library,
         make sure the React.js version of your project is not lower than 16.8.0.

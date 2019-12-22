@@ -1,0 +1,10 @@
+@import '../common.scss';
+
+.daybreak-rating {
+  border: 1px solid $black;
+  display: inline-flex;
+
+  &-star {
+    cursor: pointer;
+  }
+}
