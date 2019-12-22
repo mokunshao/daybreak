@@ -6,12 +6,14 @@ interface StarProps{
   lighten: boolean;
   index: number;
   setOverride: (value: number|null) => void;
-  setRating: (value: number) => void;
+  setRating: (value: number|null) => void;
+  clearable: boolean | undefined;
+  value: number|null;
 }
 
 const Star: React.FC<StarProps> = (props) => {
   const {
-    index, lighten, setOverride, setRating,
+    index, lighten, setOverride, setRating, clearable, value,
   } = props;
 
   const [down, setDown] = useState<boolean>(false);
@@ -25,8 +27,13 @@ const Star: React.FC<StarProps> = (props) => {
   }, []);
 
   const click = useCallback(() => {
-    setRating(index);
-  }, [index, setRating]);
+    if (clearable && value === index) {
+      setRating(null);
+      setOverride(null);
+    } else {
+      setRating(index);
+    }
+  }, [clearable, index, setOverride, setRating, value]);
 
   const mouseEnter = useCallback(() => {
     setOverride(index);

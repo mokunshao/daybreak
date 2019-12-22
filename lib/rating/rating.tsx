@@ -10,12 +10,13 @@ interface Props{
   className?: string;
   max: number;
   value: number|null;
-  onChange: (value: number) => void;
+  onChange: (value: number|null) => void;
+  clearable?: boolean|undefined;
 }
 
 const Rating: React.FC<Props> = (props) => {
   const {
-    className, max, value, onChange, ...rest
+    className, max, value, onChange, clearable, ...rest
   } = props;
 
   const [override, setOverride] = useState<number|null>(null);
@@ -27,8 +28,10 @@ const Rating: React.FC<Props> = (props) => {
       lighten={index <= (override || value || 0)}
       index={index}
       key={index}
+      value={value}
       setOverride={setOverride}
       setRating={onChange}
+      clearable={clearable}
     />);
   }
 
