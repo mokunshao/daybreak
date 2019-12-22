@@ -10,7 +10,7 @@ interface Props{
   className?: string;
   max: number;
   value: number|null;
-  onChange: (value: number|null) => void;
+  onChange: (value: number) => void;
 }
 
 const Rating: React.FC<Props> = (props) => {
