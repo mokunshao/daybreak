@@ -12,7 +12,8 @@ import Aside from './layout/aside';
 import Radio from './radio/radio';
 import RadioGroup from './radio/radio-group';
 import Switch from './switch/switch';
+import Rating from './rating';
 import CodePreview from './code-preview/code-preview';
 import Table from './table/table';
-export { Button, Checkbox, Dialog, Modal, Alert, Confirm, Form, Icon, Input, Layout, Header, Footer, Content, Aside, Radio, RadioGroup, Switch, CodePreview, Table, };
+export { Button, Checkbox, Dialog, Modal, Alert, Confirm, Form, Icon, Input, Layout, Header, Footer, Content, Aside, Radio, RadioGroup, Switch, CodePreview, Table, Rating, };
 //# sourceMappingURL=index.d.ts.map
