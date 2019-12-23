@@ -1,4 +1,4 @@
-import { format } from '../masked-input';
+import { format } from '../masked-input/masked-input';
 
 describe('MaskedInput', () => {
   describe('format', () => {
