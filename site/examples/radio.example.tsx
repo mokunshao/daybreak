@@ -1,6 +1,6 @@
 import React, { useState, ChangeEventHandler } from 'react';
-import { RadioGroup } from '../../lib/radio/radio-group';
-import { Radio } from '../../lib/radio/radio';
+import { RadioGroup } from '../../src/radio/radio-group';
+import { Radio } from '../../src/radio/radio';
 
 export const RadioExample = () => {
   const [value, setValue] = useState('yes');

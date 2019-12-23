@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Rating from '../../lib/rating/rating';
-import CodePreview from '../../lib/code-preview/code-preview';
-import { Table } from '../../lib/table/table';
+import Rating from '../../src/rating/rating';
+import CodePreview from '../../src/code-preview/code-preview';
+import { Table } from '../../src/table/table';
 
 const code1 = `import React, { useState } from 'react';
 import { Rating } from 'daybreak';

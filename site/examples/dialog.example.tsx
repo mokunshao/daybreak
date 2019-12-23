@@ -4,8 +4,8 @@ import {
   Alert,
   Confirm,
   Modal,
-} from '../../lib/dialog/dialog';
-import { Button } from '../../lib/button/button';
+} from '../../src/dialog/dialog';
+import { Button } from '../../src/button/button';
 
 const DialogExample: React.FunctionComponent = () => {
   const [x, setX] = useState(false);

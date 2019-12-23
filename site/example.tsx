@@ -6,7 +6,7 @@ import {
 import './example.scss';
 import {
   Layout, Header, Aside, Content,
-} from '../lib/layout/layout';
+} from '../src/layout/layout';
 import IconExample from './examples/icon.example';
 import DialogExample from './examples/dialog.example';
 import LayoutExample from './examples/layout.example';

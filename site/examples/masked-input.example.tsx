@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import MaskedInput from '../../lib/masked-input/masked-input';
-import CodePreview from '../../lib/code-preview/code-preview';
-import Table from '../../lib/table/table';
+import MaskedInput from '../../src/masked-input/masked-input';
+import CodePreview from '../../src/code-preview/code-preview';
+import Table from '../../src/table/table';
 
 const columns = ['Attribute', 'Description', 'Type', 'Accepted values', 'Default', 'Required'];
 

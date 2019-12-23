@@ -1,5 +1,5 @@
 import React, { useState, ChangeEvent } from 'react';
-import { Switch } from '../../lib/switch/switch';
+import { Switch } from '../../src/switch/switch';
 
 export const SwitchExample: React.FC = () => {
   const [state, setState] = useState({

@@ -3,6 +3,7 @@ module.exports = {
   testEnvironment: 'jsdom',
   verbose: true,
   transformIgnorePatterns: ['node_modules'],
+  testPathIgnorePatterns: ['<rootDir>/.docz/'],
   moduleNameMapper: {
     '^.+\\.(css|scss)$': '<rootDir>/mocks/styleMock.tsx',
     '^.+\\.(gif|ttf|eot|svg|png)$': '<rootDir>/mocks/fileMock.tsx',

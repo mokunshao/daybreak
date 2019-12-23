@@ -2,10 +2,10 @@ const path = require('path');
 
 module.exports = {
   entry: {
-    daybreak: path.resolve(__dirname, 'lib/index.tsx'),
+    daybreak: path.resolve(__dirname, 'src/index.tsx'),
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'lib'),
     library: 'daybreak',
     libraryTarget: 'umd',
   },

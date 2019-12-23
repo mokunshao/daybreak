@@ -2,17 +2,17 @@
   "name": "daybreak",
   "version": "0.0.3",
   "description": "A React UI Component Library.",
-  "main": "./dist/daybreak.js",
-  "types": "./dist/index.d.ts",
+  "main": "./lib/daybreak.js",
+  "types": "./lib/index.d.ts",
   "files": [
-    "dist"
+    "lib"
   ],
   "scripts": {
     "doc:serve": "cross-env NODE_ENV=development webpack-dev-server --config webpack.config.dev.js --open",
     "doc:build": "cross-env NODE_ENV=production webpack --config webpack.config.doc.js",
     "lib:build": "cross-env NODE_ENV=production webpack --config webpack.config.prod.js",
     "build": "yarn lib:build && yarn doc:build",
-    "test": "jest",
+    "test": "jest --config ./jest.config.js",
     "docz:dev": "docz dev",
     "docz:build": "docz build",
     "docz:serve": "docz build && docz serve"

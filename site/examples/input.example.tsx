@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Input from '../../lib/input/input';
-import Table from '../../lib/table/table';
-import CodePreview from '../../lib/code-preview/code-preview';
+import Input from '../../src/input/input';
+import Table from '../../src/table/table';
+import CodePreview from '../../src/code-preview/code-preview';
 
 const columns = ['Attribute', 'Description', 'Type', 'Accepted values', 'Default', 'Required'];
 

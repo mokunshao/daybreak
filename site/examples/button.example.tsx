@@ -1,7 +1,7 @@
 import React from 'react';
-import { Button } from '../../lib/button/button';
-import { Table } from '../../lib/table/table';
-import CodePreview from '../../lib/code-preview/code-preview';
+import { Button } from '../../src/button/button';
+import { Table } from '../../src/table/table';
+import CodePreview from '../../src/code-preview/code-preview';
 
 const columns = ['Attribute', 'Description', 'Type', 'Accepted values', 'Default', 'Required'];
 

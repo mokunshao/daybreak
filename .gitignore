@@ -66,3 +66,5 @@ typings/
 .circleci
 
 old-docs
+
+.docz/.cache
