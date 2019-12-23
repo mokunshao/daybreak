@@ -1,5 +1,5 @@
-import MaskedInput from './masked-input';
+import { MaskedInput, format } from './masked-input';
 
 export default MaskedInput;
 
-export { MaskedInput };
+export { MaskedInput, format };
