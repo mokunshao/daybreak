@@ -4,13 +4,11 @@ import { joinedClass } from '../utils/joinedClass';
 
 const baseClass = joinedClass('masked', 'input');
 
-type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
-
-type Props = Omit<React.HTMLProps<HTMLInputElement>, 'onChange' >& {
+interface Props extends Omit<React.HTMLProps<HTMLInputElement>, 'onChange' > {
   mask: string;
   value: string;
   onChange: (value: string) => void;
-};
+}
 
 const format = (val: string, template: string): string => {
   let i = 0;
