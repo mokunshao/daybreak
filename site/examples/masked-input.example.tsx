@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import MaskedInput from '../../lib/masked-input';
+import MaskedInput from '../../lib/masked-input/masked-input';
 import CodePreview from '../../lib/code-preview/code-preview';
 import Table from '../../lib/table/table';
 
