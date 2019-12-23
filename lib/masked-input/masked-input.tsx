@@ -2,7 +2,7 @@ import React from 'react';
 import Input, { Props as InputProps } from '../input/input';
 
 interface Props extends Omit<InputProps, 'onChange' > {
-  mask: string;
+  template: string;
   value: string;
   onChange: (value: string) => void;
 }
@@ -24,7 +24,7 @@ const format = (val: string, template: string): string => {
 
 const MaskedInput: React.FC<Props> = (props) => {
   const {
-    value, mask, onChange, ...rest
+    value, template, onChange, ...rest
   } = props;
 
   function change(e: React.ChangeEvent<HTMLInputElement>) {
@@ -35,8 +35,8 @@ const MaskedInput: React.FC<Props> = (props) => {
 
   return (
     <Input
-      placeholder={mask}
-      value={format(value, mask)}
+      placeholder={template}
+      value={format(value, template)}
       onChange={change}
       {...rest}
     />
