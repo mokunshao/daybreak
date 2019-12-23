@@ -7,9 +7,9 @@ export default function () {
     <div>
       <h1>Masked Input</h1>
       <MaskedInput
-        mask=""
+        mask="(###) ###-####"
         value={value}
-        onChange={(val: any) => { setValue(val); console.log(val); }}
+        onChange={(val: string) => { setValue(val); }}
       />
     </div>
   );

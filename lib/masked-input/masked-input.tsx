@@ -4,7 +4,9 @@ import { joinedClass } from '../utils/joinedClass';
 
 const baseClass = joinedClass('masked', 'input');
 
-type Props = React.HTMLProps<HTMLInputElement> & {
+type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
+
+type Props = Omit<React.HTMLProps<HTMLInputElement>, 'onChange' >& {
   mask: string;
   value: string;
   onChange: (value: string) => void;
@@ -29,16 +31,18 @@ const MaskedInput: React.FC<Props> = (props) => {
   const {
     value, mask, onChange, ...rest
   } = props;
+
   function change(e: React.ChangeEvent<HTMLInputElement>) {
     const { value: originalValue } = e.currentTarget;
     const cleanValue = originalValue.replace(/[\D]/g, '');
     onChange(cleanValue);
   }
+
   return (
     <div className={baseClass()}>
       <Input
         placeholder={mask}
-        value={value}
+        value={format(value, mask)}
         onChange={change}
         {...rest}
       />
