@@ -1,10 +1,6 @@
-import { css } from 'docz-plugin-css';
+import { svgSpriteLoader } from 'docz-plugin-svg-sprite-loader';
 
 export default {
   typescript: true,
-  plugins: [
-    css({
-      preprocessor: 'sass',
-    }),
-  ],
+  plugins: [svgSpriteLoader()],
 };

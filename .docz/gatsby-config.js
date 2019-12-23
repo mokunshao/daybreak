@@ -72,7 +72,7 @@ const config = {
         paths: {
           root: '/Users/mokunshao/Documents/GitHub/daybreak',
           templates:
-            '/Users/mokunshao/Documents/GitHub/daybreak/node_modules/docz/node_modules/docz-core/dist/templates',
+            '/Users/mokunshao/Documents/GitHub/daybreak/node_modules/docz-core/dist/templates',
           docz: '/Users/mokunshao/Documents/GitHub/daybreak/.docz',
           cache: '/Users/mokunshao/Documents/GitHub/daybreak/.docz/.cache',
           app: '/Users/mokunshao/Documents/GitHub/daybreak/.docz/app',
