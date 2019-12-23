@@ -1,10 +1,7 @@
 import React from 'react';
-import Input from '../input/input';
-import { joinedClass } from '../utils/joinedClass';
+import Input, { Props as InputProps } from '../input/input';
 
-const baseClass = joinedClass('masked', 'input');
-
-interface Props extends Omit<React.HTMLProps<HTMLInputElement>, 'onChange' > {
+interface Props extends Omit<InputProps, 'onChange' > {
   mask: string;
   value: string;
   onChange: (value: string) => void;
@@ -37,14 +34,12 @@ const MaskedInput: React.FC<Props> = (props) => {
   }
 
   return (
-    <div className={baseClass()}>
-      <Input
-        placeholder={mask}
-        value={format(value, mask)}
-        onChange={change}
-        {...rest}
-      />
-    </div>
+    <Input
+      placeholder={mask}
+      value={format(value, mask)}
+      onChange={change}
+      {...rest}
+    />
   );
 };
 

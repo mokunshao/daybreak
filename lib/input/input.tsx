@@ -6,7 +6,7 @@ import Icon from '../icon/icon';
 
 const baseClass = joinedClass('input');
 
-interface Props extends React.InputHTMLAttributes<HTMLInputElement>{
+export interface Props extends React.InputHTMLAttributes<HTMLInputElement>{
   clearable?: boolean;
   onClear?: Function;
 }
