@@ -8,7 +8,9 @@ import './tooltip.scss';
 
 const baseClass = joinedClass('tooltip');
 
-const PositionContext = React.createContext({ positon: new DOMRect() });
+// const PositionContext = React.createContext({ position: new DOMRectReadOnly() });
+
+const PositionContext = React.createContext({ position: { left: 0, top: 0, width: 0 } });
 
 interface Props extends HTMLProps<HTMLDivElement>{
   render: ReactNode;
@@ -17,7 +19,7 @@ interface Props extends HTMLProps<HTMLDivElement>{
 const ToolipItem: React.FC<{ render: ReactNode }> = (props) => {
   const { render } = props;
   const context = useContext(PositionContext);
-  const { top, left, width } = context.positon;
+  const { top, left, width } = context.position;
   const style = {
     bottom: `${window.innerHeight - top + 8 - window.scrollY}px`,
     left: `${left + width / 2 + window.scrollX}px`,
@@ -47,7 +49,7 @@ const Tooltip: React.FC<Props> = (props) => {
   function getPosition() {
     if (!element.current) return;
     const rect = element.current.getBoundingClientRect();
-    context.positon = rect;
+    context.position = rect;
   }
 
   function showTooltip() {
