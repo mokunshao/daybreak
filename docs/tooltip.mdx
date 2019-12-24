@@ -1,0 +1,20 @@
+---
+title: Tooltip
+---
+
+import { Playground, Props } from 'docz'
+import Tooltip from '../src/tooltip/tooltip.tsx'
+
+# Tooltip
+
+## Basic usage
+
+<Playground>
+  <Tooltip render="Hello">Hover over me</Tooltip>
+  <Tooltip render={<div>Hi</div>}>Hover over me</Tooltip>
+  <Tooltip><div>Hover over me</div></Tooltip>
+</Playground>
+
+## Props
+
+<Props of={Tooltip} />
