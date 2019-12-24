@@ -1,0 +1,9 @@
+.daybreak-tooltip {
+  border: 1px solid black;
+  display: inline-flex;
+
+  &-item {
+    position: fixed;
+    top: 100px;
+  }
+}

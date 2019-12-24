@@ -2,18 +2,16 @@ import React, { HTMLProps, ReactNode, useState } from 'react';
 import ReactDOM from 'react-dom';
 import { joinedClass } from '../utils/joinedClass';
 import { classes } from '../utils/classes';
+import './tooltip.scss';
 
 const baseClass = joinedClass('tooltip');
 
-// interface Props extends HTMLProps<HTMLElement>{
-//   render?: ReactNode;
-// }
-interface Props extends HTMLProps<HTMLElement>{
+interface Props extends HTMLProps<HTMLDivElement>{
   render?: ReactNode;
 }
 
 function ToolipItem() {
-  return ReactDOM.createPortal(<div>ToolipItem</div>, document.body);
+  return ReactDOM.createPortal(<div className={baseClass('item')}>ToolipItem</div>, document.body);
 }
 
 
@@ -28,11 +26,22 @@ const Tooltip: React.FC<Props> = (props) => {
     setTooltipVisible(true);
   }
 
+  function hideTooltip() {
+    setTooltipVisible(false);
+  }
+
   return (
     <>
-      <span className={classes(baseClass(), className)} onClick={showTooltip} {...rest}>
+      <div
+        className={classes(baseClass(), className)}
+        onMouseEnter={showTooltip}
+        onMouseLeave={hideTooltip}
+        onFocus={showTooltip}
+        onBlur={hideTooltip}
+        {...rest}
+      >
         {children}
-      </span>
+      </div>
       {tooltipVisible && <ToolipItem />}
     </>
   );
