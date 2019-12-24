@@ -13,7 +13,7 @@ module.exports = {
   reporters: ['default'],
   coverageDirectory: 'coverage',
   collectCoverageFrom: [
-    'lib/**/*.{js,jsx,ts,tsx}',
+    'src/**/*.{js,jsx,ts,tsx}',
     '!**/node_modules/**',
     '!**/vendor/**',
   ],
