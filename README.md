@@ -2,7 +2,7 @@
 
 A React UI Component Library.
 
-[![CircleCI](https://circleci.com/gh/mokunshao/daybreak.svg?style=svg)](https://circleci.com/gh/mokunshao/daybreak)
+[![CircleCI](https://circleci.com/gh/mokunshao/daybreak.svg?style=svg)](https://circleci.com/gh/mokunshao/daybreak) [![codecov](https://codecov.io/gh/mokunshao/daybreak/branch/master/graph/badge.svg)](https://codecov.io/gh/mokunshao/daybreak)
 
 ```
        __            __                    __  
