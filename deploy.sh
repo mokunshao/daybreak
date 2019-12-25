@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 set -e
 yarn docz:build
-cd .dozs/dist
+cd .docz/dist
 git init
 git add -A
 git commit -m 'deploy'
