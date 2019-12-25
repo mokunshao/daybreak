@@ -1,11 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Icon 是个 svg 1`] = `
-<svg
-  className="daybreak-icon"
->
-  <use
-    xlinkHref="#qq"
-  />
-</svg>
+<DocumentFragment>
+  <svg
+    class="daybreak-icon"
+  >
+    <use
+      xlink:href="#qq"
+    />
+  </svg>
+</DocumentFragment>
 `;

@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`button 是个 button 1`] = `
-<button
-  className="daybreak-button daybreak-button-normal"
-  onClick={[Function]}
-  type="button"
-/>
-`;

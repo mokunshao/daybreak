@@ -1,17 +1,18 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
-import { mount } from 'enzyme';
+import { render, fireEvent } from '@testing-library/react';
 import Icon from '../icon';
 
 describe('Icon', () => {
   it('是个 svg', () => {
-    const json = renderer.create(<Icon name="qq" />).toJSON();
-    expect(json).toMatchSnapshot();
+    const { asFragment } = render(<Icon name="qq" />);
+    expect(asFragment()).toMatchSnapshot();
   });
   it('onClick', () => {
     const fn = jest.fn();
-    const icon = mount(<Icon name="qq" onClick={fn} />);
-    icon.find('svg').simulate('click');
+    const { getByTestId } = render(<Icon name="qq" onClick={fn} data-testid="qq" />);
+    fireEvent.click(
+      getByTestId('qq'),
+    );
     expect(fn).toBeCalled();
   });
 });
