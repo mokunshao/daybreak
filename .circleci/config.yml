@@ -9,16 +9,22 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: circleci/node:10.13.0
-
+      - image: circleci/node:latest
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
       # documented at https://circleci.com/docs/2.0/circleci-images/
       # - image: circleci/mongo:3.4.4
+    filters:
+      branches:
+        only: master
 
     working_directory: ~/repo
 
     steps:
+      - add_ssh_keys:
+        fingerprints:
+          - "d8:75:39:ad:50:13:b8:f8:43:b2:46:1e:2f:ec:0a:07"
+
       - checkout
 
       # Download and cache dependencies
@@ -39,3 +45,7 @@ jobs:
       - run: yarn test
       - codecov/upload:
           file: coverage/*.json
+
+      - run:
+          name: Deploy docs to gh-pages branch
+          command: yarn deploy

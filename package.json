@@ -15,7 +15,8 @@
     "test": "jest --config ./jest.config.js",
     "docz:dev": "docz dev",
     "docz:build": "docz build",
-    "docz:serve": "docz build && docz serve"
+    "docz:serve": "docz build && docz serve",
+    "deploy": "bash deploy.sh"
   },
   "repository": {
     "type": "git",
