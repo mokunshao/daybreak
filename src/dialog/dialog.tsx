@@ -40,7 +40,7 @@ const Dialog: React.FunctionComponent<Props> = (props) => {
     };
   }, [closeOnEsc, onClose, visible]);
 
-  const content = visible ? (
+  const content = (
     <>
       <div className={dialog('mask')} onClick={onClickClose} />
       <div className={dialog()}>
@@ -60,9 +60,13 @@ const Dialog: React.FunctionComponent<Props> = (props) => {
         }
       </div>
     </>
-  ) : null;
+  );
 
-  return ReactDOM.createPortal(content, document.body);
+  if (visible) {
+    return ReactDOM.createPortal(content, document.body);
+  }
+
+  return null;
 };
 
 const Modal = (
