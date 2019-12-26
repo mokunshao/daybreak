@@ -21,9 +21,17 @@ jobs:
       run: |
         yarn
         yarn test
+      env:
+        CI: true
     - name: Codecov
       uses: codecov/codecov-action@v1.0.5
       with:
         token: ${{ secrets.CODECOV_TOKEN }} #required
+    - name: Deploy
+      if: success()
+      uses: crazy-max/ghaction-github-pages@v1
+      with:
+        target_branch: gh-pages
+        build_dir: ./
       env:
-        CI: true
+        GITHUB_TOKEN: ${{ secrets.GITHUB_PAT }}
