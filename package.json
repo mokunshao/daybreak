@@ -51,6 +51,7 @@
     "codecov": "^3.6.1",
     "cross-env": "^5.2.0",
     "css-loader": "^3.2.0",
+    "docz": "^2.2.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "eslint": "^5.16.0",
@@ -84,8 +85,5 @@
   "peerDependencies": {
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
-  },
-  "dependencies": {
-    "docz": "^2.2.0"
   }
 }
