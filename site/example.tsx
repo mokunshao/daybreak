@@ -19,6 +19,7 @@ import inputExample from './examples/input.example';
 import RatingExample from './examples/rating.example';
 import Home from './home';
 import MaskedInputExample from './examples/masked-input.example';
+import PaginationExample from './examples/pagination.example';
 
 ReactDOM.render((
   <Router>
@@ -38,6 +39,7 @@ ReactDOM.render((
           <NavLink className="site-aside-link" to="/input">Input</NavLink>
           <NavLink className="site-aside-link" to="/rating">Rating</NavLink>
           <NavLink className="site-aside-link" to="/masked-input">Masked Input</NavLink>
+          <NavLink className="site-aside-link" to="/pagination">Pagination</NavLink>
         </Aside>
         <Content className="site-content">
           <Route path="/" exact component={Home} />
@@ -52,6 +54,7 @@ ReactDOM.render((
           <Route path="/input" component={inputExample} />
           <Route path="/rating" component={RatingExample} />
           <Route path="/masked-input" component={MaskedInputExample} />
+          <Route path="/pagination" component={PaginationExample} />
         </Content>
       </Layout>
     </Layout>

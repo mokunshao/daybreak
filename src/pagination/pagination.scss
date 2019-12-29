@@ -1,0 +1,9 @@
+.daybreak-pagination {
+  display: inline-flex;
+  flex-direction: row;
+
+  &-button {
+    margin-left: 0.1em;
+    margin-right: 0.1em;
+  }
+}
