@@ -38,6 +38,18 @@ const Pagination: React.FC<Props> = (props) => {
     onChange(n);
   }, [arr.length, onChange]);
 
+  const renderButton = useCallback(() => arr.map((item) => (
+    <Button
+      className={baseClass('button')}
+      type="button"
+      key={item}
+      mode={current === item ? 'primary' : 'normal'}
+      onClick={() => handleClick(item)}
+    >
+      {item}
+    </Button>
+  )), [arr, current, handleClick]);
+
   return (
     <div className={classes(baseClass(), className)}>
       <Button
@@ -48,19 +60,7 @@ const Pagination: React.FC<Props> = (props) => {
       >
         <Icon name="left" />
       </Button>
-      {
-        arr.map((item) => (
-          <Button
-            className={baseClass('button')}
-            type="button"
-            key={item}
-            mode={current === item ? 'primary' : 'normal'}
-            onClick={() => handleClick(item)}
-          >
-            {item}
-          </Button>
-        ))
-      }
+      {renderButton()}
       <Button
         disabled={current === arr.length}
         className={baseClass('button')}
