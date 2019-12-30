@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pagination match snapshot 1`] = `
+<DocumentFragment>
+  <div>
+    <div
+      class="daybreak-pagination"
+    >
+      <button
+        class="daybreak-button daybreak-button-normal daybreak-pagination-button"
+        disabled=""
+        type="button"
+      >
+        <svg
+          class="daybreak-icon"
+        >
+          <use
+            xlink:href="#left"
+          />
+        </svg>
+      </button>
+      <button
+        class="daybreak-button daybreak-button-primary daybreak-pagination-button"
+        type="button"
+      >
+        1
+      </button>
+      <button
+        class="daybreak-button daybreak-button-normal daybreak-pagination-button"
+        type="button"
+      >
+        2
+      </button>
+      <button
+        class="daybreak-button daybreak-button-normal daybreak-pagination-button"
+        type="button"
+      >
+        3
+      </button>
+      <button
+        class="daybreak-button daybreak-button-normal daybreak-pagination-button"
+        type="button"
+      >
+        4
+      </button>
+      <button
+        class="daybreak-button daybreak-button-normal daybreak-pagination-button"
+        type="button"
+      >
+        5
+      </button>
+      <button
+        class="daybreak-button daybreak-button-normal daybreak-pagination-button"
+        type="button"
+      >
+        ...
+      </button>
+      <button
+        class="daybreak-button daybreak-button-normal daybreak-pagination-button"
+        type="button"
+      >
+        20
+      </button>
+      <button
+        class="daybreak-button daybreak-button-normal daybreak-pagination-button"
+        type="button"
+      >
+        <svg
+          class="daybreak-icon"
+        >
+          <use
+            xlink:href="#right"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;
