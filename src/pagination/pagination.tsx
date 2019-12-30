@@ -24,31 +24,56 @@ const Pagination: React.FC<Props> = (props) => {
 
   const pagesCount = useMemo(() => total / pageSize, [total, pageSize]);
 
-  const arr = useMemo(() => {
+  const arr: Array<any> = useMemo(() => {
     const array = [];
     for (let index = 0; index < pagesCount; index += 1) {
       array.push(index + 1);
     }
+
+    if (pagesCount > 10) {
+      if (current < 5) {
+        return [...array.slice(0, 5), '...', pagesCount];
+      }
+      if (current <= pagesCount - 4) {
+        return [1, '...', ...array.slice(current - 2, current + 1), '...', pagesCount];
+      }
+
+      return [1, '...', ...array.slice(pagesCount - 5, pagesCount)];
+    }
+
     return array;
-  }, [pagesCount]);
+  }, [current, pagesCount]);
 
   const handleClick = useCallback((n: number) => {
-    if (n < 1) return;
-    if (n > arr.length) return;
     onChange(n);
-  }, [arr.length, onChange]);
+  }, [onChange]);
 
-  const renderButton = useCallback(() => arr.map((item) => (
-    <Button
-      className={baseClass('button')}
-      type="button"
-      key={item}
-      mode={current === item ? 'primary' : 'normal'}
-      onClick={() => handleClick(item)}
-    >
-      {item}
-    </Button>
-  )), [arr, current, handleClick]);
+  const renderButton = useCallback(() => {
+    let dotCount = 0;
+    return arr.map((item) => {
+      if (item === '...') {
+        const n = dotCount;
+        dotCount += 1;
+        return (
+          <Button
+            key={`${item}${n}`}
+          >
+            {item}
+          </Button>
+        );
+      }
+      return (
+        <Button
+          className={baseClass('button')}
+          key={item}
+          mode={current === item ? 'primary' : 'normal'}
+          onClick={() => handleClick(item)}
+        >
+          {item}
+        </Button>
+      );
+    });
+  }, [arr, current, handleClick]);
 
   return (
     <div className={classes(baseClass(), className)}>
@@ -62,7 +87,7 @@ const Pagination: React.FC<Props> = (props) => {
       </Button>
       {renderButton()}
       <Button
-        disabled={current === arr.length}
+        disabled={current === pagesCount}
         className={baseClass('button')}
         type="button"
         onClick={() => handleClick(current + 1)}
