@@ -24,17 +24,21 @@ const Pagination: React.FC<Props> = (props) => {
 
   const pagesCount = useMemo(() => total / pageSize, [total, pageSize]);
 
-  const arr: Array<any> = useMemo(() => {
-    const array = [];
+  const array: number[] = useMemo(() => {
+    const arr = [];
     for (let index = 0; index < pagesCount; index += 1) {
-      array.push(index + 1);
+      arr.push(index + 1);
     }
+    return arr;
+  }, [pagesCount]);
 
+  const list: Array<number | string> = useMemo(() => {
     if (pagesCount > 10) {
       if (current < 5) {
         return [...array.slice(0, 5), '...', pagesCount];
       }
-      if (current <= pagesCount - 4) {
+
+      if (current < pagesCount - 3) {
         return [1, '...', ...array.slice(current - 2, current + 1), '...', pagesCount];
       }
 
@@ -42,26 +46,29 @@ const Pagination: React.FC<Props> = (props) => {
     }
 
     return array;
-  }, [current, pagesCount]);
+  }, [current, pagesCount, array]);
 
   const handleClick = useCallback((n: number) => {
+    if (n < 0 || n > pagesCount) return;
     onChange(n);
-  }, [onChange]);
+  }, [onChange, pagesCount]);
 
   const renderButton = useCallback(() => {
-    let dotCount = 0;
-    return arr.map((item) => {
-      if (item === '...') {
-        const n = dotCount;
-        dotCount += 1;
+    let ellipsesCount = 0;
+    return list.map((item) => {
+      if (typeof item === 'string') {
+        const i = ellipsesCount;
+        ellipsesCount += 1;
         return (
           <Button
-            key={`${item}${n}`}
+            className={baseClass('button')}
+            key={`${item}${i}`}
           >
             {item}
           </Button>
         );
       }
+
       return (
         <Button
           className={baseClass('button')}
@@ -73,7 +80,7 @@ const Pagination: React.FC<Props> = (props) => {
         </Button>
       );
     });
-  }, [arr, current, handleClick]);
+  }, [current, handleClick, list]);
 
   return (
     <div className={classes(baseClass(), className)}>
