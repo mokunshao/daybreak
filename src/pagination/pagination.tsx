@@ -17,7 +17,7 @@ interface Props extends Omit<HTMLProps<HTMLDivElement>, 'onChange'> {
   disabled?: boolean;
 }
 
-const Pagination: React.FC<Props> = (props) => {
+const Pagination: React.FC<Props> = React.memo((props) => {
   const {
     className, total, pageSize, current, onChange,
   } = props;
@@ -105,7 +105,7 @@ const Pagination: React.FC<Props> = (props) => {
       </Button>
     </div>
   );
-};
+});
 
 export default Pagination;
 
