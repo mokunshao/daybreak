@@ -14,7 +14,6 @@ interface Props extends Omit<HTMLProps<HTMLDivElement>, 'onChange'> {
   pageSize: number;
   total: number;
   onChange: (n: number) => void;
-  disabled?: boolean;
 }
 
 const Pagination: React.FC<Props> = React.memo((props) => {
