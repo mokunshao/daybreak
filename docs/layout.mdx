@@ -1,0 +1,81 @@
+---
+title: Layout
+---
+
+import {useState} from 'react';
+import { Playground, Props } from 'docz';
+import Layout from '../src/layout/layout.tsx';
+import Header from '../src/layout/header.tsx';
+import Content from '../src/layout/content.tsx';
+import Footer from '../src/layout/footer.tsx';
+import Aside from '../src/layout/aside.tsx';
+
+# Layout
+
+## Layout 1
+
+<Playground>
+{() => {
+  const headerStyle={
+    backgroundColor:'#f4f3f3',
+    padding:'1em',
+  }
+  const contentStyle={
+    backgroundColor:'#dfdfdf',
+    padding:'1em',
+  }
+  const footerStyle={
+    backgroundColor:'#bfd8d5',
+    padding:'1em',
+  }
+  const layoutStyle = {
+    height: 300,
+    maxWidth: 500,
+  }
+  return (
+    <Layout style={layoutStyle}>
+      <Header style={headerStyle}>header</Header>
+      <Content style={contentStyle}>content</Content>
+      <Footer style={footerStyle}>footer</Footer>
+    </Layout>
+  )
+}}
+</Playground>
+
+## Layout 2
+
+<Playground>
+{() => {
+  const headerStyle={
+    backgroundColor:'#f4f3f3',
+    padding:'1em',
+  }
+  const contentStyle={
+    backgroundColor:'#dfdfdf',
+    padding:'1em',
+  }
+  const asideStyle={
+    backgroundColor:'#bfd8d5',
+    padding:'1em',
+  }
+  const footerStyle = headerStyle;
+  const layoutStyle = {
+    height: 300,
+    maxWidth: 500,
+  }
+  return (
+    <Layout style={layoutStyle}>
+      <Header style={headerStyle}>header</Header>
+      <Layout>
+        <Aside style={asideStyle}>aside</Aside>
+        <Content style={contentStyle}>content</Content>
+      </Layout>
+      <Footer style={footerStyle}>footer</Footer>
+    </Layout>
+  )
+}}
+</Playground>
+
+## Props
+
+<Props of={Layout} />
