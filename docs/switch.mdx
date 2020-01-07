@@ -1,0 +1,34 @@
+---
+title: Switch
+---
+
+import {useState,ChangeEvent} from 'react'
+import { Playground, Props } from 'docz'
+import Switch from '../src/switch/switch.tsx'
+
+# Switch
+
+## Basic usage
+
+<Playground>
+  {()=>{
+    const [state, setState] = useState({
+    checkedA: true,
+    checkedB: false,
+    });
+    const onChange = (e, name) => {
+      setState({ ...state, [name]: e.target.checked });
+    };
+    return (
+      <div>
+        <Switch checked={state.checkedA} onChange={(e) => onChange(e, 'checkedA')} />
+        <br />
+        <Switch checked={state.checkedB} onChange={(e) => onChange(e, 'checkedB')}>Enable?</Switch>
+      </div>
+    );
+  }}
+</Playground>
+
+## Props
+
+<Props of={Switch} />
