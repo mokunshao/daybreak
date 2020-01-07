@@ -1,0 +1,32 @@
+---
+title: Pagination
+---
+
+import {useState} from 'react';
+import { Playground, Props } from 'docz';
+import Pagination from '../src/pagination/pagination.tsx';
+
+# Pagination
+
+## Basic usage
+
+<Playground>
+{() => {
+  const [current, setCurrent] = useState(1);
+  const [current2, setCurrent2] = useState(1);
+  const onChange = (n) => setCurrent(n);
+  const onChange2 = (n) => setCurrent2(n);
+  return (
+    <div>
+      <Pagination pageSize={10} total={200} current={current} onChange={onChange} />
+      <br />
+      <br />
+      <Pagination pageSize={10} total={40} current={current2} onChange={onChange2} />
+    </div>
+  );
+}}
+</Playground>
+
+## Props
+
+<Props of={Pagination} />
