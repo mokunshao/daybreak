@@ -2,15 +2,117 @@
 title: Dialog
 ---
 
+import {useState} from 'react'
 import { Playground, Props } from 'docz'
 import Example from '../site/examples/dialog.example.tsx'
+import {
+  Dialog,
+  Alert,
+  Confirm,
+  Modal,
+} from '../src/dialog/dialog.tsx'
+import Button from '../src/button/button.tsx'
 
 # Dialog
 
 ## Basic usage
 
 <Playground>
-<Example/>
+{()=>{
+  const [x, setX] = useState(false);
+  return (
+    <div>
+      <Button type="button" onClick={() => setX(!x)}>Open</Button>
+      <Dialog
+        visible={x}
+        buttons={
+          [
+            <Button type="button" onClick={() => setX(false)}>Yes</Button>,
+            <Button type="button" onClick={() => setX(false)}>No</Button>,
+          ]
+        }
+        onClose={() => setX(false)}
+      >
+        hello
+      </Dialog>
+    </div>
+  )
+}}
+</Playground>
+
+## Don't Close When Click the Mask
+
+<Playground>
+{()=>{
+  const [y, setY] = useState(false);
+  return (
+    <div>
+      <Button type="button" onClick={() => setY(!y)}>Open</Button>
+      <Dialog
+        visible={y}
+        buttons={
+          [
+            <Button type="button" onClick={() => setY(false)}>Yes</Button>,
+            <Button type="button" onClick={() => setY(false)}>No</Button>,
+          ]
+        }
+        onClose={() => setY(false)}
+        closeOnClickMask={false}
+      >
+        hello
+      </Dialog>
+    </div>
+  )
+}}
+</Playground>
+
+
+## Alert
+
+<Playground>
+  <Button type="button" onClick={() => Alert('hello')}>Open</Button>
+</Playground>
+
+## Confirm
+
+<Playground>
+  <Button type="button" onClick={() => Confirm('hello')}>Open</Button>
+</Playground>
+
+## Modal
+
+<Playground>
+  {()=>{
+    const openModel = () => {
+      const close = Modal(
+        (
+          <>
+            <h1>你好</h1>
+            <Button type="button" onClick={() => close()}>Close</Button>
+          </>
+        ),
+      );
+    };
+    return (
+      <Button type="button" onClick={openModel}>Open</Button>
+    )
+  }}
 </Playground>
 
 ## Props
+
+### Dialog
+
+<Props of={Dialog} />
+
+### Modal
+
+<Props of={Modal} />
+
+### Alert
+
+<Props of={Alert} />
+
+### Confirm
+
+<Props of={Confirm} />
