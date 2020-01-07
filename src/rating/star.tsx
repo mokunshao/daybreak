@@ -1,8 +1,8 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useState, HTMLProps } from 'react';
 import { baseClass } from './rating';
 import classes from '../utils/classes';
 
-interface StarProps{
+interface StarProps extends HTMLProps<HTMLSpanElement> {
   lighten: boolean;
   index: number;
   setOverride: (value: number) => void;
@@ -11,7 +11,7 @@ interface StarProps{
   rating: number;
 }
 
-const Star: React.FC<StarProps> = (props) => {
+const Star: React.FC<StarProps> = React.memo((props) => {
   const {
     index, lighten, setOverride, setRating, clearable, rating,
   } = props;
@@ -63,6 +63,6 @@ const Star: React.FC<StarProps> = (props) => {
       ★
     </span>
   );
-};
+});
 
 export default Star;
