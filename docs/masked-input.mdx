@@ -1,0 +1,40 @@
+---
+title: Masked Input
+---
+
+import {useState,ChangeEvent,ChangeEventHandler} from 'react'
+import { Playground, Props } from 'docz'
+import  MaskedInput from '../src/Masked-input/Masked-input.tsx';
+
+# Masked Input
+
+## Basic usage
+
+<Playground>
+  {()=>{
+    const [value, setValue] = useState('');
+    const [value2, setValue2] = useState('');
+    return (
+      <div>
+        <MaskedInput
+          mask="(###) ###-####"
+          value={value}
+          onChange={(val) => { setValue(val); }}
+        />
+        <br />
+        <br />
+        <MaskedInput
+          clearable
+          onClear={() => setValue2('')}
+          mask="### ### ###"
+          value={value2}
+          onChange={(val) => { setValue2(val); }}
+        />
+      </div>
+    )
+  }}
+</Playground>
+
+## Props
+
+<Props of={MaskedInput} />
