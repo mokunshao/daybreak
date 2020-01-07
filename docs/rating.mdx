@@ -1,0 +1,41 @@
+---
+title: Rating
+---
+
+import {useState} from 'react';
+import { Playground, Props } from 'docz';
+import Rating from '../src/rating/rating.tsx';
+
+# Icon
+
+## Basic usage
+
+<Playground>
+{() => {
+  const [value, setValue] = useState(1);
+  return (
+    <div>
+      <Rating value={value} max={5} onChange={(val) => setValue(val)} />
+    </div>
+  );
+}}
+</Playground>
+
+## Clearable
+
+When you repeatedly click on a star, all stars will lose their light
+
+<Playground>
+{() => {
+  const [value, setValue] = useState(3);
+  return (
+    <div>
+      <Rating clearable value={value} max={6} onChange={(val) => setValue(val)} />
+    </div>
+  );
+}}
+</Playground>
+
+## Props
+
+<Props of={Rating} />
