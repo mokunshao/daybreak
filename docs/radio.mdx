@@ -1,0 +1,48 @@
+---
+title: Radio
+---
+
+import {useState,ChangeEvent,ChangeEventHandler} from 'react'
+import { Playground, Props } from 'docz'
+import  Radio from '../src/radio/radio.tsx'
+import  RadioGroup from '../src/radio/radio-group.tsx';
+
+# Radio
+
+## Basic usage
+
+<Playground>
+  {()=>{
+    const [value, setValue] = useState('yes');
+    const [gender, setGender] = useState('female');
+    const onChange = (e) => {
+      setValue(e.target.value);
+    };
+    const onChange2 = (e) => {
+      setGender(e.target.value);
+    };
+    return (
+      <div>
+        <RadioGroup value={value} onChange={onChange}>
+          <Radio name="confirm" value="yes">Yes</Radio>
+          <Radio name="confirm" value="no">No</Radio>
+        </RadioGroup>
+        <br/>
+        <RadioGroup value={gender} onChange={onChange2}>
+          <Radio name="gender" value="male">Male</Radio>
+          <Radio name="gender" value="female">Female</Radio>
+        </RadioGroup>
+      </div>
+    );
+  }}
+</Playground>
+
+## Props
+
+### Radio
+
+<Props of={Radio} />
+
+### Radio Group
+
+<Props of={RadioGroup} />
