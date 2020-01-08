@@ -1,0 +1,59 @@
+---
+title: Input
+---
+
+import { useState } from 'react'
+import { Playground, Props } from 'docz'
+import Input from '../src/input/input.tsx'
+
+# Input
+
+## Basic usage
+
+<Playground>
+  {()=>{
+    const [value, setValue] = useState('');
+    return (
+      <Input value={value} onChange={(e) => setValue(e.target.value)} />
+    );
+  }}
+</Playground>
+
+## Clearable
+
+`clearable` prop and `onClear` prop should be used together.
+
+<Playground>
+  {()=>{
+    const [value, setValue] = useState('');
+    return (
+      <Input
+        clearable
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        onClear={()=>setValue('')}
+      />
+    );
+  }}
+</Playground>
+
+## Input for password
+
+<Playground>
+  {()=>{
+    const [value, setValue] = useState('');
+    const [value2, setValue2] = useState('');
+    return (
+      <div>
+        <div>Basic:</div>
+        <Input type="password" value={value} onChange={(e) => setValue(e.target.value)} />
+        <div>Clearable:</div>
+        <Input type="password" clearable value={value2} onChange={(e) => setValue2(e.target.value)} onClear={() => setValue2('')} />
+      </div>
+    );
+  }}
+</Playground>
+
+## Props
+
+<Props of={Input} />
