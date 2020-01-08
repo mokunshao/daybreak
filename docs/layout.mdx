@@ -76,6 +76,93 @@ import Aside from '../src/layout/aside.tsx';
 }}
 </Playground>
 
+## Layout 3
+
+<Playground>
+{() => {
+  const headerStyle={
+    backgroundColor:'#f4f3f3',
+    padding:'1em',
+  }
+  const contentStyle={
+    backgroundColor:'#dfdfdf',
+    padding:'1em',
+  }
+  const asideStyle={
+    backgroundColor:'#bfd8d5',
+    padding:'1em',
+  }
+  const footerStyle = headerStyle;
+  const layoutStyle = {
+    height: 300,
+    maxWidth: 500,
+  }
+  return (
+    <Layout style={layoutStyle}>
+      <Header style={headerStyle}>header</Header>
+      <Layout>
+        <Content style={contentStyle}>content</Content>
+        <Aside style={asideStyle}>aside</Aside>
+      </Layout>
+      <Footer style={footerStyle}>footer</Footer>
+    </Layout>
+  )
+}}
+</Playground>
+
+## Layout 4
+
+<Playground>
+{() => {
+  const headerStyle={
+    backgroundColor:'#f4f3f3',
+    padding:'1em',
+  }
+  const contentStyle={
+    backgroundColor:'#dfdfdf',
+    padding:'1em',
+  }
+  const asideStyle={
+    backgroundColor:'#bfd8d5',
+    padding:'1em',
+  }
+  const footerStyle = headerStyle;
+  const layoutStyle = {
+    height: 300,
+    maxWidth: 500,
+  }
+  return (
+    <Layout style={layoutStyle}>
+      <Aside style={asideStyle}>aside</Aside>
+      <Layout>
+        <Header style={headerStyle}>header</Header>
+        <Content style={contentStyle}>content</Content>
+        <Footer style={footerStyle}>footer</Footer>
+      </Layout>
+    </Layout>
+  )
+}}
+</Playground>
+
 ## Props
 
+### Layout
+
 <Props of={Layout} />
+
+### Header
+
+<Props of={Header} />
+
+### Content
+
+<Props of={Content} />
+
+### Aside
+
+<Props of={Aside} />
+
+### Footer
+
+<Props of={Footer} />
+
