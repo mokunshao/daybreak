@@ -1,0 +1,94 @@
+---
+title: Form
+---
+
+import { Playground, Props } from 'docz'
+import { useState } from 'react';
+import Form from '../src/form/form.tsx';
+import { Validator, noError } from '../src/form/validator.tsx';
+import { Alert } from '../src/dialog/dialog.tsx';
+import { Button } from '../src/button/button.tsx';
+
+# Form
+
+## Basic usage
+
+
+<Playground>
+{() => {
+  function checkUserName(username, resolve, reject) {
+    setTimeout(() => {
+      if (username !== 'admin') {
+        resolve();
+      } else {
+        reject('用户名已经存在!');
+      }
+    }, 200);
+  }
+  const validator = (username) => (
+    new Promise((resolve, reject) => checkUserName(username, resolve, reject))
+  );
+  const [formData, setFormData] = useState({
+    username: 'test',
+    password: 'test',
+  });
+  const [errors, setErrors] = useState({});
+  const [fields] = useState([
+    { name: 'username', label: '用户名', input: { type: 'text' } },
+    { name: 'password', label: '密码', input: { type: 'password' } },
+  ]);
+  const rules = [
+    { key: 'username', require: true },
+    { key: 'username', minLength: 3, maxLength: 16 },
+    { key: 'username', pattern: /^[A-Za-z0-9]+$/ },
+    { key: 'password', require: true },
+    { key: 'username', validator },
+  ];
+  const onSubmit = () => {
+    Validator(formData, rules, (errorsResult) => {
+      setErrors(errorsResult);
+      if (noError(errorsResult)) {
+        Alert('表单验证通过');
+      }
+    });
+  };
+  const onChange = (data) => {
+    setFormData(data);
+    Validator(data, rules, (errorsResult) => {
+      setErrors(errorsResult);
+    });
+  };
+  const transformError = (error) => {
+    const errorsMap = {
+      required: '必填',
+      minLength: '太短',
+      maxLength: '太长',
+      pattern: '格式不正确',
+    };
+    return errorsMap[error];
+  };
+  const buttons = (
+    <>
+      <Button mode="primary" type="submit" style={{ marginRight: '0.5em', }}>提交</Button>
+      <Button type="button">返回</Button>
+    </>
+  );
+  return (
+    <div>
+      <Form
+        values={formData}
+        fields={fields}
+        buttons={buttons}
+        errors={errors}
+        onSubmit={onSubmit}
+        onChange={onChange}
+        transformError={transformError}
+      />
+    </div>
+  );
+}}
+</Playground>
+
+## Props
+
+<Props of={Form} />
