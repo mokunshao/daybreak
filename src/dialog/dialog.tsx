@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import ReactDOM from 'react-dom';
 import './dialog.scss';
 import joinedClass from '../utils/joinedClass';
@@ -11,49 +11,85 @@ interface Props {
   buttons?: Array<React.ReactElement>;
   closeOnClickMask?: boolean;
   closeOnEsc?: boolean;
+  preventBackgroundScrolling?: boolean;
 }
 
-const dialog = joinedClass('dialog');
+const baseClass = joinedClass('dialog');
 
 const Dialog: React.FunctionComponent<Props> = (props) => {
   const {
-    visible, title, buttons, onClose, closeOnClickMask = true, closeOnEsc = true, children,
+    visible, title, buttons, onClose, closeOnClickMask = true,
+    closeOnEsc = true, preventBackgroundScrolling = false, children,
   } = props;
 
-  const onClickClose: React.MouseEventHandler = (event) => {
+  const handleClickMask: React.MouseEventHandler = useCallback((event) => {
     if (closeOnClickMask) {
       onClose(event);
     }
-  };
+  }, [closeOnClickMask, onClose]);
+
+  const handleKeyUp = useCallback((event: KeyboardEvent) => {
+    if (event.keyCode === 27) {
+      onClose(event);
+    }
+  }, [onClose]);
+
+  const addKeyUpEvent = useCallback(() => document.body.addEventListener('keyup', handleKeyUp), [handleKeyUp]);
+
+  const removeKeyUpEvent = useCallback(() => document.body.removeEventListener('keyup', handleKeyUp), [handleKeyUp]);
 
   useEffect(() => {
-    const onKeyUp = (event: KeyboardEvent) => {
-      if (visible && closeOnEsc && event.keyCode === 27) {
-        onClose(event);
+    if (closeOnEsc) {
+      if (visible) {
+        addKeyUpEvent();
+      } else {
+        removeKeyUpEvent();
       }
-    };
-    if (visible && closeOnEsc) {
-      document.body.addEventListener('keyup', onKeyUp);
     }
+
     return () => {
-      document.body.removeEventListener('keyup', onKeyUp);
+      removeKeyUpEvent();
     };
-  }, [closeOnEsc, onClose, visible]);
+  }, [addKeyUpEvent, closeOnEsc, handleKeyUp, removeKeyUpEvent, visible]);
+
+  const addBodyFixed = useCallback(() => {
+    document.body.style.setProperty('overflow', 'hidden');
+  }, []);
+
+  const removeBodyFixed = useCallback(() => {
+    if (document.body.style.overflow === 'hidden') {
+      document.body.style.removeProperty('overflow');
+    }
+  }, []);
+
+  useEffect(() => {
+    if (preventBackgroundScrolling) {
+      if (visible) {
+        addBodyFixed();
+      } else {
+        removeBodyFixed();
+      }
+    }
+
+    return () => {
+      removeBodyFixed();
+    };
+  }, [addBodyFixed, preventBackgroundScrolling, removeBodyFixed, visible]);
 
   const content = (
     <>
-      <div className={dialog('mask')} onClick={onClickClose} />
-      <div className={dialog()}>
-        <div className={dialog('header')}>
-          <span className={dialog('title')}>{title}</span>
-          <Button type="button" className={dialog('close')} onClick={(e) => onClose(e)}>X</Button>
+      <div className={baseClass('mask')} onClick={handleClickMask} />
+      <div className={baseClass()}>
+        <div className={baseClass('header')}>
+          <span className={baseClass('title')}>{title}</span>
+          <Button type="button" className={baseClass('close')} onClick={(e) => onClose(e)}>X</Button>
         </div>
-        <div className={dialog('main')}>
+        <div className={baseClass('main')}>
           {children}
         </div>
         {
           buttons && buttons.length > 0 && (
-            <div className={dialog('footer')}>
+            <div className={baseClass('footer')}>
               {buttons.map((item, index) => React.cloneElement(item, { key: index }))}
             </div>
           )

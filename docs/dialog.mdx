@@ -92,6 +92,32 @@ import Button from '../src/button/button.tsx'
 }}
 </Playground>
 
+## Prevent background scrolling
+
+<Playground>
+{()=>{
+  const [visible, setVisible] = useState(false);
+  return (
+    <div>
+      <Button type="button" onClick={() => setVisible(!visible)}>Open</Button>
+      <Dialog
+        visible={visible}
+        buttons={
+          [
+            <Button type="button" onClick={() => setVisible(false)}>Yes</Button>,
+            <Button type="button" onClick={() => setVisible(false)}>No</Button>,
+          ]
+        }
+        onClose={() => setVisible(false)}
+        preventBackgroundScrolling
+      >
+        hello
+      </Dialog>
+    </div>
+  )
+}}
+</Playground>
+
 
 ## Alert
 
