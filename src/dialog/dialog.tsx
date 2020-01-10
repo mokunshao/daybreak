@@ -1,10 +1,11 @@
-import React, { useEffect, useCallback } from 'react';
+import React, { useEffect, useCallback, HTMLProps } from 'react';
 import ReactDOM from 'react-dom';
 import './dialog.scss';
 import joinedClass from '../utils/joinedClass';
 import { Button } from '../button/button';
+import classes from '../utils/classes';
 
-interface Props {
+interface Props extends HTMLProps<HTMLDivElement> {
   visible: boolean;
   onClose: Function;
   title?: string;
@@ -20,6 +21,7 @@ const Dialog: React.FunctionComponent<Props> = (props) => {
   const {
     visible, title, buttons, onClose, closeOnClickMask = true,
     closeOnEsc = true, preventBackgroundScrolling = false, children,
+    className, ...rest
   } = props;
 
   const handleClickMask: React.MouseEventHandler = useCallback((event) => {
@@ -79,7 +81,7 @@ const Dialog: React.FunctionComponent<Props> = (props) => {
   const content = (
     <>
       <div className={baseClass('mask')} onClick={handleClickMask} />
-      <div className={baseClass()}>
+      <div className={classes(baseClass(), className)} {...rest}>
         <div className={baseClass('header')}>
           <span className={baseClass('title')}>{title}</span>
           <Button type="button" className={baseClass('close')} onClick={(e) => onClose(e)}>X</Button>
