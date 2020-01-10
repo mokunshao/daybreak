@@ -1,18 +1,19 @@
 @import '../common.scss';
 
 .daybreak-checkbox {
-  cursor: pointer;
   display: inline-flex;
   align-items: center;
+  vertical-align: sub;
 
   &-input {
     opacity: 0;
     height: 0;
     width: 0;
+    position: absolute;
   }
 
   &-checkmark {
-    display: inline-flex;
+    cursor: pointer;
     height: 1em;
     width: 1em;
     margin-right: 0.2em;
@@ -43,6 +44,6 @@
   }
 
   &-children {
-    display: inline-flex;
+    cursor: pointer;
   }
 }
