@@ -9,6 +9,7 @@ const baseClass = joinedClass('button');
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   mode?: 'normal' | 'primary' | 'danger';
   loading?: boolean;
+  outlined?: boolean;
 }
 
 const Button: React.FunctionComponent<Props> = (props) => {
@@ -19,6 +20,7 @@ const Button: React.FunctionComponent<Props> = (props) => {
     children,
     onClick,
     loading = false,
+    outlined = false,
     ...rest
   } = props;
 
@@ -33,7 +35,7 @@ const Button: React.FunctionComponent<Props> = (props) => {
     <button
       type={type}
       onClick={onClick2}
-      className={classes(baseClass(), baseClass(mode), className)}
+      className={classes(baseClass(), baseClass(mode), outlined ? baseClass('outlined') : '', className)}
       {...rest}
     >
       {loading && loadingIcon}

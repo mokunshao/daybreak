@@ -7,8 +7,13 @@
   padding: 0.3em 0.5em;
   transition: all 500ms;
   font-size: 1em;
-  border: none;
+  box-sizing: border-box;
   position: relative;
+  border: 2px solid transparent;
+
+  &-outlined {
+    border-color: black;
+  }
 
   &-normal {
     color: $black;
@@ -39,6 +44,7 @@
     cursor: not-allowed;
     color: #afafaf;
     background-color: #f6f6f6;
+    border-color: transparent;
   }
 
   &-loading-icon {
