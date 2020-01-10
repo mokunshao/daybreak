@@ -35,7 +35,8 @@ module.exports = {
     "@typescript-eslint/no-var-requires": "off",
     "jsx-a11y/label-has-associated-control": "off",
     "import/extensions": [".js", ".jsx", ".json", ".ts", ".tsx"],
-    "react/button-has-type": "off"
+    "react/button-has-type": "off",
+    "@typescript-eslint/member-delimiter-style": "off"
   },
   settings: {
     'import/resolver': {

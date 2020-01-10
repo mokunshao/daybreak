@@ -113,6 +113,7 @@ const Modal = (
   content: React.ReactNode,
   buttons?: Array<React.ReactElement>,
   onClose?: Function,
+  override?: { [k: string]: any; },
 ) => {
   const container = document.createElement('div');
   let modal: ReactElement;
@@ -133,6 +134,7 @@ const Modal = (
       visible
       onClose={close}
       buttons={buttons}
+      {...override}
     >
       {content}
     </Dialog>
@@ -143,11 +145,21 @@ const Modal = (
   return removeModal;
 };
 
-const Alert = (content: React.ReactNode) => {
-  const onClose = Modal(content, [<Button type="button" onClick={() => onClose()}>OK</Button>]);
+const Alert = (content: React.ReactNode, override: { [k: string]: any; }) => {
+  const close = Modal(
+    content,
+    [<Button type="button" onClick={() => close()}>OK</Button>],
+    undefined,
+    { title: 'Alert', ...override },
+  );
 };
 
-const Confirm = (content: React.ReactNode, onOk?: Function, onCancel?: Function) => {
+const Confirm = (
+  content: React.ReactNode,
+  onOk?: Function,
+  onCancel?: Function,
+  override?: { [k: string]: any; },
+) => {
   let close: Function;
 
   const ok = () => {
@@ -165,7 +177,12 @@ const Confirm = (content: React.ReactNode, onOk?: Function, onCancel?: Function)
     <Button type="button" onClick={cancel}>Cancel</Button>,
   ];
 
-  close = Modal(content, buttons, cancel);
+  close = Modal(
+    content,
+    buttons,
+    onCancel,
+    { title: 'Confirm', ...override },
+  );
 };
 
 export default Dialog;
