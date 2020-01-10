@@ -2,6 +2,7 @@
 title: Button
 ---
 
+import {useState} from 'react'
 import { Playground, Props } from 'docz'
 import Button from '../src/button/button.tsx'
 
@@ -10,12 +11,39 @@ import Button from '../src/button/button.tsx'
 ## Basic usage
 
 <Playground>
-  <div style={{padding:'1em'}}>
-    <Button mode="danger">Leave</Button>
-    <Button mode="primary">Enter</Button>
-    <Button >Cancel</Button>
-    <Button mode="normal">Cancel</Button>
-  </div>
+  <Button>Basic</Button>
+</Playground>
+
+## Mode
+
+the `mode` prop determine the color of the button, the default value of `mode` is `normal`.
+
+<Playground>
+  <Button mode="primary">Enter</Button>
+  <Button mode="danger">Leave</Button>
+  <Button mode="normal">Cancel</Button>
+</Playground>
+
+## Disabled
+
+<Playground>
+  <Button disabled>Enter</Button>
+</Playground>
+
+## Loading
+
+<Playground>
+  {()=>{
+    const [loading,setLoading]=useState(false);
+    return (
+      <Button 
+        loading={loading}
+        onClick={()=>setLoading(!loading)}
+      >
+        Click to Load
+      </Button>
+    )
+  }}
 </Playground>
 
 ## Props

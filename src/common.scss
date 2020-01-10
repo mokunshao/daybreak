@@ -26,3 +26,13 @@ $black2:#333;
 $white:#fff;
 $blue:#1e54b7;
 $red:#c00;
+
+@keyframes daybreak-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,27 +1,48 @@
+/* eslint-disable react/button-has-type */
 import React, { ButtonHTMLAttributes, MouseEventHandler } from 'react';
 import { classes } from '../utils/classes';
 import { joinedClass } from '../utils/joinedClass';
 import './button.scss';
+import Icon from '../icon/icon';
 
-const button = joinedClass('button');
+const baseClass = joinedClass('button');
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   mode?: 'normal' | 'primary' | 'danger';
+  loading: boolean;
 }
 
 const Button: React.FunctionComponent<Props> = (props) => {
   const {
     mode = 'normal',
+    type = 'button',
     className,
     children,
     onClick,
+    loading,
     ...rest
   } = props;
+
   const onClick2: MouseEventHandler<HTMLButtonElement> = (e) => {
     e.currentTarget.blur();
     onClick && onClick(e);
   };
-  return <button type="button" onClick={onClick2} className={classes(button(), button(mode), className)} {...rest}>{children}</button>;
+
+  const loadingIcon = <Icon name="loading" className={baseClass('loading-icon')} />;
+
+  return (
+    <button
+      type={type}
+      onClick={onClick2}
+      className={classes(baseClass(), baseClass(mode), className)}
+      {...rest}
+    >
+      {loading && loadingIcon}
+      <div style={{ opacity: loading ? 0 : 1 }}>
+        {children}
+      </div>
+    </button>
+  );
 };
 
 export default Button;
