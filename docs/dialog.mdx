@@ -19,19 +19,19 @@ import Button from '../src/button/button.tsx'
 
 <Playground>
 {()=>{
-  const [x, setX] = useState(false);
+  const [visible, setVisible] = useState(false);
   return (
     <div>
-      <Button type="button" onClick={() => setX(!x)}>Open</Button>
+      <Button type="button" onClick={() => setVisible(!visible)}>Open</Button>
       <Dialog
-        visible={x}
+        visible={visible}
         buttons={
           [
-            <Button type="button" onClick={() => setX(false)}>Yes</Button>,
-            <Button type="button" onClick={() => setX(false)}>No</Button>,
+            <Button type="button" onClick={() => setVisible(false)}>Yes</Button>,
+            <Button type="button" onClick={() => setVisible(false)}>No</Button>,
           ]
         }
-        onClose={() => setX(false)}
+        onClose={() => setVisible(false)}
       >
         hello
       </Dialog>
@@ -44,20 +44,46 @@ import Button from '../src/button/button.tsx'
 
 <Playground>
 {()=>{
-  const [y, setY] = useState(false);
+  const [visible, setVisible] = useState(false);
   return (
     <div>
-      <Button type="button" onClick={() => setY(!y)}>Open</Button>
+      <Button type="button" onClick={() => setVisible(!visible)}>Open</Button>
       <Dialog
-        visible={y}
+        visible={visible}
         buttons={
           [
-            <Button type="button" onClick={() => setY(false)}>Yes</Button>,
-            <Button type="button" onClick={() => setY(false)}>No</Button>,
+            <Button type="button" onClick={() => setVisible(false)}>Yes</Button>,
+            <Button type="button" onClick={() => setVisible(false)}>No</Button>,
           ]
         }
-        onClose={() => setY(false)}
+        onClose={() => setVisible(false)}
         closeOnClickMask={false}
+      >
+        hello
+      </Dialog>
+    </div>
+  )
+}}
+</Playground>
+
+## Don't Close When the 'Esc' key is pressed
+
+<Playground>
+{()=>{
+  const [visible, setVisible] = useState(false);
+  return (
+    <div>
+      <Button type="button" onClick={() => setVisible(!visible)}>Open</Button>
+      <Dialog
+        visible={visible}
+        buttons={
+          [
+            <Button type="button" onClick={() => setVisible(false)}>Yes</Button>,
+            <Button type="button" onClick={() => setVisible(false)}>No</Button>,
+          ]
+        }
+        onClose={() => setVisible(false)}
+        closeOnEsc={false}
       >
         hello
       </Dialog>
