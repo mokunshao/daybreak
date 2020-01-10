@@ -1,4 +1,6 @@
-import React, { useEffect, useCallback, HTMLProps } from 'react';
+import React, {
+  useEffect, useCallback, HTMLProps, ReactElement,
+} from 'react';
 import ReactDOM from 'react-dom';
 import './dialog.scss';
 import joinedClass from '../utils/joinedClass';
@@ -110,33 +112,35 @@ const Dialog: React.FunctionComponent<Props> = (props) => {
 const Modal = (
   content: React.ReactNode,
   buttons?: Array<React.ReactElement>,
-  afterClose?: Function,
+  onClose?: Function,
 ) => {
-  const div = document.createElement('div');
-  let component = <></>;
+  const container = document.createElement('div');
+  let modal: ReactElement;
 
-  const onClose = () => {
-    ReactDOM.render(React.cloneElement(component, { visible: false }), div);
-    ReactDOM.unmountComponentAtNode(div);
-    div.remove();
+  const removeModal = () => {
+    ReactDOM.render(React.cloneElement(modal, { visible: false }), container);
+    ReactDOM.unmountComponentAtNode(container);
+    container.remove();
   };
 
-  component = (
+  const handleOnClose = () => {
+    removeModal();
+    if (onClose) onClose();
+  };
+
+  modal = (
     <Dialog
       visible
-      onClose={() => {
-        onClose();
-        afterClose && afterClose();
-      }}
+      onClose={handleOnClose}
       buttons={buttons}
     >
       {content}
     </Dialog>
   );
 
-  document.body.appendChild(div);
-  ReactDOM.render(component, div);
-  return onClose;
+  document.body.appendChild(container);
+  ReactDOM.render(modal, container);
+  return removeModal;
 };
 
 const Alert = (content: React.ReactNode) => {

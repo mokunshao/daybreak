@@ -135,18 +135,14 @@ import Button from '../src/button/button.tsx'
 
 <Playground>
   {()=>{
-    const openModel = () => {
+    const openModal = () => {
       const close = Modal(
-        (
-          <>
-            <h1>你好</h1>
-            <Button type="button" onClick={() => close()}>Close</Button>
-          </>
-        ),
+        <h1>你好</h1>,
+        [<Button type="button" onClick={() => close()}>Close</Button>]
       );
     };
     return (
-      <Button type="button" onClick={openModel}>Open</Button>
+      <Button type="button" onClick={openModal}>Open</Button>
     )
   }}
 </Playground>
