@@ -118,20 +118,14 @@ import Button from '../src/button/button.tsx'
 }}
 </Playground>
 
-
-## Alert
-
-<Playground>
-  <Button type="button" onClick={() => Alert('This is an alert.')}>Open</Button>
-</Playground>
-
-## Confirm
-
-<Playground>
-  <Button type="button" onClick={() => Confirm('This is an confirm.')}>Open</Button>
-</Playground>
-
 ## Modal
+
+| params | type |
+| --- | --- |
+| content | `React.ReactNode` |
+| buttons? | `Array<React.ReactElement>` |
+| onClose? | `Function` |
+| override? | `{ [k: string]: any; }` |
 
 <Playground>
   {()=>{
@@ -147,20 +141,32 @@ import Button from '../src/button/button.tsx'
   }}
 </Playground>
 
+## Alert
+
+| params | type |
+| --- | --- |
+| content | `React.ReactNode` |
+| override? | `{ [k: string]: any; }` |
+
+<Playground>
+  <Button type="button" onClick={() => Alert('This is an alert.')}>Open</Button>
+</Playground>
+
+## Confirm
+
+| params | type |
+| --- | --- |
+| content | `React.ReactNode` |
+| onOk? | `Function` |
+| onCancel? | `Function` |
+| override? | `{ [k: string]: any; }` |
+
+<Playground>
+  <Button type="button" onClick={() => Confirm('This is an confirm.')}>Open</Button>
+</Playground>
+
 ## Props
 
 ### Dialog
 
 <Props of={Dialog} />
-
-### Modal
-
-<Props of={Modal} />
-
-### Alert
-
-<Props of={Alert} />
-
-### Confirm
-
-<Props of={Confirm} />
