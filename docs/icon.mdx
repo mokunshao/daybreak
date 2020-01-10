@@ -15,6 +15,50 @@ require('../src/icon/importAllIcons.tsx')
   <Icon name="qq"></Icon>
 </Playground>
 
+## Available Icons
+
+export const data = [
+  'alipay',
+  'caution',
+  'clear',
+  'download',
+  'hide',
+  'info',
+  'left',
+  'loading',
+  'qq',
+  'right',
+  'settings',
+  'show',
+  'thumbs-up',
+  'upload',
+  'wechat',
+];
+
+export const IconsTable = (props) => {
+  const { data } = props;
+  return (
+    <table>
+      <thead>
+        <tr>
+          <th>name</th>
+          <th>icon</th>
+        </tr>
+      </thead>
+      <tbody>
+        {data.map((item, index) => (
+          <tr key={`${item} ${index}`}>
+            <td>{item}</td>
+            <td><Icon name={item}></Icon></td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  );
+}
+
+<IconsTable data={data} />
+
 ## Props
 
 <Props of={Icon} />
