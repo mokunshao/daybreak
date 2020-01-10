@@ -123,7 +123,7 @@ const Modal = (
     container.remove();
   };
 
-  const handleOnClose = () => {
+  const close = () => {
     removeModal();
     if (onClose) onClose();
   };
@@ -131,7 +131,7 @@ const Modal = (
   modal = (
     <Dialog
       visible
-      onClose={handleOnClose}
+      onClose={close}
       buttons={buttons}
     >
       {content}
@@ -147,25 +147,25 @@ const Alert = (content: React.ReactNode) => {
   const onClose = Modal(content, [<Button type="button" onClick={() => onClose()}>OK</Button>]);
 };
 
-const Confirm = (content: React.ReactNode, yes?: Function, no?: Function) => {
-  let onClose = () => { };
+const Confirm = (content: React.ReactNode, onOk?: Function, onCancel?: Function) => {
+  let close: Function;
 
-  const onYes = () => {
-    onClose();
-    yes && yes();
+  const ok = () => {
+    close();
+    if (onOk) onOk();
   };
 
-  const onNo = () => {
-    onClose();
-    no && no();
+  const cancel = () => {
+    close();
+    if (onCancel) onCancel();
   };
 
   const buttons = [
-    <Button type="button" onClick={onYes}>Yes</Button>,
-    <Button type="button" onClick={onNo}>No</Button>,
+    <Button type="button" onClick={ok}>OK</Button>,
+    <Button type="button" onClick={cancel}>Cancel</Button>,
   ];
 
-  onClose = Modal(content, buttons, no);
+  close = Modal(content, buttons, cancel);
 };
 
 export default Dialog;
