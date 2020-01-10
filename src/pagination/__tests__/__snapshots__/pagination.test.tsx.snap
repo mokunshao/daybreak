@@ -11,67 +11,103 @@ exports[`Pagination match snapshot 1`] = `
         disabled=""
         type="button"
       >
-        <svg
-          class="daybreak-icon"
+        <div
+          style="opacity: 1;"
         >
-          <use
-            xlink:href="#left"
-          />
-        </svg>
+          <svg
+            class="daybreak-icon"
+          >
+            <use
+              xlink:href="#left"
+            />
+          </svg>
+        </div>
       </button>
       <button
         class="daybreak-button daybreak-button-primary daybreak-pagination-button"
         type="button"
       >
-        1
-      </button>
-      <button
-        class="daybreak-button daybreak-button-normal daybreak-pagination-button"
-        type="button"
-      >
-        2
-      </button>
-      <button
-        class="daybreak-button daybreak-button-normal daybreak-pagination-button"
-        type="button"
-      >
-        3
-      </button>
-      <button
-        class="daybreak-button daybreak-button-normal daybreak-pagination-button"
-        type="button"
-      >
-        4
-      </button>
-      <button
-        class="daybreak-button daybreak-button-normal daybreak-pagination-button"
-        type="button"
-      >
-        5
-      </button>
-      <button
-        class="daybreak-button daybreak-button-normal daybreak-pagination-button"
-        type="button"
-      >
-        ...
-      </button>
-      <button
-        class="daybreak-button daybreak-button-normal daybreak-pagination-button"
-        type="button"
-      >
-        20
-      </button>
-      <button
-        class="daybreak-button daybreak-button-normal daybreak-pagination-button"
-        type="button"
-      >
-        <svg
-          class="daybreak-icon"
+        <div
+          style="opacity: 1;"
         >
-          <use
-            xlink:href="#right"
-          />
-        </svg>
+          1
+        </div>
+      </button>
+      <button
+        class="daybreak-button daybreak-button-normal daybreak-pagination-button"
+        type="button"
+      >
+        <div
+          style="opacity: 1;"
+        >
+          2
+        </div>
+      </button>
+      <button
+        class="daybreak-button daybreak-button-normal daybreak-pagination-button"
+        type="button"
+      >
+        <div
+          style="opacity: 1;"
+        >
+          3
+        </div>
+      </button>
+      <button
+        class="daybreak-button daybreak-button-normal daybreak-pagination-button"
+        type="button"
+      >
+        <div
+          style="opacity: 1;"
+        >
+          4
+        </div>
+      </button>
+      <button
+        class="daybreak-button daybreak-button-normal daybreak-pagination-button"
+        type="button"
+      >
+        <div
+          style="opacity: 1;"
+        >
+          5
+        </div>
+      </button>
+      <button
+        class="daybreak-button daybreak-button-normal daybreak-pagination-button"
+        type="button"
+      >
+        <div
+          style="opacity: 1;"
+        >
+          ...
+        </div>
+      </button>
+      <button
+        class="daybreak-button daybreak-button-normal daybreak-pagination-button"
+        type="button"
+      >
+        <div
+          style="opacity: 1;"
+        >
+          20
+        </div>
+      </button>
+      <button
+        class="daybreak-button daybreak-button-normal daybreak-pagination-button"
+        type="button"
+      >
+        <div
+          style="opacity: 1;"
+        >
+          <svg
+            class="daybreak-icon"
+          >
+            <use
+              xlink:href="#right"
+            />
+          </svg>
+        </div>
       </button>
     </div>
   </div>
