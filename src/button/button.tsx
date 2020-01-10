@@ -1,4 +1,3 @@
-/* eslint-disable react/button-has-type */
 import React, { ButtonHTMLAttributes, MouseEventHandler } from 'react';
 import { classes } from '../utils/classes';
 import { joinedClass } from '../utils/joinedClass';
@@ -9,7 +8,7 @@ const baseClass = joinedClass('button');
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   mode?: 'normal' | 'primary' | 'danger';
-  loading: boolean;
+  loading?: boolean;
 }
 
 const Button: React.FunctionComponent<Props> = (props) => {
@@ -19,7 +18,7 @@ const Button: React.FunctionComponent<Props> = (props) => {
     className,
     children,
     onClick,
-    loading,
+    loading = false,
     ...rest
   } = props;
 
