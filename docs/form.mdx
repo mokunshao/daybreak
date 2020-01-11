@@ -13,13 +13,22 @@ import { Button } from '../src/button/button.tsx';
 
 ```javascript
 import { Form } from 'daybreak';
+import { Validator, noError } from 'daybreak';
 ```
+
+## Validator
+
+Validator is used to validate whether the form data is conforms to the rules.
+
+## noError
+
+`noError` is a helper function to determine whether there is no errors (in other words: whether the data is an empty object). Its effect is similar to `Lodash`'s `isEmpty` function.
 
 ## Basic usage
 
 <Playground>
 {() => {
-  function checkUserName(username, resolve, reject) {
+  function asyncCheckUserName(username, resolve, reject) {
     setTimeout(() => {
       if (username !== 'admin') {
         resolve();
@@ -28,12 +37,12 @@ import { Form } from 'daybreak';
       }
     }, 200);
   }
-  const validator = (username) => (
-    new Promise((resolve, reject) => checkUserName(username, resolve, reject))
+  const customValidator = (username) => (
+    new Promise((resolve, reject) => asyncCheckUserName(username, resolve, reject))
   );
   const [formData, setFormData] = useState({
-    username: 'test',
-    password: 'test',
+    username: '',
+    password: '',
   });
   const [errors, setErrors] = useState({});
   const [fields] = useState([
@@ -45,7 +54,209 @@ import { Form } from 'daybreak';
     { key: 'username', minLength: 3, maxLength: 16 },
     { key: 'username', pattern: /^[A-Za-z0-9]+$/ },
     { key: 'password', require: true },
-    { key: 'username', validator },
+    { key: 'username', customValidator },
+  ];
+  const onSubmit = () => {
+    Validator(formData, rules, (errorsResult) => {
+      setErrors(errorsResult);
+      if (noError(errorsResult)) {
+        Alert('表单验证通过');
+      }
+    });
+  };
+  const onChange = (data) => {
+    setFormData(data);
+  };
+  const buttons = (
+    <>
+      <Button mode="primary" type="submit">提交</Button>
+    </>
+  );
+  return (
+    <div>
+      <Form
+        values={formData}
+        fields={fields}
+        buttons={buttons}
+        errors={errors}
+        onSubmit={onSubmit}
+        onChange={onChange}
+      />
+    </div>
+  );
+}}
+</Playground>
+
+## Validate While Inputing
+
+You may want you validate the form data while inputing, so you can do it with the helpe of `onChange` prop.
+
+<Playground>
+{() => {
+  function asyncCheckUserName(username, resolve, reject) {
+    setTimeout(() => {
+      if (username !== 'admin') {
+        resolve();
+      } else {
+        reject('用户名已经存在!');
+      }
+    }, 200);
+  }
+  const customValidator = (username) => (
+    new Promise((resolve, reject) => asyncCheckUserName(username, resolve, reject))
+  );
+  const [formData, setFormData] = useState({
+    username: '',
+    password: '',
+  });
+  const [errors, setErrors] = useState({});
+  const [fields] = useState([
+    { name: 'username', label: '用户名', input: { type: 'text' } },
+    { name: 'password', label: '密码', input: { type: 'password' } },
+  ]);
+  const rules = [
+    { key: 'username', require: true },
+    { key: 'username', minLength: 3, maxLength: 16 },
+    { key: 'username', pattern: /^[A-Za-z0-9]+$/ },
+    { key: 'password', require: true },
+    { key: 'username', customValidator },
+  ];
+  const onSubmit = () => {
+    Validator(formData, rules, (errorsResult) => {
+      setErrors(errorsResult);
+      if (noError(errorsResult)) {
+        Alert('表单验证通过');
+      }
+    });
+  };
+  const onChange = (data) => {
+    setFormData(data);
+    Validator(data, rules, (errorsResult) => {
+      setErrors(errorsResult);
+    });
+  };
+  const buttons = (
+    <>
+      <Button mode="primary" type="submit">提交</Button>
+    </>
+  );
+  return (
+    <div>
+      <Form
+        values={formData}
+        fields={fields}
+        buttons={buttons}
+        errors={errors}
+        onSubmit={onSubmit}
+        onChange={onChange}
+      />
+    </div>
+  );
+}}
+</Playground>
+
+## errorsDisplayMode
+
+By default, the validation result will displays only one message per field. If you want to see more than one message, you can set this property to "all".
+
+<Playground>
+{() => {
+  function asyncCheckUserName(username, resolve, reject) {
+    setTimeout(() => {
+      if (username !== 'admin') {
+        resolve();
+      } else {
+        reject('用户名已经存在!');
+      }
+    }, 200);
+  }
+  const customValidator = (username) => (
+    new Promise((resolve, reject) => asyncCheckUserName(username, resolve, reject))
+  );
+  const [formData, setFormData] = useState({
+    username: '',
+    password: '',
+  });
+  const [errors, setErrors] = useState({});
+  const [fields] = useState([
+    { name: 'username', label: '用户名', input: { type: 'text' } },
+    { name: 'password', label: '密码', input: { type: 'password' } },
+  ]);
+  const rules = [
+    { key: 'username', require: true },
+    { key: 'username', minLength: 3, maxLength: 16 },
+    { key: 'username', pattern: /^[A-Za-z0-9]+$/ },
+    { key: 'password', require: true },
+    { key: 'username', customValidator },
+  ];
+  const onSubmit = () => {
+    Validator(formData, rules, (errorsResult) => {
+      setErrors(errorsResult);
+      if (noError(errorsResult)) {
+        Alert('表单验证通过');
+      }
+    });
+  };
+  const onChange = (data) => {
+    setFormData(data);
+    Validator(data, rules, (errorsResult) => {
+      setErrors(errorsResult);
+    });
+  };
+  const buttons = (
+    <>
+      <Button mode="primary" type="submit">提交</Button>
+    </>
+  );
+  return (
+    <div>
+      <Form
+        values={formData}
+        fields={fields}
+        buttons={buttons}
+        errors={errors}
+        onSubmit={onSubmit}
+        onChange={onChange}
+        errorsDisplayMode="all"
+      />
+    </div>
+  );
+}}
+</Playground>
+
+## transformError
+
+By default, validation results are in English, so if you want to display errors in another language, you can set this property.
+
+<Playground>
+{() => {
+  function asyncCheckUserName(username, resolve, reject) {
+    setTimeout(() => {
+      if (username !== 'admin') {
+        resolve();
+      } else {
+        reject('用户名已经存在!');
+      }
+    }, 200);
+  }
+  const customValidator = (username) => (
+    new Promise((resolve, reject) => asyncCheckUserName(username, resolve, reject))
+  );
+  const [formData, setFormData] = useState({
+    username: '',
+    password: '',
+  });
+  const [errors, setErrors] = useState({});
+  const [fields] = useState([
+    { name: 'username', label: '用户名', input: { type: 'text' } },
+    { name: 'password', label: '密码', input: { type: 'password' } },
+  ]);
+  const rules = [
+    { key: 'username', require: true },
+    { key: 'username', minLength: 3, maxLength: 16 },
+    { key: 'username', pattern: /^[A-Za-z0-9]+$/ },
+    { key: 'password', require: true },
+    { key: 'username', customValidator },
   ];
   const onSubmit = () => {
     Validator(formData, rules, (errorsResult) => {
@@ -72,8 +283,7 @@ import { Form } from 'daybreak';
   };
   const buttons = (
     <>
-      <Button mode="primary" type="submit" style={{ marginRight: '0.5em', }}>提交</Button>
-      <Button type="button">返回</Button>
+      <Button mode="primary" type="submit">提交</Button>
     </>
   );
   return (

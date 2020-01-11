@@ -34,7 +34,7 @@ const Form: React.FunctionComponent<Props> = (props) => {
     onChange,
     errors,
     className,
-    errorsDisplayMode = 'all',
+    errorsDisplayMode = 'first',
     transformError,
   } = props;
   const onSubmit2 = (e: React.FormEvent<Element>) => {
