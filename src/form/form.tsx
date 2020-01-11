@@ -70,7 +70,8 @@ const Form: React.FunctionComponent<Props> = (props) => {
           return transformError2(errors[name][0]);
       }
     }
-    return <>&nbsp;</>;
+    // return <>&nbsp;</>;
+    return null;
   };
   return (
     <form onSubmit={onSubmit2} className={classes(form(), className)}>
