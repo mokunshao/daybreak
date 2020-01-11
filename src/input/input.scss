@@ -47,4 +47,8 @@
   &-icon + &-icon {
     margin-left: 0.5em;
   }
+
+  &[disabled] {
+    cursor: not-allowed;
+  }
 }

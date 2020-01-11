@@ -18,7 +18,7 @@ import { Input } from 'daybreak';
   {()=>{
     const [value, setValue] = useState('');
     return (
-      <Input value={value} onChange={(e) => setValue(e.target.value)} />
+      <Input placeholder="Type here..." value={value} onChange={(e) => setValue(e.target.value)} />
     );
   }}
 </Playground>
@@ -54,6 +54,17 @@ import { Input } from 'daybreak';
         <div>Clearable:</div>
         <Input type="password" clearable value={value2} onChange={(e) => setValue2(e.target.value)} onClear={() => setValue2('')} />
       </div>
+    );
+  }}
+</Playground>
+
+## Disabled
+
+<Playground>
+  {()=>{
+    const [value, setValue] = useState('');
+    return (
+      <Input disabled value={value} onChange={(e)=>e.target.value}/>
     );
   }}
 </Playground>
