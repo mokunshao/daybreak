@@ -12,22 +12,27 @@ import Switch from '../src/switch/switch.tsx'
 import { Switch } from 'daybreak';
 ```
 
-## Basic usage
+## Standalone
 
 <Playground>
   {()=>{
-    const [state, setState] = useState({
-    checkedA: true,
-    checkedB: false,
-    });
-    const onChange = (e, name) => {
-      setState({ ...state, [name]: e.target.checked });
-    };
+    const [value, setValue] = useState(true);
     return (
       <div>
-        <Switch checked={state.checkedA} onChange={(e) => onChange(e, 'checkedA')} />
-        <br />
-        <Switch checked={state.checkedB} onChange={(e) => onChange(e, 'checkedB')}>Enable?</Switch>
+        <Switch checked={value} onChange={(e) => setValue(e.target.checked)}></Switch>
+      </div>
+    );
+  }}
+</Playground>
+
+## With Children
+
+<Playground>
+  {()=>{
+    const [value, setValue] = useState(true);
+    return (
+      <div>
+        <Switch checked={value} onChange={(e) => setValue(e.target.checked)}>Enable?</Switch>
       </div>
     );
   }}

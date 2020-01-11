@@ -4,15 +4,16 @@
   display: inline-flex;
   align-items: center;
   cursor: pointer;
+  vertical-align: top;
 
   &-input {
     visibility: hidden;
     height: 0;
     width: 0;
+    position: absolute;
   }
 
   &-slider {
-    display: inline-flex;
     width: 3em;
     height: 1.5em;
     background-color: $grey2;
