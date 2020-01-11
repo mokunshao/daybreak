@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/mouse-events-have-key-events */
 import React, {
   HTMLProps, ReactNode, useState, useRef, useContext,
 } from 'react';
@@ -12,12 +13,12 @@ const baseClass = joinedClass('tooltip');
 
 const PositionContext = React.createContext({ position: { left: 0, top: 0, width: 0 } });
 
-interface Props extends HTMLProps<HTMLDivElement>{
+interface Props extends HTMLProps<HTMLDivElement> {
   render: ReactNode;
 }
 
-const ToolipItem: React.FC<{ render: ReactNode }> = (props) => {
-  const { render } = props;
+const ToolipItem: React.FC = (props) => {
+  const { children } = props;
   const context = useContext(PositionContext);
   const { top, left, width } = context.position;
   const style = {
@@ -30,7 +31,7 @@ const ToolipItem: React.FC<{ render: ReactNode }> = (props) => {
       style={style}
     >
       <div className={baseClass('item', 'triangle')} />
-      {render}
+      {children}
     </div>,
     document.body,
   );
@@ -53,7 +54,7 @@ const Tooltip: React.FC<Props> = (props) => {
   }
 
   function showTooltip() {
-    getPosition();
+    // getPosition();
     setTooltipVisible(true);
   }
 
@@ -66,15 +67,14 @@ const Tooltip: React.FC<Props> = (props) => {
       <div
         ref={element}
         className={classes(baseClass(), className)}
-        onMouseEnter={showTooltip}
+        onMouseEnter={getPosition}
+        onMouseOver={showTooltip}
         onMouseLeave={hideTooltip}
-        onFocus={showTooltip}
-        onBlur={hideTooltip}
         {...rest}
       >
         {children}
       </div>
-      {tooltipVisible && <ToolipItem render={render} />}
+      {tooltipVisible && <ToolipItem>{render}</ToolipItem>}
     </>
   );
 };
