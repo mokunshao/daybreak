@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/mouse-events-have-key-events */
 import React, {
   HTMLProps, ReactNode, useState, useRef, useContext,
 } from 'react';
@@ -9,18 +8,19 @@ import './tooltip.scss';
 
 const baseClass = joinedClass('tooltip');
 
-// const PositionContext = React.createContext({ position: new DOMRectReadOnly() });
-
-const PositionContext = React.createContext({ position: { left: 0, top: 0, width: 0 } });
+const PositionContext = React.createContext<{ position: DOMRect | undefined; }>(
+  { position: undefined },
+);
 
 interface Props extends HTMLProps<HTMLDivElement> {
   render: ReactNode;
 }
 
 const ToolipItem: React.FC = (props) => {
+  const { position } = useContext(PositionContext);
   const { children } = props;
-  const context = useContext(PositionContext);
-  const { top, left, width } = context.position;
+  if (!position) return null;
+  const { top, left, width } = position;
   const style = {
     bottom: `${window.innerHeight - top + 8 - window.scrollY}px`,
     left: `${left + width / 2 + window.scrollX}px`,
@@ -46,7 +46,6 @@ const Tooltip: React.FC<Props> = (props) => {
   const [tooltipVisible, setTooltipVisible] = useState(false);
   const element = useRef<HTMLDivElement>(null);
   const context = useContext(PositionContext);
-
   function getPosition() {
     if (!element.current) return;
     const rect = element.current.getBoundingClientRect();
@@ -54,12 +53,16 @@ const Tooltip: React.FC<Props> = (props) => {
   }
 
   function showTooltip() {
-    // getPosition();
     setTooltipVisible(true);
   }
 
   function hideTooltip() {
     setTooltipVisible(false);
+  }
+
+  function focus() {
+    getPosition();
+    showTooltip();
   }
 
   return (
@@ -70,6 +73,10 @@ const Tooltip: React.FC<Props> = (props) => {
         onMouseEnter={getPosition}
         onMouseOver={showTooltip}
         onMouseLeave={hideTooltip}
+        onFocus={focus}
+        onBlur={hideTooltip}
+        tabIndex={0}
+        role="textbox"
         {...rest}
       >
         {children}
