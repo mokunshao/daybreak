@@ -20,11 +20,12 @@ const ToolipItem: React.FC = React.memo((props) => {
   const position = useContext(PositionContext);
   if (!position) return null;
   const { top, left, width } = position;
+  const { innerHeight, scrollY, scrollX } = window;
 
   const style = useMemo(() => ({
-    bottom: `${window.innerHeight - top + 8 - window.scrollY}px`,
-    left: `${left + width / 2 + window.scrollX}px`,
-  }), [left, top, width]);
+    bottom: `${innerHeight - top + 8 - scrollY}px`,
+    left: `${left + width / 2 + scrollX}px`,
+  }), [innerHeight, left, scrollX, scrollY, top, width]);
 
   return ReactDOM.createPortal(
     <div
@@ -57,27 +58,22 @@ const Tooltip: React.FC<Props> = React.memo((props) => {
   }, []);
 
   const showTooltip = useCallback(() => {
+    getPosition();
     setTooltipVisible(true);
-  }, []);
+  }, [getPosition]);
 
   const hideTooltip = useCallback(() => {
     setTooltipVisible(false);
   }, []);
-
-  const focus = useCallback(() => {
-    getPosition();
-    showTooltip();
-  }, [getPosition, showTooltip]);
 
   return (
     <PositionContext.Provider value={position}>
       <div
         ref={element}
         className={classes(baseClass(), className)}
-        onMouseEnter={getPosition}
         onMouseOver={showTooltip}
         onMouseLeave={hideTooltip}
-        onFocus={focus}
+        onFocus={showTooltip}
         onBlur={hideTooltip}
         tabIndex={0}
         role="textbox"
