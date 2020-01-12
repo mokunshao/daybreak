@@ -1,5 +1,5 @@
 import React, {
-  HTMLProps, ReactNode, useState, useRef, useContext,
+  HTMLProps, ReactNode, useState, useRef, useContext, useCallback, useMemo,
 } from 'react';
 import ReactDOM from 'react-dom';
 import { joinedClass } from '../utils/joinedClass';
@@ -14,15 +14,18 @@ interface Props extends HTMLProps<HTMLDivElement> {
   render: ReactNode;
 }
 
-const ToolipItem: React.FC = (props) => {
+const ToolipItem: React.FC = React.memo((props) => {
   const { children } = props;
+
   const position = useContext(PositionContext);
   if (!position) return null;
   const { top, left, width } = position;
-  const style = {
+
+  const style = useMemo(() => ({
     bottom: `${window.innerHeight - top + 8 - window.scrollY}px`,
     left: `${left + width / 2 + window.scrollX}px`,
-  };
+  }), [left, top, width]);
+
   return ReactDOM.createPortal(
     <div
       className={baseClass('item')}
@@ -33,35 +36,38 @@ const ToolipItem: React.FC = (props) => {
     </div>,
     document.body,
   );
-};
+});
 
 
-const Tooltip: React.FC<Props> = (props) => {
+const Tooltip: React.FC<Props> = React.memo((props) => {
   const {
     children, className, render, ...rest
   } = props;
 
   const [tooltipVisible, setTooltipVisible] = useState(false);
+
   const element = useRef<HTMLDivElement>(null);
+
   const [position, setPosition] = useState<DOMRect | null>(null);
-  function getPosition() {
+
+  const getPosition = useCallback(() => {
     if (!element.current) return;
     const rect = element.current.getBoundingClientRect();
     setPosition(rect);
-  }
+  }, []);
 
-  function showTooltip() {
+  const showTooltip = useCallback(() => {
     setTooltipVisible(true);
-  }
+  }, []);
 
-  function hideTooltip() {
+  const hideTooltip = useCallback(() => {
     setTooltipVisible(false);
-  }
+  }, []);
 
-  function focus() {
+  const focus = useCallback(() => {
     getPosition();
     showTooltip();
-  }
+  }, [getPosition, showTooltip]);
 
   return (
     <PositionContext.Provider value={position}>
@@ -82,6 +88,6 @@ const Tooltip: React.FC<Props> = (props) => {
       {tooltipVisible && <ToolipItem>{render}</ToolipItem>}
     </PositionContext.Provider>
   );
-};
+});
 
 export default Tooltip;
