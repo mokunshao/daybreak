@@ -15,6 +15,7 @@ interface Props extends HTMLProps<HTMLDivElement> {
   closeOnClickMask?: boolean;
   closeOnEsc?: boolean;
   preventBackgroundScrolling?: boolean;
+  hasMask?: boolean;
 }
 
 const baseClass = joinedClass('dialog');
@@ -22,8 +23,8 @@ const baseClass = joinedClass('dialog');
 const Dialog: React.FunctionComponent<Props> = (props) => {
   const {
     visible, title, buttons, onClose, closeOnClickMask = true,
-    closeOnEsc = true, preventBackgroundScrolling = false, children,
-    className, ...rest
+    closeOnEsc = true, preventBackgroundScrolling = false,
+    hasMask = true, children, className, ...rest
   } = props;
 
   const handleClickMask: React.MouseEventHandler = useCallback((event) => {
@@ -82,7 +83,7 @@ const Dialog: React.FunctionComponent<Props> = (props) => {
 
   const content = (
     <>
-      <div className={baseClass('mask')} onClick={handleClickMask} />
+      {hasMask && <div className={baseClass('mask')} onClick={handleClickMask} />}
       <div className={classes(baseClass(), className)} {...rest}>
         <div className={baseClass('header')}>
           <span className={baseClass('title')}>{title}</span>
