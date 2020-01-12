@@ -8,17 +8,15 @@ import './tooltip.scss';
 
 const baseClass = joinedClass('tooltip');
 
-const PositionContext = React.createContext<{ position: DOMRect | undefined; }>(
-  { position: undefined },
-);
+const PositionContext = React.createContext<DOMRect | null>(null);
 
 interface Props extends HTMLProps<HTMLDivElement> {
   render: ReactNode;
 }
 
 const ToolipItem: React.FC = (props) => {
-  const { position } = useContext(PositionContext);
   const { children } = props;
+  const position = useContext(PositionContext);
   if (!position) return null;
   const { top, left, width } = position;
   const style = {
@@ -45,11 +43,11 @@ const Tooltip: React.FC<Props> = (props) => {
 
   const [tooltipVisible, setTooltipVisible] = useState(false);
   const element = useRef<HTMLDivElement>(null);
-  const context = useContext(PositionContext);
+  const [position, setPosition] = useState<DOMRect | null>(null);
   function getPosition() {
     if (!element.current) return;
     const rect = element.current.getBoundingClientRect();
-    context.position = rect;
+    setPosition(rect);
   }
 
   function showTooltip() {
@@ -66,7 +64,7 @@ const Tooltip: React.FC<Props> = (props) => {
   }
 
   return (
-    <>
+    <PositionContext.Provider value={position}>
       <div
         ref={element}
         className={classes(baseClass(), className)}
@@ -82,7 +80,7 @@ const Tooltip: React.FC<Props> = (props) => {
         {children}
       </div>
       {tooltipVisible && <ToolipItem>{render}</ToolipItem>}
-    </>
+    </PositionContext.Provider>
   );
 };
 
