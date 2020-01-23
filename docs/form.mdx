@@ -91,6 +91,74 @@ Validator 用于验证表单数据是否符合规则。
 }}
 </Playground>
 
+## Clearable
+
+When the value of the `clearable` attribute is `true`, you can clear the value of the current input field with one click.
+
+当 `clearable` 属性的值为 `true` 时，可以一键清空当前输入框的值。
+
+<Playground>
+{() => {
+  function asyncCheckUserName(username, resolve, reject) {
+    setTimeout(() => {
+      if (username !== 'admin') {
+        resolve();
+      } else {
+        reject('用户名已经存在!');
+      }
+    }, 200);
+  }
+  const customValidator = (username) => (
+    new Promise((resolve, reject) => asyncCheckUserName(username, resolve, reject))
+  );
+  const [formData, setFormData] = useState({
+    username: '',
+    password: '',
+  });
+  const [errors, setErrors] = useState({});
+  const [fields] = useState([
+    { name: 'username', label: '用户名', input: { type: 'text' } },
+    { name: 'password', label: '密码', input: { type: 'password' } },
+  ]);
+  const rules = [
+    { key: 'username', require: true },
+    { key: 'username', minLength: 3, maxLength: 16 },
+    { key: 'username', pattern: /^[A-Za-z0-9]+$/ },
+    { key: 'password', require: true },
+    { key: 'username', validator: customValidator },
+  ];
+  const onSubmit = () => {
+    Validator(formData, rules, (errorsResult) => {
+      setErrors(errorsResult);
+      if (noError(errorsResult)) {
+        Alert('表单验证通过');
+      }
+    });
+  };
+  const onChange = (data) => {
+    setFormData(data);
+  };
+  const buttons = (
+    <>
+      <Button mode="primary" type="submit">提交</Button>
+    </>
+  );
+  return (
+    <div>
+      <Form
+        values={formData}
+        fields={fields}
+        buttons={buttons}
+        errors={errors}
+        onSubmit={onSubmit}
+        onChange={onChange}
+        clearable
+      />
+    </div>
+  );
+}}
+</Playground>
+
 ## Validate While Inputing
 
 You may want you validate the form data while inputing, so you can do it with the help of `onChange` parameter.

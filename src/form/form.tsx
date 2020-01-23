@@ -1,4 +1,4 @@
-import React, { Fragment, FormHTMLAttributes } from 'react';
+import React, { Fragment, FormHTMLAttributes, useMemo } from 'react';
 import Input from '../input/input';
 import { classes } from '../utils/classes';
 import { joinedClass } from '../utils/joinedClass';
@@ -23,6 +23,7 @@ interface Props extends FormHTMLAttributes<HTMLFormElement> {
   errors: { [key: string]: string[]; };
   errorsDisplayMode?: 'first' | 'all';
   transformError?: (erorr: string) => string;
+  clearable?: boolean;
 }
 
 const Form: React.FunctionComponent<Props> = (props) => {
@@ -36,20 +37,25 @@ const Form: React.FunctionComponent<Props> = (props) => {
     className,
     errorsDisplayMode = 'first',
     transformError,
+    clearable = false,
   } = props;
+
   const onSubmit2 = (e: React.FormEvent<Element>) => {
     e.preventDefault();
     onSubmit(e);
   };
+
   const onChange2 = (name: string, value: string) => {
     const data = { ...values, [name]: value };
     onChange(data);
   };
+
   const onKeyUp = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.keyCode === 13) {
       e.currentTarget.blur();
     }
   };
+
   const transformError2 = (error: string) => {
     const errorsMap: ErrorsMap = {
       required: 'required',
@@ -73,6 +79,9 @@ const Form: React.FunctionComponent<Props> = (props) => {
     // return <>&nbsp;</>;
     return null;
   };
+
+  const randomNumber = useMemo(() => Math.random(), []);
+
   return (
     <form onSubmit={onSubmit2} className={classes(form(), className)}>
       <table>
@@ -81,15 +90,23 @@ const Form: React.FunctionComponent<Props> = (props) => {
             <Fragment key={item.name}>
               <tr>
                 <td>
-                  <label htmlFor={item.name}>{item.label}</label>
+                  <label
+                    htmlFor={item.name + randomNumber}
+                    style={{ display: 'block' }}
+                  >
+                    {item.label}
+
+                  </label>
                 </td>
                 <td>
                   <Input
-                    id={item.name}
+                    id={item.name + randomNumber}
                     type={item.input.type}
                     value={values[item.name]}
                     onChange={(e) => onChange2(item.name, e.target.value)}
                     onKeyUp={onKeyUp}
+                    onClear={() => { onChange2(item.name, ''); }}
+                    clearable={clearable}
                   />
                 </td>
               </tr>
