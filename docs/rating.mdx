@@ -6,7 +6,7 @@ import {useState} from 'react';
 import { Playground, Props } from 'docz';
 import Rating from '../src/rating/rating.tsx';
 
-# Icon
+# Rating
 
 ```javascript
 import { Rating } from 'daybreak';
@@ -27,7 +27,9 @@ import { Rating } from 'daybreak';
 
 ## Clearable
 
-When you repeatedly click on a star, all stars will lose their light.
+When you click on a star repeatedly, the value will be set to 0.
+
+当你反复点击一颗星星时，值将会被设置为 0。
 
 <Playground>
 {() => {
@@ -42,4 +44,9 @@ When you repeatedly click on a star, all stars will lose their light.
 
 ## Props
 
-<Props of={Rating} />
+| Prop | type | 
+| --- | --- | 
+| value | number |
+| max | number |
+| onChange | (value: number) => void |
+| clearable | boolean |
