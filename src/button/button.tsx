@@ -39,7 +39,7 @@ const Button: React.FunctionComponent<Props> = (props) => {
       {...rest}
     >
       {loading && loadingIcon}
-      <div style={{ opacity: loading ? 0 : 1 }}>
+      <div style={{ opacity: loading ? 0 : 1 }} className={baseClass('children')}>
         {children}
       </div>
     </button>
