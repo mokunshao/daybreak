@@ -20,9 +20,13 @@ import { Validator, noError } from 'daybreak';
 
 Validator is used to validate whether the form data is conforms to the rules.
 
+Validator 用于验证表单数据是否符合规则。
+
 ## noError
 
 `noError` is a helper function to determine whether there is no errors (in other words: whether the data is an empty object). Its effect is similar to `Lodash`'s `isEmpty` function.
+
+`noError` 是一个帮助函数，用于判断是否没有错误（即数据是否为空对象）。其效果类似于 `Lodash` 的 `isEmpty` 函数。
 
 ## Basic usage
 
@@ -89,7 +93,9 @@ Validator is used to validate whether the form data is conforms to the rules.
 
 ## Validate While Inputing
 
-You may want you validate the form data while inputing, so you can do it with the help of `onChange` prop.
+You may want you validate the form data while inputing, so you can do it with the help of `onChange` parameter.
+
+您可能希望在输入时验证表单数据，因此可以借助 `onChange` 参数进行验证。
 
 <Playground>
 {() => {
@@ -157,7 +163,9 @@ You may want you validate the form data while inputing, so you can do it with th
 
 ## errorsDisplayMode
 
-By default, the validation result will displays only one message per field. If you want to see more than one message, you can set this property to "all".
+By default, the validation result will displays only one message per field. If you want to see more than one message, you can set the value of `errorsDisplayMode` property to "all".
+
+默认情况下，验证结果对于每个字段只显示一条消息。如果要查看多条消息，可以将 `errorsDisplayMode` 属性的值设置为 `'all'`。
 
 <Playground>
 {() => {
@@ -226,7 +234,9 @@ By default, the validation result will displays only one message per field. If y
 
 ## transformError
 
-By default, validation results are in English, so if you want to display errors in another language, you can set this property.
+By default, validation results are in English, so if you want to display errors in another language, you can set the `transformError` property.
+
+默认情况下，验证结果为英语，因此，如果要用另一种语言显示错误信息，可以设置 `transformError` 属性。
 
 <Playground>
 {() => {
