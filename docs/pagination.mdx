@@ -22,10 +22,13 @@ import { Pagination } from 'daybreak';
   const onChange2 = (n) => setCurrent2(n);
   return (
     <div>
-      <Pagination pageSize={10} total={200} current={current} onChange={onChange} />
+      <br />
+      <Pagination pageSize={10} total={201} current={current} onChange={onChange} />
       <br />
       <br />
       <Pagination pageSize={10} total={40} current={current2} onChange={onChange2} />
+      <br />
+      <br />
     </div>
   );
 }}

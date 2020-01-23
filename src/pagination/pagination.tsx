@@ -21,7 +21,7 @@ const Pagination: React.FC<Props> = React.memo((props) => {
     className, total, pageSize, current, onChange,
   } = props;
 
-  const pagesCount = useMemo(() => total / pageSize, [total, pageSize]);
+  const pagesCount = useMemo(() => Math.ceil(total / pageSize), [total, pageSize]);
 
   const array: number[] = useMemo(() => {
     const arr = [];
