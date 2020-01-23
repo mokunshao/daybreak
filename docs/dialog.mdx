@@ -22,6 +22,10 @@ import { Dialog } from 'daybreak';
 
 ## Basic usage
 
+The required parameters for `Dialog` are `visible` and `onClose`,. You can pass the button you need to display to `Dialog` through the buttons parameter.
+
+`Dialog` 必须的参数有 `visible` 和 `onClose`，你可以通过 buttons 参数向 `Dialog` 传递需要展示的按钮。
+
 <Playground>
 {()=>{
   const [visible, setVisible] = useState(false);
@@ -46,6 +50,10 @@ import { Dialog } from 'daybreak';
 </Playground>
 
 ## Don't Close When Click the Mask
+
+The default value of the parameter `closeOnClickMask` is `true`. When you set this attribute to `false`, `Dialog` will not be closed when you click on the mask layer.
+
+`closeOnClickMask` 参数的默认值为 `true`，当你把该属性设置为 `false` 时，你点击遮罩层时将不会关闭 `Dialog`。
 
 <Playground>
 {()=>{
@@ -73,6 +81,10 @@ import { Dialog } from 'daybreak';
 
 ## Don't Close When the 'Esc' key is pressed
 
+The default value of the `closeOnEsc` parameter is `true`. When you set the value of this attribute to `false`, `Dialog` will not be closed when you press the `ESC` key.
+
+`closeOnEsc` 参数的默认值为 `true`，当你把该属性的值设置为 `false` 时，你按 `ESC` 键时将不会关闭 `Dialog`。
+
 <Playground>
 {()=>{
   const [visible, setVisible] = useState(false);
@@ -98,6 +110,10 @@ import { Dialog } from 'daybreak';
 </Playground>
 
 ## Prevent background scrolling
+
+The default value of the `SecretentBackgroundScrolling` parameter is `true`. When you set the value of this attribute to `false`, the page will not be scrollable when `Dialog` is displayed.
+
+`preventBackgroundScrolling` 参数的默认值为 `true`，当你把该属性的值设置为 `false` 时，在 `Dialog` 处于展示状态时页面将是不可滚动的。
 
 <Playground>
 {()=>{
@@ -125,7 +141,9 @@ import { Dialog } from 'daybreak';
 
 ## Hide Mask
 
-setting the `hasMask` property to `false` can hide the mask.
+Setting the value of the `hasMask` property to `false` can hide the mask layer.
+
+将 `hasMask` 属性的值设置为 `false` 可以隐藏遮罩层。
 
 <Playground>
 {()=>{
@@ -152,6 +170,10 @@ setting the `hasMask` property to `false` can hide the mask.
 </Playground>
 
 ## Modal
+
+You can call the `Dialog` component through the `Modal` function. If you need to override the setting of `Modal`, you can pass the parameters accepted by `Dialog` through the parameter `override`.
+
+你可以通过 `Modal` 函数调用 `Dialog` 组件，如果需要覆盖 `Modal` 的设置，可以通过 `override` 参数传入 `Dialog` 接受的参数。
 
 ```javascript
 import { Modal } from 'daybreak';
@@ -180,6 +202,10 @@ import { Modal } from 'daybreak';
 
 ## Alert
 
+You can call the `Dialog` component through the `Alert` function. If you need to override the setting of `Alert`, you can pass the parameters accepted by `Dialog` through the parameter `override`.
+
+你可以通过 `Alert` 函数调用 `Dialog` 组件，如果需要覆盖 `Alert` 的设置，可以通过 `override` 参数传入 `Dialog` 接受的参数。
+
 ```javascript
 import { Alert } from 'daybreak';
 ```
@@ -194,6 +220,10 @@ import { Alert } from 'daybreak';
 </Playground>
 
 ## Confirm
+
+You can call the `Dialog` component through the `Confirm` function. If you need to override the setting of `Confirm`, you can pass the parameters accepted by `Dialog` through the parameter `override`.
+
+你可以通过 `Confirm` 函数调用 `Dialog` 组件，如果需要覆盖 `Confirm` 的设置，可以通过 `override` 参数传入 `Dialog` 接受的参数。
 
 ```javascript
 import { Confirm } from 'daybreak';
