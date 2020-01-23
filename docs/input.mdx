@@ -18,7 +18,7 @@ import { Input } from 'daybreak';
   {()=>{
     const [value, setValue] = useState('');
     return (
-      <Input placeholder="Type here..." value={value} onChange={(e) => setValue(e.target.value)} />
+      <Input placeholder="请输入..." value={value} onChange={(e) => setValue(e.target.value)} />
     );
   }}
 </Playground>
@@ -27,9 +27,11 @@ import { Input } from 'daybreak';
 
 `clearable` prop and `onClear` prop should be used together.
 
+`clearable` 属性需要与 `onClear` 属性搭配使用。
+
 <Playground>
   {()=>{
-    const [value, setValue] = useState('');
+    const [value, setValue] = useState('test');
     return (
       <Input
         clearable
@@ -45,8 +47,8 @@ import { Input } from 'daybreak';
 
 <Playground>
   {()=>{
-    const [value, setValue] = useState('');
-    const [value2, setValue2] = useState('');
+    const [value, setValue] = useState('test');
+    const [value2, setValue2] = useState('test');
     return (
       <div>
         <div>Basic:</div>
