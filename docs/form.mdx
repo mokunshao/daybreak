@@ -58,7 +58,7 @@ Validator 用于验证表单数据是否符合规则。
     { key: 'username', minLength: 3, maxLength: 16 },
     { key: 'username', pattern: /^[A-Za-z0-9]+$/ },
     { key: 'password', require: true },
-    { key: 'username', customValidator },
+    { key: 'username', validator: customValidator },
   ];
   const onSubmit = () => {
     Validator(formData, rules, (errorsResult) => {
@@ -125,7 +125,7 @@ You may want you validate the form data while inputing, so you can do it with th
     { key: 'username', minLength: 3, maxLength: 16 },
     { key: 'username', pattern: /^[A-Za-z0-9]+$/ },
     { key: 'password', require: true },
-    { key: 'username', customValidator },
+    { key: 'username', validator: customValidator },
   ];
   const onSubmit = () => {
     Validator(formData, rules, (errorsResult) => {
@@ -195,7 +195,7 @@ By default, the validation result will displays only one message per field. If y
     { key: 'username', minLength: 3, maxLength: 16 },
     { key: 'username', pattern: /^[A-Za-z0-9]+$/ },
     { key: 'password', require: true },
-    { key: 'username', customValidator },
+    { key: 'username', validator: customValidator },
   ];
   const onSubmit = () => {
     Validator(formData, rules, (errorsResult) => {
@@ -266,7 +266,7 @@ By default, validation results are in English, so if you want to display errors 
     { key: 'username', minLength: 3, maxLength: 16 },
     { key: 'username', pattern: /^[A-Za-z0-9]+$/ },
     { key: 'password', require: true },
-    { key: 'username', customValidator },
+    { key: 'username', validator: customValidator },
   ];
   const onSubmit = () => {
     Validator(formData, rules, (errorsResult) => {

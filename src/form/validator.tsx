@@ -52,7 +52,7 @@ function zip(arr: Array<[string, string]>) {
   return result;
 }
 
-type Message = string | Promise<string>
+type Message = string | Promise<string>;
 
 interface Errors {
   [key: string]: Array<Message>;
@@ -87,16 +87,18 @@ const Validator = (values: FormValues, rules: FormRules, callback: Function): vo
     }
   });
 
-  const flattenErrors = flat((Object.keys(errors).map(
-    (key) => errors[key].map((promise) => [key, promise]),
-  )));
+  const flattenErrors = flat(
+    Object.keys(errors).map(
+      (key) => errors[key].map((message) => [key, message]),
+    ),
+  );
 
   const newPromise = flattenErrors.map(([key, message]): Promise<[string, any]> => {
     const promise = message instanceof Promise ? message : Promise.reject(message);
-    return promise.then(() => [key, undefined], (reson) => [key, reson]);
+    return promise.then(() => [key, null], (reson) => [key, reson]);
   });
 
-  Promise.all(newPromise).then((res) => callback(zip(res.filter((item) => item[1]))));
+  Promise.all(newPromise).then((res) => callback(zip(res.filter(([, value]) => value))));
 };
 
 export default Validator;
