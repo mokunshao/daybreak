@@ -1,0 +1,26 @@
+.daybreak-tabs {
+  display: flex;
+  flex-direction: column;
+
+  &-tab {
+    border: 1px solid black;
+  }
+
+  &-list {
+    display: inline-flex;
+    cursor: pointer;
+  }
+
+  &-panes {
+    flex: 1;
+    border: 1px solid black;
+  }
+
+  &-vertical {
+    flex-direction: row;
+  }
+
+  &-vertical &-list {
+    flex-direction: column;
+  }
+}
