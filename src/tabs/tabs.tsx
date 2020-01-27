@@ -1,5 +1,5 @@
 import React, {
-  HTMLProps, ReactElement, useMemo, useRef,
+  HTMLProps, ReactElement, useMemo, useRef, useCallback, useEffect, RefObject,
 } from 'react';
 import { classes } from '../utils/classes';
 import { joinedClass } from '../utils/joinedClass';
@@ -20,9 +20,11 @@ export const Tabs: React.FC<Props> = React.memo((props) => {
     onChange, isVertical = false, ...rest
   } = props;
 
+  const ref1 = useRef<HTMLElement | null>(null);
+
   const TheChildren = useRef(children);
 
-  const tabsList: Array<ReactElement> = useMemo(() => {
+  const tabsList = useMemo(() => {
     const arr: Array<ReactElement> = [];
     React.Children.forEach(TheChildren.current, (c) => {
       if (React.isValidElement(c) && c.type === TabPane) {
@@ -32,14 +34,35 @@ export const Tabs: React.FC<Props> = React.memo((props) => {
     return arr;
   }, [TheChildren]);
 
+  const handleClick = useCallback((i: number, e) => {
+    if (i === active) { return; }
+    onChange(i);
+    ref1.current = e.target;
+  }, [active, onChange]);
+
   const tabsLabel = useMemo(
     () => tabsList.map((c, i) => (
-      <div className={baseClass('tab')} key={i} onClick={() => onChange(i)}>
+      <div ref={React.createRef()} className={baseClass('tab')} key={i} onClick={(e) => handleClick(i, e)}>
         {c.props.tab}
       </div>
     )),
-    [onChange, tabsList],
+    [handleClick, tabsList],
   );
+
+  const sss = useRef(null);
+
+  useEffect(() => {
+    const { current } = sss as RefObject<HTMLElement>;
+    if (current) {
+      const { ref } = tabsLabel[active];
+      const rect = ref.current.getBoundingClientRect();
+      if (!isVertical) {
+        current.style.top = `${rect.height}px`;
+        current.style.width = `${rect.width}px`;
+        current.style.left = `${ref.current.offsetLeft}px`;
+      }
+    }
+  }, [active, isVertical, tabsLabel]);
 
   const ActiveTab = useMemo(
     () => tabsList[active],
@@ -48,9 +71,10 @@ export const Tabs: React.FC<Props> = React.memo((props) => {
 
   return (
     <div className={classes(baseClass(), isVertical && baseClass('vertical'), className)} {...rest}>
-      <div className={baseClass('list')}>
+      <div className={baseClass('list')} style={{ position: 'relative' }}>
         {tabsLabel}
       </div>
+      <div ref={sss} className={baseClass('line')} />
       <div className={baseClass('panes')}>
         {ActiveTab}
       </div>
