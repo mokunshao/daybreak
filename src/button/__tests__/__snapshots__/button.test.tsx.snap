@@ -7,6 +7,7 @@ exports[`button 是个 button 1`] = `
     type="button"
   >
     <div
+      class="daybreak-button-children"
       style="opacity: 1;"
     />
   </button>
