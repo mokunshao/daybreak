@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tabs match snapshot 1`] = `
+<DocumentFragment>
+  <div>
+    <div
+      class="daybreak-tabs daybreak-tabs-vertical"
+    >
+      <div
+        class="daybreak-tabs-list"
+      >
+        <div
+          class="daybreak-tabs-tab"
+        >
+          1121
+        </div>
+        <div
+          class="daybreak-tabs-tab"
+          style="background-color: rgb(226, 226, 226);"
+        >
+          okok
+        </div>
+        <div
+          class="daybreak-tabs-line"
+          style="left: -2px; height: 0px; width: 2px; top: 0px;"
+        />
+      </div>
+      <div
+        class="daybreak-tabs-panes"
+      >
+        <div
+          class="daybreak-tabs-pane"
+          tab="okok"
+        >
+          Tab 2 Content
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
