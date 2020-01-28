@@ -64,7 +64,15 @@ export const Tabs: React.FC<Props> = React.memo((props) => {
         setLinePosition(lineRef, ref.current);
       };
       return tabsList.map((c, i) => (
-        <div ref={React.createRef()} className={baseClass('tab')} key={i} onClick={() => onChange(i)} onMouseOver={mouseOver} onMouseLeave={mouseLeave}>
+        <div
+          ref={React.createRef()}
+          className={baseClass('tab')}
+          key={i}
+          onClick={() => onChange(i)}
+          onMouseOver={mouseOver}
+          onMouseLeave={mouseLeave}
+          style={i === active ? { backgroundColor: '#e2e2e2' } : {}}
+        >
           {c.props.tab}
         </div>
       ));
