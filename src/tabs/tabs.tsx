@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/mouse-events-have-key-events */
 import React, {
   HTMLProps, ReactElement, useMemo, useRef, useCallback, useEffect, RefObject,
 } from 'react';
@@ -32,29 +33,53 @@ export const Tabs: React.FC<Props> = React.memo((props) => {
     return arr;
   }, [TheChildren]);
 
-  const tabsLabel = useMemo(
-    () => tabsList.map((c, i) => (
-      <div ref={React.createRef()} className={baseClass('tab')} key={i} onClick={() => onChange(i)}>
-        {c.props.tab}
-      </div>
-    )),
-    [onChange, tabsList],
-  );
-
   const lineRef = useRef(null);
 
-  useEffect(() => {
-    const { current } = lineRef as RefObject<HTMLElement>;
-    if (current) {
-      const { ref } = tabsLabel[active] as any;
-      const rect = ref.current.getBoundingClientRect();
-      if (!isVertical) {
-        current.style.top = `${rect.height}px`;
-        current.style.width = `${rect.width}px`;
-        current.style.left = `${ref.current.offsetLeft}px`;
-      }
+  const setLinePosition = useCallback((lineRef1, target) => {
+    const { current } = lineRef1 as RefObject<HTMLElement>;
+    if (!current) { return; }
+    const lineWidth = 3;
+    const rect = target.getBoundingClientRect();
+    if (!isVertical) {
+      current.style.top = `${rect.height - lineWidth / 2}px`;
+      current.style.width = `${rect.width}px`;
+      current.style.left = `${target.offsetLeft}px`;
+    } else {
+      current.style.left = `${rect.width - lineWidth / 2}px`;
+      current.style.height = `${rect.height}px`;
+      current.style.width = `${lineWidth}px`;
+      current.style.top = `${target.offsetTop}px`;
     }
-  }, [active, isVertical, tabsLabel]);
+  }, [isVertical]);
+
+  const mouseOver = useCallback((e) => {
+    setLinePosition(lineRef, e.target);
+  }, [setLinePosition]);
+
+  const tabsLabel: Array<ReactElement> = useMemo(
+    () => {
+      const mouseLeave = () => {
+        const { ref } = tabsLabel[active] as any;
+        setLinePosition(lineRef, ref.current);
+      };
+      return tabsList.map((c, i) => (
+        <div ref={React.createRef()} className={baseClass('tab')} key={i} onClick={() => onChange(i)} onMouseOver={mouseOver} onMouseLeave={mouseLeave}>
+          {c.props.tab}
+        </div>
+      ));
+    },
+    [active, mouseOver, onChange, tabsList, setLinePosition],
+  );
+
+  const isMounted = useRef(true);
+
+  useEffect(() => {
+    if (isMounted.current) {
+      const { ref } = tabsLabel[active] as any;
+      setLinePosition(lineRef, ref.current);
+      isMounted.current = false;
+    }
+  }, [active, tabsLabel, setLinePosition]);
 
   const ActiveTab = useMemo(
     () => tabsList[active],
@@ -63,10 +88,10 @@ export const Tabs: React.FC<Props> = React.memo((props) => {
 
   return (
     <div className={classes(baseClass(), isVertical && baseClass('vertical'), className)} {...rest}>
-      <div className={baseClass('list')} style={{ position: 'relative' }}>
+      <div className={baseClass('list')}>
         {tabsLabel}
+        <div ref={lineRef} className={baseClass('line')} />
       </div>
-      <div ref={lineRef} className={baseClass('line')} />
       <div className={baseClass('panes')}>
         {ActiveTab}
       </div>
