@@ -20,8 +20,6 @@ export const Tabs: React.FC<Props> = React.memo((props) => {
     onChange, isVertical = false, ...rest
   } = props;
 
-  const ref1 = useRef<HTMLElement | null>(null);
-
   const TheChildren = useRef(children);
 
   const tabsList = useMemo(() => {
@@ -34,27 +32,21 @@ export const Tabs: React.FC<Props> = React.memo((props) => {
     return arr;
   }, [TheChildren]);
 
-  const handleClick = useCallback((i: number, e) => {
-    if (i === active) { return; }
-    onChange(i);
-    ref1.current = e.target;
-  }, [active, onChange]);
-
   const tabsLabel = useMemo(
     () => tabsList.map((c, i) => (
-      <div ref={React.createRef()} className={baseClass('tab')} key={i} onClick={(e) => handleClick(i, e)}>
+      <div ref={React.createRef()} className={baseClass('tab')} key={i} onClick={() => onChange(i)}>
         {c.props.tab}
       </div>
     )),
-    [handleClick, tabsList],
+    [onChange, tabsList],
   );
 
-  const sss = useRef(null);
+  const lineRef = useRef(null);
 
   useEffect(() => {
-    const { current } = sss as RefObject<HTMLElement>;
+    const { current } = lineRef as RefObject<HTMLElement>;
     if (current) {
-      const { ref } = tabsLabel[active];
+      const { ref } = tabsLabel[active] as any;
       const rect = ref.current.getBoundingClientRect();
       if (!isVertical) {
         current.style.top = `${rect.height}px`;
@@ -74,7 +66,7 @@ export const Tabs: React.FC<Props> = React.memo((props) => {
       <div className={baseClass('list')} style={{ position: 'relative' }}>
         {tabsLabel}
       </div>
-      <div ref={sss} className={baseClass('line')} />
+      <div ref={lineRef} className={baseClass('line')} />
       <div className={baseClass('panes')}>
         {ActiveTab}
       </div>
