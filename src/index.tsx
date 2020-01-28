@@ -13,9 +13,11 @@ import Radio from './radio/radio';
 import RadioGroup from './radio/radio-group';
 import Switch from './switch/switch';
 import Rating from './rating';
+import Tabs from './tabs/tabs';
+import TabPane from './tabs/tab-pane';
 
-import CodePreview from './code-preview/code-preview';
-import Table from './table/table';
+// import CodePreview from './code-preview/code-preview';
+// import Table from './table/table';
 
 export {
   Button,
@@ -35,7 +37,9 @@ export {
   Radio,
   RadioGroup,
   Switch,
-  CodePreview,
-  Table,
+  // CodePreview,
+  // Table,
   Rating,
+  Tabs,
+  TabPane,
 };
