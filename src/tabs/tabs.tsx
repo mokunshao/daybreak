@@ -38,14 +38,15 @@ export const Tabs: React.FC<Props> = React.memo((props) => {
   const setLinePosition = useCallback((lineRef1, target) => {
     const { current } = lineRef1 as RefObject<HTMLElement>;
     if (!current) { return; }
-    const lineWidth = 3;
+    const lineWidth = 2;
     const rect = target.getBoundingClientRect();
     if (!isVertical) {
-      current.style.top = `${rect.height - lineWidth / 2}px`;
+      current.style.top = `${rect.height - lineWidth}px`;
       current.style.width = `${rect.width}px`;
       current.style.left = `${target.offsetLeft}px`;
+      current.style.height = `${lineWidth}px`;
     } else {
-      current.style.left = `${rect.width - lineWidth / 2}px`;
+      current.style.left = `${rect.width - lineWidth}px`;
       current.style.height = `${rect.height}px`;
       current.style.width = `${lineWidth}px`;
       current.style.top = `${target.offsetTop}px`;

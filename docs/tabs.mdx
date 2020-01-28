@@ -6,24 +6,57 @@ import {useState} from 'react';
 import { Playground, Props } from 'docz';
 import Tabs from '../src/tabs/tabs.tsx';
 import TabPane from '../src/tabs/tab-pane.tsx';
-import TabsE from './tabs.tsx';
 
 # Tabs
 
 ```javascript
-import { Tabs } from 'daybreak';
+import { Tabs,TabPane } from 'daybreak';
 ```
 
-## Basic usage
+## Example
+
+### Basic usage
 
 <Playground>
-  <TabsE/>
+{() => {
+  const [active, setActive] = useState(0);
+  return (
+    <div>
+      <Tabs active={active} onChange={(index) => setActive(index)}>
+        <TabPane tab='1121999999'>Tab 1 Content</TabPane>
+        <TabPane tab="okokkk">Tab 2 Content</TabPane>
+      </Tabs>
+    </div>
+  );
+}}
+</Playground>
+
+### isVertical
+
+When the value of the `isVertical` attribute of `Tabs` is `true`, the tabs will be arranged vertically.
+
+当 `Tabs` 的 `isVertical` 属性的值为 `true` 时，tabs 将会垂直排列。
+
+<Playground>
+{() => {
+  const [active, setActive] = useState(1);
+  return (
+    <div>
+      <Tabs isVertical active={active} onChange={(index) => setActive(index)}>
+        <TabPane tab='1121'>Tab 1 Content</TabPane>
+        <TabPane tab="okok">Tab 2 Content</TabPane>
+      </Tabs>
+    </div>
+  );
+}}
 </Playground>
 
 ## Props
 
 ### Tabs
 
+<Props of={Tabs} />
 
-### Tab
+### TabPane
 
+<Props of={TabPane} />

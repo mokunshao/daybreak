@@ -1,27 +1,28 @@
+@import '../common.scss';
+
 .daybreak-tabs {
   display: flex;
   flex-direction: column;
 
   &-line {
     position: absolute;
-    background-color: red;
+    background-color: black;
     transition: all 0.4s;
-    height: 3px;
   }
 
   &-tab {
-    border: 1px solid black;
+    padding: 0.3em;
+    cursor: pointer;
   }
 
   &-list {
+    background-color: $grey;
     position: relative;
     display: inline-flex;
-    cursor: pointer;
   }
 
   &-panes {
     flex: 1;
-    border: 1px solid black;
   }
 
   &-vertical {
