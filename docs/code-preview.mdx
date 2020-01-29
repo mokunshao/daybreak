@@ -1,0 +1,40 @@
+---
+title: CodePreview
+---
+
+import {useState} from 'react'
+import { Playground, Props } from 'docz'
+import CodePreview from '../src/code-preview/code-preview.tsx'
+
+# CodePreview
+
+```javascript
+import { CodePreview } from 'daybreak';
+```
+
+## Basic
+
+`CodePreview` has no code highlighting, just like `Stack Overflow`.
+
+`CodePreview` 没有代码高亮，就像 `Stack Overflow` 一样。
+
+<Playground>
+  {()=>{
+    const code = `
+public class Main {
+    public static void main(String[] args) {
+    System.out.println("Hello, World!");
+  }
+}
+    `;
+    return (
+      <div>
+        <CodePreview code={code.trim()} />
+      </div>
+    );
+  }}
+</Playground>
+
+## Props
+
+<Props of={CodePreview} />
