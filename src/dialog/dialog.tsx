@@ -146,7 +146,7 @@ const Modal = (
   return removeModal;
 };
 
-const Alert = (content: React.ReactNode, override: { [k: string]: any; }) => {
+const Alert = (content: React.ReactNode, override?: { [k: string]: any; }) => {
   const close = Modal(
     content,
     [<Button type="button" onClick={() => close()}>OK</Button>],

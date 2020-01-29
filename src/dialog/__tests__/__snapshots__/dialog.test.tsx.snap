@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tabs match snapshot 1`] = `
+<DocumentFragment>
+  <div>
+    <button
+      class="daybreak-button daybreak-button-normal"
+      type="button"
+    >
+      <div
+        class="daybreak-button-children"
+        style="opacity: 1;"
+      >
+        Open
+      </div>
+    </button>
+  </div>
+</DocumentFragment>
+`;
