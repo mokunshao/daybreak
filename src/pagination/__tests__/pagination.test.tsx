@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { render } from '@testing-library/react';
 import { Pagination } from '../pagination';
+import Index from '../index';
 
 function Example() {
   const [current, setCurrent] = useState(1);
@@ -15,6 +16,8 @@ function Example() {
 
 describe('Pagination', () => {
   it('exits', () => {
+    expect(Pagination).toBeTruthy();
+    expect(Index).toBeTruthy();
     expect(<Example />).toBeTruthy();
   });
 
