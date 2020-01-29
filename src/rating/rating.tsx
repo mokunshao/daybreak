@@ -13,7 +13,7 @@ export interface Props extends Omit<HTMLProps<HTMLDivElement>, 'onChange'> {
   clearable?: boolean;
 }
 
-const Rating: React.FC<Props> = React.memo((props) => {
+export const Rating: React.FC<Props> = React.memo((props) => {
   const {
     className, max = 5, value, onChange, clearable = false, ...rest
   } = props;

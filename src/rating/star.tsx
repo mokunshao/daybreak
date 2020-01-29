@@ -11,7 +11,7 @@ interface StarProps extends HTMLProps<HTMLSpanElement> {
   rating: number;
 }
 
-const Star: React.FC<StarProps> = React.memo((props) => {
+export const Star: React.FC<StarProps> = React.memo((props) => {
   const {
     index, lighten, setOverride, setRating, clearable, rating,
   } = props;
