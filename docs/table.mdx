@@ -1,0 +1,48 @@
+---
+title: Table
+---
+
+import {useState} from 'react'
+import { Playground, Props } from 'docz'
+import Table from '../src/table/table.tsx'
+
+# Table
+
+```javascript
+import { Table } from 'daybreak';
+```
+
+## Standalone
+
+<Playground>
+  {()=>{
+    const columns = ['name', 'age'];
+    const data = [
+      [
+        'Jack',
+        18,
+      ],
+      [
+        'Amy',
+        20,
+      ],
+      [
+        'Mike',
+        19,
+      ],
+      [
+        'Lily',
+        14,
+      ],
+    ];
+    return (
+      <div>
+        <Table columns={columns} data={data} />
+      </div>
+    );
+  }}
+</Playground>
+
+## Props
+
+<Props of={Table} />
