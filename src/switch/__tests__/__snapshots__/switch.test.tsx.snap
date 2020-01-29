@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Switch match snapshot 1`] = `
+<DocumentFragment>
+  <div>
+    <label
+      class="daybreak-switch"
+    >
+      <input
+        checked=""
+        class="daybreak-switch-input"
+        type="checkbox"
+      />
+      <span
+        class="daybreak-switch-slider"
+      />
+    </label>
+  </div>
+</DocumentFragment>
+`;
