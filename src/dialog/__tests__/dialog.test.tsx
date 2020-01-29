@@ -40,6 +40,51 @@ describe('Tabs', () => {
     expect(asFragment()).toMatchSnapshot();
   });
 
+  it('Dialog', () => {
+    const handleClose = jest.fn();
+
+    function Example0() {
+      const [visible, setVisible] = useState(false);
+      const onClose = () => {
+        setVisible(false);
+        handleClose();
+      };
+      return (
+        <div>
+          <Button type="button" onClick={() => setVisible(!visible)}>Open</Button>
+          <Dialog
+            visible={visible}
+            buttons={
+              [
+                <Button type="button" onClick={() => setVisible(false)}>Yes</Button>,
+                <Button type="button" onClick={() => setVisible(false)}>No</Button>,
+              ]
+            }
+            onClose={onClose}
+          >
+            hello
+          </Dialog>
+        </div>
+      );
+    }
+
+    const { getByText, queryByText } = render(
+      <Example0 />,
+    );
+
+    expect(queryByText('hello')).toBeNull();
+
+    fireEvent.click(getByText('Open'));
+
+    expect(getByText('hello')).toBeTruthy();
+
+    expect(handleClose).toHaveBeenCalledTimes(0);
+
+    fireEvent.click(getByText('X').parentElement as Element);
+
+    expect(handleClose).toHaveBeenCalledTimes(1);
+  });
+
   it('Alert', () => {
     const msg = 'This is an alert.';
     const buttonText = 'Open';
