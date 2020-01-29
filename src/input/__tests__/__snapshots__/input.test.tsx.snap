@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="daybreak-input-wrapper"
+  >
+    <input
+      class="daybreak-input"
+      type="text"
+    />
+    <div
+      class="daybreak-input-icons"
+    />
+  </div>
+</DocumentFragment>
+`;
