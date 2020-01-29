@@ -13,12 +13,7 @@ exports[`CodePreview match snapshot 1`] = `
           class="daybreak-button daybreak-button-normal"
           type="button"
         >
-          <div
-            class="daybreak-button-children"
-            style="opacity: 1;"
-          >
-            Code Preview
-          </div>
+          Code Preview
         </button>
       </div>
     </div>

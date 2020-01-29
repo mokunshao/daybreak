@@ -80,7 +80,7 @@ describe('Tabs', () => {
 
     expect(handleClose).toHaveBeenCalledTimes(0);
 
-    fireEvent.click(getByText('X').parentElement as Element);
+    fireEvent.click(getByText('X'));
 
     expect(handleClose).toHaveBeenCalledTimes(1);
   });

@@ -29,14 +29,14 @@ describe('Pagination', () => {
   it('click', () => {
     const { getByText } = render(<Example />);
 
-    const button = getByText('2').parentElement;
+    const button = getByText('2');
     expect(button).toBeTruthy();
     if (!button) return;
     expect(button.classList.contains('daybreak-button-primary')).toBeFalsy();
     button.click();
     expect(button.classList.contains('daybreak-button-primary')).toBeTruthy();
 
-    const button2 = getByText('4').parentElement;
+    const button2 = getByText('4');
     expect(button2).toBeTruthy();
     if (!button2) return;
     expect(button2.classList.contains('daybreak-button-primary')).toBeFalsy();

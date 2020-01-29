@@ -38,10 +38,14 @@ const Button: React.FunctionComponent<Props> = (props) => {
       className={classes(baseClass(), baseClass(mode), outlined ? baseClass('outlined') : '', className)}
       {...rest}
     >
-      {loading && loadingIcon}
-      <div style={{ opacity: loading ? 0 : 1 }} className={baseClass('children')}>
-        {children}
-      </div>
+      {loading ? (
+        <>
+          {loadingIcon}
+          <span style={{ opacity: 0 }}>
+            {children}
+          </span>
+        </>
+      ) : children}
     </button>
   );
 };

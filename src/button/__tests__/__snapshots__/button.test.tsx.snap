@@ -5,11 +5,6 @@ exports[`button 是个 button 1`] = `
   <button
     class="daybreak-button daybreak-button-normal"
     type="button"
-  >
-    <div
-      class="daybreak-button-children"
-      style="opacity: 1;"
-    />
-  </button>
+  />
 </DocumentFragment>
 `;
