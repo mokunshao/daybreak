@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CodePreview match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="daybreak-layout"
+  >
+    <div
+      class="daybreak-layout-header"
+    >
+      header
+    </div>
+    <div
+      class="daybreak-layout daybreak-layout-has-aside"
+    >
+      <div
+        class="daybreak-layout-aside"
+      >
+        aside
+      </div>
+      <div
+        class="daybreak-layout-content"
+      >
+        content
+      </div>
+    </div>
+    <div
+      class="daybreak-layout-footer"
+    >
+      footer
+    </div>
+  </div>
+</DocumentFragment>
+`;

@@ -6,7 +6,7 @@ const layout = joinedClass('layout');
 
 type Props = React.HtmlHTMLAttributes<HTMLElement>;
 
-const Header: React.FunctionComponent<Props> = (props) => {
+export const Header: React.FunctionComponent<Props> = (props) => {
   const { className, children, ...rest } = props;
   return (
     <div className={classes(layout('header'), className)} {...rest}>{children}</div>

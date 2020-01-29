@@ -6,7 +6,7 @@ const layout = joinedClass('layout');
 
 type Props = React.HtmlHTMLAttributes<HTMLElement>;
 
-const Aside: React.FunctionComponent<Props> = (props) => {
+export const Aside: React.FunctionComponent<Props> = (props) => {
   const { className, children, ...rest } = props;
   return (
     <div className={classes(layout('aside'), className)} {...rest}>{children}</div>
