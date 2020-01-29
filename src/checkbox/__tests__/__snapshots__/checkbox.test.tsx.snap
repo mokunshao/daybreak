@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tabs match snapshot 1`] = `
+<DocumentFragment>
+  <div>
+    <label
+      class="daybreak-checkbox"
+    >
+      <input
+        checked=""
+        class="daybreak-checkbox-input"
+        type="checkbox"
+      />
+      <span
+        class="daybreak-checkbox-checkmark"
+      />
+    </label>
+  </div>
+</DocumentFragment>
+`;
