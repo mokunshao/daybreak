@@ -10,7 +10,7 @@ interface Props extends HtmlHTMLAttributes<HTMLDivElement> {
   code: string;
 }
 
-const CodePreview: React.FunctionComponent<Props> = (props) => {
+export const CodePreview: React.FunctionComponent<Props> = (props) => {
   const [codeVisible, setCodeVisible] = useState(false);
   const { code, className } = props;
   const preview = <pre className={codePreview('content')}><code>{code}</code></pre>;

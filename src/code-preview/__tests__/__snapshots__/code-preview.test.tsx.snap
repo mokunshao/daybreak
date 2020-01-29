@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CodePreview match snapshot 1`] = `
+<DocumentFragment>
+  <div>
+    <div
+      class="daybreak-code-preview"
+    >
+      <div
+        class="daybreak-code-preview-button-wrapper"
+      >
+        <button
+          class="daybreak-button daybreak-button-normal"
+          type="button"
+        >
+          <div
+            class="daybreak-button-children"
+            style="opacity: 1;"
+          >
+            Code Preview
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
