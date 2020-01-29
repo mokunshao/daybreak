@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Radio match snapshot 1`] = `
+<DocumentFragment>
+  <div>
+    <div
+      class="daybreak-radio-group"
+    >
+      <label
+        class="daybreak-radio"
+      >
+        <input
+          checked=""
+          class="daybreak-radio-input"
+          name="confirm"
+          type="radio"
+          value="yes"
+        />
+        <span
+          class="daybreak-radio-checkmark"
+        />
+        Yes
+      </label>
+      <label
+        class="daybreak-radio"
+      >
+        <input
+          class="daybreak-radio-input"
+          name="confirm"
+          type="radio"
+          value="no"
+        />
+        <span
+          class="daybreak-radio-checkmark"
+        />
+        No
+      </label>
+    </div>
+  </div>
+</DocumentFragment>
+`;
