@@ -53,5 +53,8 @@ describe('Tabs', () => {
     expect(queryByText(msg)).toBeNull();
     fireEvent.click(button);
     expect(queryByText(msg)).toBeTruthy();
+    const okButton = getByText('OK');
+    fireEvent.click(okButton);
+    expect(queryByText(msg)).toBeNull();
   });
 });
