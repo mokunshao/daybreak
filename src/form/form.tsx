@@ -1,4 +1,4 @@
-import React, { Fragment, FormHTMLAttributes, useMemo } from 'react';
+import React, { Fragment, FormHTMLAttributes } from 'react';
 import Input from '../input/input';
 import { classes } from '../utils/classes';
 import { joinedClass } from '../utils/joinedClass';
@@ -80,8 +80,6 @@ export const Form: React.FunctionComponent<Props> = (props) => {
     return null;
   };
 
-  const randomNumber = useMemo(() => Math.random(), []);
-
   return (
     <form onSubmit={onSubmit2} className={classes(form(), className)}>
       <table>
@@ -91,7 +89,6 @@ export const Form: React.FunctionComponent<Props> = (props) => {
               <tr>
                 <td>
                   <label
-                    htmlFor={item.name + randomNumber}
                     style={{ display: 'block' }}
                   >
                     {item.label}
@@ -100,7 +97,6 @@ export const Form: React.FunctionComponent<Props> = (props) => {
                 </td>
                 <td>
                   <Input
-                    id={item.name + randomNumber}
                     type={item.input.type}
                     value={values[item.name]}
                     onChange={(e) => onChange2(item.name, e.target.value)}
