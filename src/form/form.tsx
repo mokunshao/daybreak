@@ -26,7 +26,7 @@ interface Props extends FormHTMLAttributes<HTMLFormElement> {
   clearable?: boolean;
 }
 
-const Form: React.FunctionComponent<Props> = (props) => {
+export const Form: React.FunctionComponent<Props> = (props) => {
   const {
     values,
     fields,

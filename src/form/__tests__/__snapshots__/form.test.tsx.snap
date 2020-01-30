@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form match snapshot 1`] = `
+<DocumentFragment>
+  <div>
+    <form
+      class="daybreak-form"
+    >
+      <table>
+        <tbody>
+          <tr>
+            <td>
+              <label
+                for="username0.7081323259541124"
+                style="display: block;"
+              >
+                用户名
+              </label>
+            </td>
+            <td>
+              <div
+                class="daybreak-input-wrapper"
+              >
+                <input
+                  class="daybreak-input"
+                  id="username0.7081323259541124"
+                  type="text"
+                  value=""
+                />
+                <div
+                  class="daybreak-input-icons"
+                />
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td />
+            <td>
+              <small
+                class="daybreak-form-errors"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <label
+                for="password0.7081323259541124"
+                style="display: block;"
+              >
+                密码
+              </label>
+            </td>
+            <td>
+              <div
+                class="daybreak-input-wrapper"
+              >
+                <input
+                  class="daybreak-input"
+                  id="password0.7081323259541124"
+                  type="password"
+                  value=""
+                />
+                <div
+                  class="daybreak-input-icons"
+                >
+                  <span
+                    class="daybreak-input-icon"
+                    title="show password"
+                  >
+                    <svg
+                      class="daybreak-icon daybreak-input-icon-password"
+                    >
+                      <use
+                        xlink:href="#show"
+                      />
+                    </svg>
+                  </span>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td />
+            <td>
+              <small
+                class="daybreak-form-errors"
+              />
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td />
+            <td>
+              <button
+                type="submit"
+              >
+                提交
+              </button>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </form>
+  </div>
+</DocumentFragment>
+`;
