@@ -5,8 +5,11 @@ import {
 } from 'react-router-dom';
 import './example.scss';
 import {
-  Layout, Header, Aside, Content,
+  Layout,
 } from '../src/layout/layout';
+import { Header } from '../src/layout/header';
+import { Aside } from '../src/layout/aside';
+import { Content } from '../src/layout/content';
 import IconExample from './examples/icon.example';
 import DialogExample from './examples/dialog.example';
 import LayoutExample from './examples/layout.example';
