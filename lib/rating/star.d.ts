@@ -1,5 +1,5 @@
-import React from 'react';
-interface StarProps {
+import React, { HTMLProps } from 'react';
+interface StarProps extends HTMLProps<HTMLSpanElement> {
     lighten: boolean;
     index: number;
     setOverride: (value: number) => void;
@@ -7,6 +7,6 @@ interface StarProps {
     clearable: boolean;
     rating: number;
 }
-declare const Star: React.FC<StarProps>;
+export declare const Star: React.FC<StarProps>;
 export default Star;
 //# sourceMappingURL=star.d.ts.map

@@ -1,6 +1,6 @@
 import React from 'react';
 import './input.scss';
-interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
     clearable?: boolean;
     onClear?: Function;
 }

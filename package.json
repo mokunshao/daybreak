@@ -1,6 +1,6 @@
 {
   "name": "daybreak",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A React UI Component Library.",
   "main": "./lib/daybreak.js",
   "types": "./lib/index.d.ts",

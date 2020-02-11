@@ -23,7 +23,8 @@ interface Props extends FormHTMLAttributes<HTMLFormElement> {
     };
     errorsDisplayMode?: 'first' | 'all';
     transformError?: (erorr: string) => string;
+    clearable?: boolean;
 }
-declare const Form: React.FunctionComponent<Props>;
+export declare const Form: React.FunctionComponent<Props>;
 export default Form;
 //# sourceMappingURL=form.d.ts.map
