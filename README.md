@@ -34,16 +34,16 @@ If you want to try Daybreak, with minimal settings, you can load the file from u
 如果想要以最少的设置尝试 Daybreak，可以从 unpkg 载入以下文件：
 
 ```html
-<script src="https://unpkg.com/daybreak@latest/dist/daybreak.js"></script>
+<script src="https://unpkg.com/daybreak@latest/lib/daybreak.js"></script>
 ```
 
 Available CDN links:
 
 可用的 CDN 链接：
 
-* [https://cdn.jsdelivr.net/npm/daybreak@latest/dist/daybreak.js](https://cdn.jsdelivr.net/npm/daybreak@latest/dist/daybreak.js)
+* [https://cdn.jsdelivr.net/npm/daybreak@latest/lib/daybreak.js](https://cdn.jsdelivr.net/npm/daybreak@latest/lib/daybreak.js)
 
-* [https://unpkg.com/daybreak@latest/dist/daybreak.js](https://unpkg.com/daybreak@latest/dist/daybreak.js)
+* [https://unpkg.com/daybreak@latest/lib/daybreak.js](https://unpkg.com/daybreak@latest/lib/daybreak.js)
 
 ## Installation 安装
 
