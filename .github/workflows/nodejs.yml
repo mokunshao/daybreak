@@ -35,5 +35,6 @@ jobs:
       with:
         target_branch: gh-pages
         build_dir: ./.docz/dist
+        fqdn: daybreak.js.org
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_PAT }}
