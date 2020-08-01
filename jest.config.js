@@ -8,7 +8,6 @@ module.exports = {
     '^.+\\.(css|scss)$': '<rootDir>/mocks/styleMock.tsx',
     '^.+\\.(gif|ttf|eot|svg|png)$': '<rootDir>/mocks/fileMock.tsx',
   },
-  setupFilesAfterEnv: ['<rootDir>setupTests.tsx'],
   collectCoverage: true,
   reporters: ['default'],
   coverageDirectory: 'coverage',
