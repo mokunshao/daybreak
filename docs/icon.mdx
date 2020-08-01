@@ -2,9 +2,9 @@
 title: Icon
 ---
 
-import { Playground, Props } from 'docz'
-import Icon from '../src/icon/icon.tsx'
-require('../src/icon/importAllIcons.tsx')
+import { Playground, Props } from 'docz';
+import Icon from '../src/icon/icon.tsx';
+require('../src/icon/importAllIcons.tsx');
 
 # Icon
 
@@ -53,16 +53,14 @@ export const IconsTable = (props) => {
         {data.map((item, index) => (
           <tr key={`${item} ${index}`}>
             <td>{item}</td>
-            <td><Icon name={item}></Icon></td>
+            <td>
+              <Icon name={item}></Icon>
+            </td>
           </tr>
         ))}
       </tbody>
     </table>
   );
-}
+};
 
 <IconsTable data={data} />
-
-## Props
-
-<Props of={Icon} />

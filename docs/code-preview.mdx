@@ -2,9 +2,9 @@
 title: CodePreview
 ---
 
-import {useState} from 'react'
-import { Playground, Props } from 'docz'
-import CodePreview from '../src/code-preview/code-preview.tsx'
+import { useState } from 'react';
+import { Playground, Props } from 'docz';
+import CodePreview from '../src/code-preview/code-preview.tsx';
 
 # CodePreview
 
@@ -19,7 +19,7 @@ import { CodePreview } from 'daybreak';
 `CodePreview` 没有代码高亮，就像 `Stack Overflow` 一样。
 
 <Playground>
-  {()=>{
+  {() => {
     const code = `
 public class Main {
     public static void main(String[] args) {
@@ -34,7 +34,3 @@ public class Main {
     );
   }}
 </Playground>
-
-## Props
-
-<Props of={CodePreview} />

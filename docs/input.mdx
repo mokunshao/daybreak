@@ -2,9 +2,9 @@
 title: Input
 ---
 
-import { useState } from 'react'
-import { Playground, Props } from 'docz'
-import Input from '../src/input/input.tsx'
+import { useState } from 'react';
+import { Playground, Props } from 'docz';
+import Input from '../src/input/input.tsx';
 
 # Input
 
@@ -15,10 +15,14 @@ import { Input } from 'daybreak';
 ## Basic usage
 
 <Playground>
-  {()=>{
+  {() => {
     const [value, setValue] = useState('');
     return (
-      <Input placeholder="请输入..." value={value} onChange={(e) => setValue(e.target.value)} />
+      <Input
+        placeholder="请输入..."
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+      />
     );
   }}
 </Playground>
@@ -30,14 +34,14 @@ import { Input } from 'daybreak';
 `clearable` 属性需要与 `onClear` 属性搭配使用。
 
 <Playground>
-  {()=>{
+  {() => {
     const [value, setValue] = useState('test');
     return (
       <Input
         clearable
         value={value}
         onChange={(e) => setValue(e.target.value)}
-        onClear={()=>setValue('')}
+        onClear={() => setValue('')}
       />
     );
   }}
@@ -46,15 +50,25 @@ import { Input } from 'daybreak';
 ## Input for password
 
 <Playground>
-  {()=>{
+  {() => {
     const [value, setValue] = useState('test');
     const [value2, setValue2] = useState('test');
     return (
       <div>
         <div>Basic:</div>
-        <Input type="password" value={value} onChange={(e) => setValue(e.target.value)} />
+        <Input
+          type="password"
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+        />
         <div>Clearable:</div>
-        <Input type="password" clearable value={value2} onChange={(e) => setValue2(e.target.value)} onClear={() => setValue2('')} />
+        <Input
+          type="password"
+          clearable
+          value={value2}
+          onChange={(e) => setValue2(e.target.value)}
+          onClear={() => setValue2('')}
+        />
       </div>
     );
   }}
@@ -63,14 +77,8 @@ import { Input } from 'daybreak';
 ## Disabled
 
 <Playground>
-  {()=>{
+  {() => {
     const [value, setValue] = useState('');
-    return (
-      <Input disabled value={value} onChange={(e)=>e.target.value}/>
-    );
+    return <Input disabled value={value} onChange={(e) => e.target.value} />;
   }}
 </Playground>
-
-## Props
-
-<Props of={Input} />
