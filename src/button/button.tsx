@@ -1,13 +1,19 @@
 import React, { ButtonHTMLAttributes, MouseEventHandler } from 'react';
-import { classes } from '../utils/classes';
+import classnames from 'classnames';
 import { joinedClass } from '../utils/joinedClass';
 import './button.scss';
 import Icon from '../icon/icon';
 
 const baseClass = joinedClass('button');
 
+enum ButtonMode {
+  normal = 'normal',
+  danger = 'danger',
+  link = 'link',
+}
+
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
-  mode?: 'normal' | 'primary' | 'danger';
+  mode?: ButtonMode;
   loading?: boolean;
   outlined?: boolean;
 }
@@ -31,21 +37,23 @@ const Button: React.FunctionComponent<Props> = (props) => {
 
   const loadingIcon = <Icon name="loading" className={baseClass('loading-icon')} />;
 
+  const renderLoadingChildren = () => (
+    <>
+      {loadingIcon}
+      <span style={{ opacity: 0 }}>
+        {children}
+      </span>
+    </>
+  );
+
   return (
     <button
       type={type}
       onClick={onClick2}
-      className={classes(baseClass(), baseClass(mode), outlined ? baseClass('outlined') : '', className)}
+      className={classnames(baseClass(), baseClass(mode), { [baseClass('outlined')]: outlined }, className)}
       {...rest}
     >
-      {loading ? (
-        <>
-          {loadingIcon}
-          <span style={{ opacity: 0 }}>
-            {children}
-          </span>
-        </>
-      ) : children}
+      {loading ? renderLoadingChildren() : children}
     </button>
   );
 };
