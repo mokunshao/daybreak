@@ -1,17 +1,18 @@
 # Daybreak
 
 ```
-·      __            __                    __  
+·      __            __                    __
   ____/ /___ ___  __/ /_  ________  ____ _/ /__
  / __  / __ `/ / / / __ \/ ___/ _ \/ __ `/ //_/
-/ /_/ / /_/ / /_/ / /_/ / /  /  __/ /_/ / ,<   
-\__,_/\__,_/\__, /_.___/_/   \___/\__,_/_/|_|  
-           /____/                              
+/ /_/ / /_/ / /_/ / /_/ / /  /  __/ /_/ / ,<
+\__,_/\__,_/\__, /_.___/_/   \___/\__,_/_/|_|
+           /____/
 ```
 
-[![CI](https://github.com/mokunshao/daybreak/workflows/CI/badge.svg)](https://github.com/mokunshao/daybreak/actions) 
+[![CI](https://github.com/mokunshao/daybreak/workflows/CI/badge.svg)](https://github.com/mokunshao/daybreak/actions)
 [![codecov](https://codecov.io/gh/mokunshao/daybreak/branch/master/graph/badge.svg)](https://codecov.io/gh/mokunshao/daybreak)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/06b65f0467104094a8969be5696c4471)](https://www.codacy.com/manual/mokunshao/daybreak?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=mokunshao/daybreak&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/06b65f0467104094a8969be5696c4471)](https://www.codacy.com/manual/mokunshao/daybreak?utm_source=github.com&utm_medium=referral&utm_content=mokunshao/daybreak&utm_campaign=Badge_Grade)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
 ## Introduction 介绍
 
@@ -25,7 +26,7 @@ Thank you for using Daybreak, I will try my best to make it better💪.
 
 在使用该库之前，请确保你的项目的 `React.js` 版本高于 `16.8.0`。
 
-谢谢你使用 `Daybreak`，我会尽我最大的努力把它做得更好💪。
+谢谢你使用 `Daybreak`，我会尽我最大的努力把它做得更好 💪。
 
 ## Quick Start (CDN)
 
@@ -41,9 +42,9 @@ Available CDN links:
 
 可用的 CDN 链接：
 
-* [https://cdn.jsdelivr.net/npm/daybreak@latest/lib/daybreak.js](https://cdn.jsdelivr.net/npm/daybreak@latest/lib/daybreak.js)
+- [https://cdn.jsdelivr.net/npm/daybreak@latest/lib/daybreak.js](https://cdn.jsdelivr.net/npm/daybreak@latest/lib/daybreak.js)
 
-* [https://unpkg.com/daybreak@latest/lib/daybreak.js](https://unpkg.com/daybreak@latest/lib/daybreak.js)
+- [https://unpkg.com/daybreak@latest/lib/daybreak.js](https://unpkg.com/daybreak@latest/lib/daybreak.js)
 
 ## Installation 安装
 
@@ -54,6 +55,7 @@ You can install using `NPM`:
 ```
 npm install daybreak
 ```
+
 Or using `Yarn`:
 
 或者使用 `Yarn`：
@@ -68,6 +70,6 @@ These libraries are not bundled with Daybreak but required at runtime:
 
 这些库没有与 Daybreak 打包在一起，但是在运行时是必需的：
 
-* [react](https://www.npmjs.com/package/react) ( >= 16.8.0 )
+- [react](https://www.npmjs.com/package/react) ( >= 16.8.0 )
 
-* [react-dom](https://www.npmjs.com/package/react-dom) ( >= 16.8.0 )
+- [react-dom](https://www.npmjs.com/package/react-dom) ( >= 16.8.0 )

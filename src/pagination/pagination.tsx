@@ -1,10 +1,8 @@
-import React, {
-  HTMLProps, useMemo, useCallback,
-} from 'react';
+import React, { HTMLProps, useMemo, useCallback } from 'react';
 import { joinedClass } from '../utils/joinedClass';
 import { classes } from '../utils/classes';
 import './pagination.scss';
-import { Button } from '../button/button';
+import { Button, ButtonMode } from '../button/button';
 import Icon from '../icon/icon';
 
 const baseClass = joinedClass('pagination');
@@ -17,11 +15,12 @@ interface Props extends Omit<HTMLProps<HTMLDivElement>, 'onChange'> {
 }
 
 const Pagination: React.FC<Props> = React.memo((props) => {
-  const {
-    className, total, pageSize, current, onChange,
-  } = props;
+  const { className, total, pageSize, current, onChange } = props;
 
-  const pagesCount = useMemo(() => Math.ceil(total / pageSize), [total, pageSize]);
+  const pagesCount = useMemo(() => Math.ceil(total / pageSize), [
+    total,
+    pageSize,
+  ]);
 
   const array: number[] = useMemo(() => {
     const arr = [];
@@ -38,7 +37,13 @@ const Pagination: React.FC<Props> = React.memo((props) => {
       }
 
       if (current < pagesCount - 3) {
-        return [1, '...', ...array.slice(current - 2, current + 1), '...', pagesCount];
+        return [
+          1,
+          '...',
+          ...array.slice(current - 2, current + 1),
+          '...',
+          pagesCount,
+        ];
       }
 
       return [1, '...', ...array.slice(pagesCount - 5, pagesCount)];
@@ -47,10 +52,13 @@ const Pagination: React.FC<Props> = React.memo((props) => {
     return array;
   }, [current, pagesCount, array]);
 
-  const handleClick = useCallback((n: number) => {
-    if (n < 0 || n > pagesCount) return;
-    onChange(n);
-  }, [onChange, pagesCount]);
+  const handleClick = useCallback(
+    (n: number) => {
+      if (n < 0 || n > pagesCount) return;
+      onChange(n);
+    },
+    [onChange, pagesCount],
+  );
 
   const renderButton = useCallback(() => {
     let ellipsesCount = 0;
@@ -59,10 +67,7 @@ const Pagination: React.FC<Props> = React.memo((props) => {
         const i = ellipsesCount;
         ellipsesCount += 1;
         return (
-          <Button
-            className={baseClass('button')}
-            key={`${item}${i}`}
-          >
+          <Button className={baseClass('button')} key={`${item}${i}`}>
             {item}
           </Button>
         );
@@ -72,7 +77,7 @@ const Pagination: React.FC<Props> = React.memo((props) => {
         <Button
           className={baseClass('button')}
           key={item}
-          mode={current === item ? 'primary' : 'normal'}
+          mode={current === item ? ButtonMode.primary : ButtonMode.normal}
           onClick={() => handleClick(item)}
         >
           {item}
@@ -98,9 +103,7 @@ const Pagination: React.FC<Props> = React.memo((props) => {
         type="button"
         onClick={() => handleClick(current + 1)}
       >
-        <Icon
-          name="right"
-        />
+        <Icon name="right" />
       </Button>
     </div>
   );
