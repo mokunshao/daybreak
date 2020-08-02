@@ -1,31 +1,17 @@
-// [class^=daybreak-] {
-//   box-sizing: border-box;
+$disabled-background:#f6f6f6 !default;
+$disabled-color:#afafaf !default;
 
-//   &::after,
-//   &::before {
-//     box-sizing: border-box;
-//   }
-// }
+$padding: 0.3em 0.5em !default;
+$border-radius: 3px !default;
+$box-shadow:rgba(0, 0, 0, 0.16) 0 4px 16px !default;
 
-$color1:#f4f3f3;
-$color2:#dfdfdf;
-$color3:#bfd8d5;
-$color4:#b1bed5;
-
-$disabled-background:#f6f6f6;
-$disabled-color:#afafaf;
-
-$padding: 0.3em 0.5em;
-$border-radius: 3px;
-$box-shadow:rgba(0, 0, 0, 0.16) 0 4px 16px;
-
-$grey:#eee;
-$grey2:#e2e2e2;
-$black:#000;
-$black2:#333;
-$white:#fff;
-$blue:#1e54b7;
-$red:#c00;
+$grey:#eee !default;
+$grey2:#e2e2e2 !default;
+$black:#000 !default;
+$black2:#333 !default;
+$white:#fff !default;
+$blue:#1e54b7 !default;
+$red:#c00 !default;
 
 @keyframes daybreak-spin {
   0% {
